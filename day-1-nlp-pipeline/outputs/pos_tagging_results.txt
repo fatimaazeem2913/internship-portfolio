@@ -1,0 +1,67 @@
+==========================================================================================
+POS TAGGING RESULTS (spaCy)
+==========================================================================================
+
+SENTENCE: Global markets surged as investors grew more confident about rate cuts.
+Token          POS     Tag     Explanation
+----------------------------------------------------------------------
+Global         ADJ     JJ      adjective
+markets        NOUN    NNS     noun
+surged         VERB    VBD     verb
+as             SCONJ   IN      subordinating conjunction
+investors      NOUN    NNS     noun
+grew           VERB    VBD     verb
+more           ADV     RBR     adverb
+confident      ADJ     JJ      adjective
+about          ADP     IN      adposition
+rate           NOUN    NN      noun
+cuts           NOUN    NNS     noun
+.              PUNCT   .       punctuation
+
+  Nouns: ['markets', 'investors', 'rate', 'cuts']
+  Verbs: ['surged', 'grew']
+  Adjectives: ['Global', 'confident']
+  Adverbs: ['more']
+  Other: [('as', 'SCONJ'), ('about', 'ADP'), ('.', 'PUNCT')]
+
+SENTENCE: Astronomers identified a rocky exoplanet orbiting within the habitable zone.
+Token          POS     Tag     Explanation
+----------------------------------------------------------------------
+Astronomers    NOUN    NNS     noun
+identified     VERB    VBD     verb
+a              DET     DT      determiner
+rocky          ADJ     JJ      adjective
+exoplanet      NOUN    NN      noun
+orbiting       VERB    VBG     verb
+within         ADP     IN      adposition
+the            DET     DT      determiner
+habitable      ADJ     JJ      adjective
+zone           NOUN    NN      noun
+.              PUNCT   .       punctuation
+
+  Nouns: ['Astronomers', 'exoplanet', 'zone']
+  Verbs: ['identified', 'orbiting']
+  Adjectives: ['rocky', 'habitable']
+  Adverbs: []
+  Other: [('a', 'DET'), ('within', 'ADP'), ('the', 'DET'), ('.', 'PUNCT')]
+
+SENTENCE: Jordan fixed the tokenization bug but the lemmatizer still misbehaves.
+Token          POS     Tag     Explanation
+----------------------------------------------------------------------
+Jordan         PROPN   NNP     proper noun
+fixed          VERB    VBD     verb
+the            DET     DT      determiner
+tokenization   NOUN    NN      noun
+bug            NOUN    NN      noun
+but            CCONJ   CC      coordinating conjunction
+the            DET     DT      determiner
+lemmatizer     NOUN    NN      noun
+still          ADV     RB      adverb
+misbehaves     VERB    VBZ     verb
+.              PUNCT   .       punctuation
+
+  Nouns: ['Jordan', 'tokenization', 'bug', 'lemmatizer']
+  Verbs: ['fixed', 'misbehaves']
+  Adjectives: []
+  Adverbs: ['still']
+  Other: [('the', 'DET'), ('but', 'CCONJ'), ('the', 'DET'), ('.', 'PUNCT')]

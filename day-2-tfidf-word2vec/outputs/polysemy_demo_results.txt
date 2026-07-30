@@ -1,0 +1,32 @@
+==========================================================================================
+POLYSEMY DEMONSTRATION: static embeddings cannot distinguish word senses
+==========================================================================================
+
+Word under test: "light"
+
+Sentence A (idiomatic sense - "reveal/inform"):
+  "They shed light on social and economic issues, including student debt and food insecurity"
+
+Sentence B (literal sense - "electromagnetic radiation"):
+  "A Sun-like star is about a billion times brighter than the reflected light from any exoplanet orbiting it"
+
+Word2Vec vector for 'light' when it appears in Sentence A (first 10 dims):
+  [ 0.11296692 -0.28799245 -0.6983724   0.14174198  0.65472406 -0.4072319
+  0.0280142   0.4665868   0.08438891 -0.68175375]
+
+Word2Vec vector for 'light' when it appears in Sentence B (first 10 dims):
+  [ 0.11296692 -0.28799245 -0.6983724   0.14174198  0.65472406 -0.4072319
+  0.0280142   0.4665868   0.08438891 -0.68175375]
+
+Are the two vectors IDENTICAL? True  <- there is only ONE vector for 'light' in the whole model
+Cosine similarity between 'the vector' and 'itself': 1.000000
+
+CONCLUSION:
+Word2Vec (and any static embedding table) stores exactly ONE vector per
+word STRING, learned once during training by averaging over every context
+that word ever appeared in across the whole corpus. It has no mechanism to
+look at the CURRENT sentence and adjust the vector on the fly. So whether
+'light' means 'illumination/photons' or 'to reveal/inform,' the model hands
+back the exact same 100-dimensional number every single time, because from
+the model's point of view, it's just one lookup-table row indexed by the
+word string -- context never enters the lookup at inference time.

@@ -1,0 +1,24 @@
+====================================================================================================
+DAY 3 COMPARISON TABLE: TF-IDF vs Word2Vec vs N-gram vs Transformer (BERT)
+====================================================================================================
+
+Pair                TF-IDF      Word2Vec    N-gram      BERT (contextual) 
+--------------------------------------------------------------------------
+virus/pathogen      0.0000      N/A         N/A         0.7108            
+disease/illness     0.0000      0.5031      0.0000      0.8927            
+planet/world        0.0000      0.1009      0.1997      0.7017            
+study/research      0.0000      0.3756      0.0000      0.7759            
+function/method     0.0000      0.3404      0.5193      0.7912            
+
+light (self, 2 senses)1.0000      1.0000      1.0000      0.3810            
+
+====================================================================================================
+READING THE TABLE:
+- TF-IDF, Word2Vec, and N-gram are all STATIC representations: one fixed
+  vector per word, so 'light' compared with itself is trivially 1.0000 no
+  matter which of its two senses is being discussed -- none of these three
+  methods can tell the senses apart.
+- BERT is the only CONTEXTUAL representation here: it should show light's
+  self-similarity meaningfully BELOW 1.0 (genuinely different vectors for
+  the two senses), while still showing improved synonym detection over
+  TF-IDF for pairs like disease/illness -- resolving Day 2's open question.

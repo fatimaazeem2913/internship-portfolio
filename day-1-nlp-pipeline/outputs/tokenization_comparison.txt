@@ -1,0 +1,21 @@
+==========================================================================================
+TOKENIZATION COMPARISON: character vs word vs subword (BPE) vs subword (WordPiece)
+==========================================================================================
+
+SENTENCE: Researchers discovered an unbelievably habitable exoplanet.
+  [Char-level]      (59 tokens): ['R', 'e', 's', 'e', 'a', 'r', 'c', 'h', 'e', 'r', 's', ' ', 'd', 'i', 's', 'c', 'o', 'v', 'e', 'r', 'e', 'd', ' ', 'a', 'n', ' ', 'u', 'n', 'b', 'e', 'l', 'i', 'e', 'v', 'a', 'b', 'l', 'y', ' ', 'h', 'a', 'b', 'i', 't', 'a', 'b', 'l', 'e', ' ', 'e', 'x', 'o', 'p', 'l', 'a', 'n', 'e', 't', '.']
+  [Word-level]      (7 tokens): ['Researchers', 'discovered', 'an', 'unbelievably', 'habitable', 'exoplanet', '.']
+  [BPE subword]     (23 tokens): ['R', 'es', 'ear', 'ch', 'ers', 'dis', 'co', 'ver', 'ed', 'an', 'un', 'b', 'el', 'i', 'ev', 'ab', 'ly', 'ha', 'bit', 'able', 'exo', 'planet', '.']
+  [WordPiece subword](29 tokens): ['R', '##es', '##e', '##ar', '##ch', '##ers', 'dis', '##c', '##o', '##ver', '##ed', 'an', 'u', '##n', '##b', '##el', '##i', '##e', '##v', '##ab', '##ly', 'h', '##ab', '##it', '##able', 'ex', '##opl', '##anet', '.']
+
+SENTENCE: The tokenization bug is retokenizing incorrectly.
+  [Char-level]      (49 tokens): ['T', 'h', 'e', ' ', 't', 'o', 'k', 'e', 'n', 'i', 'z', 'a', 't', 'i', 'o', 'n', ' ', 'b', 'u', 'g', ' ', 'i', 's', ' ', 'r', 'e', 't', 'o', 'k', 'e', 'n', 'i', 'z', 'i', 'n', 'g', ' ', 'i', 'n', 'c', 'o', 'r', 'r', 'e', 'c', 't', 'l', 'y', '.']
+  [Word-level]      (7 tokens): ['The', 'tokenization', 'bug', 'is', 'retokenizing', 'incorrectly', '.']
+  [BPE subword]     (25 tokens): ['The', 'to', 'k', 'en', 'i', 'z', 'ation', 'b', 'u', 'g', 'is', 're', 'to', 'k', 'en', 'i', 'z', 'ing', 'in', 'cor', 're', 'c', 't', 'ly', '.']
+  [WordPiece subword](26 tokens): ['The', 'to', '##k', '##en', '##i', '##z', '##ation', 'b', '##u', '##g', 'is', 're', '##t', '##o', '##k', '##en', '##i', '##z', '##ing', 'inc', '##or', '##re', '##c', '##t', '##ly', '.']
+
+SENTENCE: Jordan's lemmatizer misclassifies irregular nouns like mice.
+  [Char-level]      (60 tokens): ['J', 'o', 'r', 'd', 'a', 'n', "'", 's', ' ', 'l', 'e', 'm', 'm', 'a', 't', 'i', 'z', 'e', 'r', ' ', 'm', 'i', 's', 'c', 'l', 'a', 's', 's', 'i', 'f', 'i', 'e', 's', ' ', 'i', 'r', 'r', 'e', 'g', 'u', 'l', 'a', 'r', ' ', 'n', 'o', 'u', 'n', 's', ' ', 'l', 'i', 'k', 'e', ' ', 'm', 'i', 'c', 'e', '.']
+  [Word-level]      (9 tokens): ['Jordan', "'s", 'lemmatizer', 'misclassifies', 'irregular', 'nouns', 'like', 'mice', '.']
+  [BPE subword]     (33 tokens): ['J', 'or', 'd', 'an', "'", 's', 'l', 'em', 'm', 'at', 'i', 'z', 'er', 'm', 'is', 'cl', 'ass', 'if', 'ies', 'ir', 're', 'g', 'ul', 'ar', 'n', 'oun', 's', 'li', 'ke', 'm', 'ic', 'e', '.']
+  [WordPiece subword](39 tokens): ['J', '##or', '##d', '##an', "'", 's', 'l', '##em', '##m', '##at', '##i', '##z', '##er', 'm', '##is', '##c', '##l', '##as', '##s', '##if', '##ies', 'i', '##r', '##re', '##g', '##ul', '##ar', 'n', '##ou', '##n', '##s', 'l', '##i', '##k', '##e', 'm', '##ic', '##e', '.']

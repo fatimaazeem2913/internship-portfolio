@@ -1,0 +1,20 @@
+==========================================================================================
+TF-IDF COSINE SIMILARITY RETRIEVAL SYSTEM
+==========================================================================================
+
+QUERY: "vaccines and disease prevention"
+  [1] (score=0.2249) [440]One study found that travel restrictions only modestly affected the initial spread, unless combined with otherinfection prevention and controlmea
+  [2] (score=0.1945) The disease has continued to circulate since 2023.
+  [3] (score=0.1839) [674]
+Epidemics and pandemics usually end when the disease becomesendemic, and when the disease becomes "an accepted, manageable part of normal life i
+
+QUERY: "planets orbiting stars in space"
+  [1] (score=0.4855) Unlike Earth, most of the exoplanets are not tightly bound to stars, so they're actually wandering through space or loosely orbiting between stars.
+  [2] (score=0.3233) Stars with higher metallicity are more likely to have planets, especially giant planets, than stars with lower metallicity.
+  [3] (score=0.2707) [217][218]Counterintuitively, planets orbiting cooler stars, such as red dwarfs, are less likely to enter snowball states - because the infrared radia
+
+QUERY: "python generator functions and memory"
+  [1] (score=0.3057) Reading the entire file in memory, before you can work with its content, will probably be infeasible (i.e., you will run out of memory).
+  [2] (score=0.2994) This is the result from the code:
+As you can see both functions do the same thing.
+  [3] (score=0.2958) Also, note thatyieldcan be used in coroutines as the dual of their use in generator functions.

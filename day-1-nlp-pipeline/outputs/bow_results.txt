@@ -1,0 +1,24 @@
+==========================================================================================
+BAG-OF-WORDS (from scratch)
+==========================================================================================
+
+Vocabulary (27 unique words):
+['a', 'as', 'astronomers', 'bug', 'but', 'confident', 'confused', 'exoplanet', 'fixed', 'global', 'grew', 'habitable', 'identified', 'in', 'investors', 'irregular', 'jordan', 'lemmatizer', 'markets', 'misbehaves', 'nouns', 'rocky', 'still', 'surged', 'the', 'tokenization', 'zone']
+
+Sentence 1: Global markets surged as investors grew confident.
+  BoW dict: {'global': 1, 'markets': 1, 'surged': 1, 'as': 1, 'investors': 1, 'grew': 1, 'confident': 1}
+
+Sentence 2: Astronomers identified a rocky exoplanet in the habitable zone.
+  BoW dict: {'astronomers': 1, 'identified': 1, 'a': 1, 'rocky': 1, 'exoplanet': 1, 'in': 1, 'the': 1, 'habitable': 1, 'zone': 1}
+
+Sentence 3: Jordan fixed the tokenization bug but the lemmatizer still misbehaves.
+  BoW dict: {'jordan': 1, 'fixed': 1, 'the': 2, 'tokenization': 1, 'bug': 1, 'but': 1, 'lemmatizer': 1, 'still': 1, 'misbehaves': 1}
+
+Sentence 4: The lemmatizer bug confused irregular nouns.
+  BoW dict: {'the': 1, 'lemmatizer': 1, 'bug': 1, 'confused': 1, 'irregular': 1, 'nouns': 1}
+
+Dense BoW matrix (rows = sentences, cols = vocab order above):
+  Sentence 1: [0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0]
+  Sentence 2: [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1]
+  Sentence 3: [0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 2, 1, 0]
+  Sentence 4: [0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0]

@@ -1,0 +1,99 @@
+==========================================================================================
+LSTM GRADIENT ANALYSIS: does early-token influence decay across timesteps?
+==========================================================================================
+
+Real sequence pulled from corpus (55 tokens):
+  the globalcovid pandemic also known as thecoronavirus pandemic caused by severe acute respiratory syndrome coronavirus sars cov began with an outbreak inwuhan china in december it spread to other parts of asia andthen worldwidein early theworld health organization who declared the outbreak apublic health emergency of international concern pheic on january and assessed it as
+
+--- Gradient magnitude at each timestep's input (w.r.t. final hidden state) ---
+
+Timestep  Token          Gradient Norm  
+----------------------------------------
+0         the            0.000000
+1         globalcovid    0.000000
+2         pandemic       0.000000
+3         also           0.000000
+4         known          0.000000
+5         as             0.000000
+6         thecoronavirus 0.000000
+7         pandemic       0.000000
+8         caused         0.000000
+9         by             0.000000
+10        severe         0.000000
+11        acute          0.000000
+12        respiratory    0.000000
+13        syndrome       0.000000
+14        coronavirus    0.000000
+15        sars           0.000000
+16        cov            0.000000
+17        began          0.000000
+18        with           0.000000
+19        an             0.000000
+20        outbreak       0.000000
+21        inwuhan        0.000000
+22        china          0.000000
+23        in             0.000000
+24        december       0.000000
+25        it             0.000000
+26        spread         0.000000
+27        to             0.000001
+28        other          0.000001
+29        parts          0.000002
+30        of             0.000003
+31        asia           0.000005
+32        andthen        0.000008
+33        worldwidein    0.000014
+34        early          0.000023
+35        theworld       0.000039
+36        health         0.000064
+37        organization   0.000110
+38        who            0.000179
+39        declared       0.000252
+40        the            0.000496
+41        outbreak       0.000919
+42        apublic        0.001441
+43        health         0.002604
+44        emergency      0.004688
+45        of             0.007222
+46        international  0.013383
+47        concern        0.022542
+48        pheic          0.032236
+49        on             0.055650
+50        january        0.097059
+51        and            0.158399
+52        assessed       0.262979
+53        it             0.403276
+54        as             0.603158
+
+Average gradient norm, first 18 timesteps (early tokens):  0.000000
+Average gradient norm, last 18 timesteps (recent tokens):   0.092588
+Ratio (early / late): 0.0000
+
+Interpretation: even in this small UNTRAINED network (no learning has happened
+yet -- these are random initial weights), the gradient flowing back to early
+timesteps is already noticeably smaller than for recent timesteps in most runs.
+This is the mathematical seed of the 'vanishing gradient' problem: at every
+timestep, the gradient gets multiplied by the LSTM's weight matrices and gate
+activations (values typically < 1). Multiply many such factors together across
+50+ timesteps and the signal reaching early tokens shrinks multiplicatively --
+in a REAL trained network over much longer sequences, this compounds severely,
+meaning early tokens contribute almost nothing to the final prediction's error
+signal, so the model effectively 'forgets' long-range context during training.
+
+
+--- SEQUENTIAL DEPENDENCY: each timestep depends on the previous one ---
+
+An LSTM cell's hidden state h_t and cell state c_t are computed as a FUNCTION
+of h_(t-1) and c_(t-1) -- the previous timestep's output is a required INPUT
+to the current timestep's computation. This is structurally different from a
+Transformer, where every token's attention computation can run independently
+and simultaneously.
+
+Manually unrolling all 55 timesteps one-by-one (forced sequential loop): 28.883 ms
+Each iteration of this Python loop MUST wait for the previous iteration to
+finish, because h_t literally requires h_(t-1) as an argument -- there is no
+way to compute timestep 30 before timestep 29 has produced its hidden state.
+Contrast this with self-attention, where the representation for token 30 can
+be computed in the same parallel matrix operation as token 1, since attention
+only needs the FULL set of token embeddings up front -- not a running state
+threaded through one timestep at a time.

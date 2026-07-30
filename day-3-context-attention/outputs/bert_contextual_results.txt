@@ -1,0 +1,36 @@
+==========================================================================================
+BERT CONTEXTUAL EMBEDDINGS: resolving Day 2's open question
+==========================================================================================
+
+Word under test: "light"
+
+Sentence A (idiomatic sense - "reveal/inform"):
+  "They shed light on social and economic issues, including student debt and food insecurity"
+
+Sentence B (literal sense - "electromagnetic radiation"):
+  "A Sun-like star is about a billion times brighter than the reflected light from any exoplanet orbiting it"
+
+BERT tokens (Sentence A): ['[CLS]', 'they', 'shed', 'light', 'on', 'social', 'and', 'economic', 'issues', ',', 'including', 'student', 'debt', 'and', 'food', 'ins', '##ec', '##urity', '[SEP]']
+'light' found at position 3
+
+BERT tokens (Sentence B): ['[CLS]', 'a', 'sun', '-', 'like', 'star', 'is', 'about', 'a', 'billion', 'times', 'brighter', 'than', 'the', 'reflected', 'light', 'from', 'any', 'ex', '##op', '##lane', '##t', 'orbiting', 'it', '[SEP]']
+'light' found at position 15
+
+BERT vector for 'light' in Sentence A (first 10 of 768 dims):
+  [0.05199625715613365, 0.2249646931886673, -1.2421540021896362, -0.42366161942481995, 0.6486687064170837, -0.005021161399781704, -0.07379456609487534, 0.014018471352756023, 0.49554458260536194, 0.22423583269119263]
+
+BERT vector for 'light' in Sentence B (first 10 of 768 dims):
+  [0.10246870666742325, 0.5824087262153625, 0.314262330532074, -0.3786197006702423, 0.5240971446037292, -0.8488545417785645, -0.6020179986953735, 0.7368249893188477, 0.05883349850773811, -0.3280625343322754]
+
+Are the two vectors IDENTICAL? False
+Cosine similarity between the two contextual vectors: 0.3810
+
+CONCLUSION:
+Unlike Word2Vec -- which returned a BIT-FOR-BIT IDENTICAL vector for 'light'
+in both sentences (cosine similarity 1.000000, proven in Day 2) -- BERT
+produces genuinely DIFFERENT vectors for the same word string, because each
+occurrence's final representation is computed by self-attention looking at
+the ACTUAL surrounding words in that SPECIFIC sentence. A moderate-to-low
+cosine similarity here (rather than 1.0) is the expected, correct signal --
+it shows the model has represented these as meaningfully different senses
+of the same word, resolving exactly the limitation Day 2 ended on.

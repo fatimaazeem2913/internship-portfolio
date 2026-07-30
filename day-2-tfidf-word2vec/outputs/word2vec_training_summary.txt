@@ -1,0 +1,6 @@
+Sentences trained on: 1236
+Total tokens: 25360
+Vocabulary size learned: 2134
+Embedding dimensionality: 100
+Training mode: Skip-gram (sg=1)
+Window size: 5, Epochs: 50, Min count: 2

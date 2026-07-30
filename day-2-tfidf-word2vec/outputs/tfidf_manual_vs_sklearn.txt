@@ -1,0 +1,65 @@
+Vocabulary (52 terms): ['a', 'all', 'an', 'and', 'another', 'are', 'around', 'astronomers', 'business', 'caused', 'closures', 'covid', 'disruption', 'distant', 'do', 'economic', 'exoplanet', 'exoplanets', 'for', 'generators', 'global', 'in', 'is', 'iterators', 'led', 'located', 'memory', 'not', 'orbiting', 'our', 'outside', 'pandemic', 'planet', 'powerful', 'restrictions', 'search', 'severe', 'social', 'solar', 'star', 'stars', 'store', 'system', 'telescopes', 'that', 'the', 'to', 'travel', 'use', 'values', 'world', 'worldwide']
+
+IDF scores:
+  a               idf = 2.0986
+  all             idf = 2.0986
+  an              idf = 2.0986
+  and             idf = 1.6931
+  another         idf = 2.0986
+  are             idf = 2.0986
+  around          idf = 2.0986
+  astronomers     idf = 2.0986
+  business        idf = 2.0986
+  caused          idf = 2.0986
+  closures        idf = 2.0986
+  covid           idf = 1.6931
+  disruption      idf = 2.0986
+  distant         idf = 2.0986
+  do              idf = 2.0986
+  economic        idf = 2.0986
+  exoplanet       idf = 2.0986
+  exoplanets      idf = 2.0986
+  for             idf = 2.0986
+  generators      idf = 2.0986
+  global          idf = 2.0986
+  in              idf = 2.0986
+  is              idf = 2.0986
+  iterators       idf = 2.0986
+  led             idf = 2.0986
+  located         idf = 2.0986
+  memory          idf = 2.0986
+  not             idf = 2.0986
+  orbiting        idf = 1.6931
+  our             idf = 2.0986
+  outside         idf = 2.0986
+  pandemic        idf = 1.6931
+  planet          idf = 2.0986
+  powerful        idf = 2.0986
+  restrictions    idf = 2.0986
+  search          idf = 2.0986
+  severe          idf = 2.0986
+  social          idf = 2.0986
+  solar           idf = 2.0986
+  star            idf = 2.0986
+  stars           idf = 2.0986
+  store           idf = 2.0986
+  system          idf = 2.0986
+  telescopes      idf = 2.0986
+  that            idf = 2.0986
+  the             idf = 1.6931
+  to              idf = 1.6931
+  travel          idf = 2.0986
+  use             idf = 2.0986
+  values          idf = 2.0986
+  world           idf = 2.0986
+  worldwide       idf = 2.0986
+
+Max absolute difference manual vs sklearn: 0.0000000000
+MATCH CONFIRMED
+
+Full manual TF-IDF matrix:
+Sentence 1: [0.0, 0.0, 0.0, 0.2277, 0.0, 0.0, 0.2822, 0.0, 0.0, 0.2822, 0.0, 0.2277, 0.2822, 0.0, 0.0, 0.2822, 0.0, 0.0, 0.0, 0.0, 0.2822, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2277, 0.0, 0.0, 0.0, 0.0, 0.2822, 0.2822, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4554, 0.0, 0.0, 0.0, 0.0, 0.2822, 0.0]
+Sentence 2: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3116, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3116, 0.0, 0.0, 0.0, 0.3116, 0.3116, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2514, 0.0, 0.0, 0.0, 0.0, 0.3116, 0.0, 0.3116, 0.0, 0.0, 0.0, 0.0, 0.3116, 0.0, 0.0, 0.3116, 0.0, 0.0, 0.2514, 0.0, 0.3116, 0.0, 0.0, 0.0]
+Sentence 3: [0.2812, 0.0, 0.2812, 0.0, 0.2812, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2812, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2812, 0.0, 0.0, 0.2812, 0.0, 0.0, 0.2268, 0.2812, 0.2812, 0.0, 0.2812, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2812, 0.2812, 0.0, 0.0, 0.2812, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Sentence 4: [0.0, 0.3015, 0.0, 0.0, 0.0, 0.3015, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3015, 0.0, 0.0, 0.0, 0.0, 0.3015, 0.0, 0.3015, 0.0, 0.3015, 0.0, 0.0, 0.3015, 0.3015, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3015, 0.0, 0.0, 0.3015, 0.0, 0.0, 0.0, 0.0, 0.3015, 0.0, 0.0]
+Sentence 5: [0.0, 0.0, 0.0, 0.2652, 0.0, 0.0, 0.0, 0.0, 0.3287, 0.0, 0.3287, 0.2652, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3287, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2652, 0.0, 0.0, 0.3287, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2652, 0.2652, 0.3287, 0.0, 0.0, 0.0, 0.3287]

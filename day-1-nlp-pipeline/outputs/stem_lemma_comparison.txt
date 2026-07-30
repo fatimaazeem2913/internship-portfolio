@@ -1,0 +1,18 @@
+Word           Stemmed        Lemmatized     
+---------------------------------------------
+running        run            running        
+runs           run            run            
+ran            ran            ran            
+studies        studi          study          
+studying       studi          studying       
+better         better         better         
+discoveries    discoveri      discovery      
+orbiting       orbit          orbiting       
+researchers    research       researcher     
+mice           mice           mouse          
+cutting        cut            cutting        
+wolves         wolv           wolf           
+flies          fli            fly            
+happier        happier        happier        
+children       children       child          
+confirmed      confirm        confirmed      

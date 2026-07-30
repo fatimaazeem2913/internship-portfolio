@@ -1,0 +1,21 @@
+==========================================================================================
+N-GRAM DISTRIBUTIONAL WORD VECTORS: synonym similarity
+==========================================================================================
+
+(Vector for each word = its P(next_word | word) distribution, aggregated
+ across the WHOLE corpus -- a static, count-based representation.)
+
+virus / pathogen: N/A (word(s) not in vocabulary: ['pathogen'])
+disease / illness: cosine similarity = 0.0000
+planet / world: cosine similarity = 0.1997
+study / research: cosine similarity = 0.0000
+function / method: cosine similarity = 0.5193
+
+--- Polysemy check: 'light' (n-gram distributional vector) ---
+
+'light' vector compared with itself: cosine similarity = 1.000000
+(This will always be 1.0 -- there is only ONE 'light' vector in this
+ representation, aggregated across every sentence it appeared in. Just
+ like Word2Vec, the n-gram distributional vector cannot distinguish the
+ idiomatic sense of 'light' from the literal sense -- it has no mechanism
+ to look at a SPECIFIC sentence's context at lookup time.)

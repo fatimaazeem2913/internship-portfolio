@@ -1,0 +1,9 @@
+==========================================================================================
+BERT SYNONYM PAIR SIMILARITY (for Day 3 comparison table)
+==========================================================================================
+
+virus / pathogen: cosine similarity = 0.7108
+disease / illness: cosine similarity = 0.8927
+planet / world: cosine similarity = 0.7017
+study / research: cosine similarity = 0.7759
+function / method: cosine similarity = 0.7912

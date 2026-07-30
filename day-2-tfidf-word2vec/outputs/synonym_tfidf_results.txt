@@ -1,0 +1,32 @@
+==========================================================================================
+TF-IDF SIMILARITY ON SYNONYM / PARAPHRASE PAIRS
+==========================================================================================
+
+(Each pair has the SAME meaning, expressed with DIFFERENT words)
+
+A: "The car broke down on the highway"
+B: "The automobile stalled on the road"
+TF-IDF cosine similarity: 0.0000
+
+A: "Doctors discovered a new illness"
+B: "Physicians identified a novel disease"
+TF-IDF cosine similarity: 0.0000
+
+A: "The planet orbits its star"
+B: "The world circles its sun"
+TF-IDF cosine similarity: 0.0000
+
+A: "The function returns a huge result"
+B: "The method yields an enormous output"
+TF-IDF cosine similarity: 0.0000
+
+A: "Scientists study the vast universe"
+B: "Researchers examine the immense cosmos"
+TF-IDF cosine similarity: 0.0000
+
+Average similarity across all 5 pairs: 0.0000
+
+CONCLUSION: despite every pair sharing near-identical MEANING, TF-IDF scores
+are low/near-zero because it only measures exact word overlap after stopword
+removal. 'car' and 'automobile' are treated as completely unrelated tokens —
+TF-IDF has no concept of synonymy or semantic meaning, only string matching.

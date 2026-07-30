@@ -1,0 +1,81 @@
+==========================================================================================
+WORD2VEC ANALYSIS: ANALOGIES, NEAREST NEIGHBORS, SYNONYM COMPARISON
+==========================================================================================
+
+--- 1. WORD ANALOGIES ---
+(Classic king-man+woman=queen doesn't apply -- our corpus is domain-specific
+ news/science/code text, not general fiction/dialogue with royalty words.
+ Testing analogies using vocabulary that actually appears in OUR corpus.)
+
+Analogy: planet + star - moon
+  SKIPPED - word(s) not in vocabulary (too rare in our small corpus): {'moon'}
+Analogy: virus + disease - infection
+  Top 3 results: [('names', 0.5903299450874329), ('closely', 0.541223406791687), ('coronavirus', 0.5346932411193848)]
+
+Analogy: function + return - yield
+  Top 3 results: [('subgenerator', 0.5338213443756104), ('append', 0.5333254933357239), ('force', 0.5330594778060913)]
+
+
+--- 2. NEAREST NEIGHBOR QUERIES ---
+
+Nearest neighbors of 'pandemic':
+    pre                  similarity=0.5709
+    provided             similarity=0.5561
+    impact               similarity=0.5561
+    economy              similarity=0.5417
+    ongoing              similarity=0.5389
+
+Nearest neighbors of 'planet':
+    apparent             similarity=0.6832
+    source               similarity=0.6569
+    pulsar               similarity=0.6424
+    atmosphere           similarity=0.6402
+    dwarf                similarity=0.6398
+
+Nearest neighbors of 'function':
+    inpython             similarity=0.6971
+    context              similarity=0.6820
+    thereturnstatement   similarity=0.6809
+    difference           similarity=0.6635
+    executed             similarity=0.6466
+
+Nearest neighbors of 'virus':
+    exacerbated          similarity=0.6774
+    rna                  similarity=0.6662
+    spread               similarity=0.6632
+    names                similarity=0.6596
+    throughout           similarity=0.6450
+
+Nearest neighbors of 'star':
+    parent               similarity=0.7757
+    trailing             similarity=0.6945
+    designated           similarity=0.6918
+    tail                 similarity=0.6870
+    glare                similarity=0.6834
+
+Nearest neighbors of 'code':
+    trace                similarity=0.7313
+    finger               similarity=0.7203
+    theyield             similarity=0.7151
+    run                  similarity=0.7091
+    wait                 similarity=0.7080
+
+
+--- 3. SYNONYM PAIR COMPARISON: WORD2VEC vs TF-IDF ---
+
+(Using single-word pairs so we can query Word2Vec's word-level vectors directly)
+
+Pair                          Word2Vec similarity      TF-IDF (sentence-level, Task 3)
+-------------------------------------------------------------------------------------
+virus / pathogen              N/A (word not in vocab)  0.0000
+disease / illness             0.5031                   0.0000
+planet / world                0.1009                   0.0000
+study / research              0.3756                   0.0000
+function / method             0.3404                   0.0000
+
+Note: Word2Vec similarity may still be low/moderate here because our training
+corpus is very small (~25k tokens) -- Word2Vec typically needs millions of tokens
+to learn rich semantic relationships. Word embeddings from models pretrained on
+billions of words (e.g., Google News 300d vectors) show MUCH stronger synonym
+similarity. This is an honest limitation of training on a small corpus, and is
+itself a useful lesson: embedding QUALITY scales with training DATA VOLUME.

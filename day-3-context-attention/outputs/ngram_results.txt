@@ -1,0 +1,98 @@
+==========================================================================================
+N-GRAM LANGUAGE MODELS (Laplace/add-1 smoothing)
+==========================================================================================
+
+Vocabulary size: 5259
+Bigram contexts seen: 5258
+Trigram contexts seen: 17587
+
+--- BIGRAM: next-word distribution given context ---
+
+P(word | 'the'):
+    pandemic        0.0104
+    first           0.0080
+    who             0.0061
+    virus           0.0051
+    generator       0.0051
+    function        0.0043
+    same            0.0042
+    next            0.0040
+
+P(word | 'virus'):
+    and             0.0009
+    </s>            0.0008
+    had             0.0008
+    would           0.0006
+    names           0.0006
+    spread          0.0006
+    that            0.0006
+    was             0.0006
+
+P(word | 'function'):
+    </s>            0.0022
+    that            0.0013
+    is              0.0013
+    will            0.0009
+    to              0.0007
+    until           0.0007
+    from            0.0006
+    it              0.0006
+
+
+--- TRIGRAM: next-word distribution given context ---
+
+P(word | 'the virus'):
+    </s>            0.0008
+    had             0.0008
+    would           0.0006
+    spread          0.0006
+    that            0.0006
+    was             0.0006
+    and             0.0006
+    responsible     0.0004
+
+P(word | 'a new'):
+    type            0.0004
+    wave            0.0004
+    iterator        0.0004
+    decree          0.0004
+    namegeneratorobject 0.0004
+    serial          0.0004
+    iterable        0.0004
+
+P(word | 'the function'):
+    </s>            0.0009
+    is              0.0009
+    but             0.0004
+    would           0.0004
+    exits           0.0004
+    each            0.0004
+    only            0.0004
+    body            0.0004
+
+
+--- GENERATED TEXT SAMPLES ---
+
+Seed: ('<s>', 'the')
+  Bigram generation:  <s> the number of the virus promoted increased internet commerce to the who believe i want a
+  Trigram generation: <s> the share of papers published on preprint servers prior to peer review increased dramatically
+
+Seed: ('<s>', 'a')
+  Bigram generation:  <s> a single stranded rna but more infectious
+  Trigram generation: <s> a real life example would be counted as a result of the code as follows execution
+
+
+--- WHY THE FIXED WINDOW CAN'T CAPTURE LONG-RANGE CONTEXT ---
+
+A trigram model's prediction depends ONLY on the last 2 words -- it has zero
+memory of anything earlier in the sentence. Concretely:
+  Sentence: "the virus that scientists in Wuhan first identified in late 2019 spread"
+  When predicting the word after "spread", a trigram model only looks at
+  ("2019", "spread") -- it has completely forgotten "virus", "scientists", and "Wuhan"
+  even though those words are critical for understanding what comes next.
+  Increasing n (4-gram, 5-gram...) helps marginally but the context window is
+  still FIXED and finite, and the data sparsity problem gets rapidly worse --
+  most higher-order n-grams are never seen in training data at all, forcing
+  the model to fall back on smoothing alone. This fixed-window ceiling is
+  exactly what motivates sequence models (RNN/LSTM) that carry a running
+  hidden state across the WHOLE sequence instead of a fixed lookback window.
