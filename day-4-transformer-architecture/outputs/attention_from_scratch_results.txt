@@ -1,0 +1,149 @@
+==========================================================================================
+SCALED DOT-PRODUCT ATTENTION FROM SCRATCH (pure NumPy)
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+TEST 1: Toy input -- 3 tokens, d_k = 2 (small enough to verify by hand)
+------------------------------------------------------------------------------------------
+
+Q =
+[[1. 0.]
+ [0. 1.]
+ [1. 1.]]
+
+K =
+[[1. 0.]
+ [0. 1.]
+ [1. 1.]]
+
+V =
+[[10.  0.]
+ [ 0. 10.]
+ [ 5.  5.]]
+
+  d_k = 2, sqrt(d_k) = 1.4142
+
+  STEP 1 - Raw scores (Q @ K.T):
+[[1. 0. 1.]
+ [0. 1. 1.]
+ [1. 1. 2.]]
+
+  STEP 2 - Scaled scores (/ sqrt(d_k)):
+[[0.7071 0.     0.7071]
+ [0.     0.7071 0.7071]
+ [0.7071 0.7071 1.4142]]
+
+  STEP 4 - Attention weights (after softmax):
+[[0.4011 0.1978 0.4011]
+ [0.1978 0.4011 0.4011]
+ [0.2483 0.2483 0.5035]]
+           Row sums (should all be 1.0): [1. 1. 1.]
+
+  STEP 5 - Output (weights @ V):
+[[6.0167 3.9833]
+ [3.9833 6.0167]
+ [5.     5.    ]]
+
+
+MANUAL VERIFICATION (query row 0 = [1, 0]):
+  Dot products with each key:
+    q0 . k0 = [1,0].[1,0] = 1.0
+    q0 . k1 = [1,0].[0,1] = 0.0
+    q0 . k2 = [1,0].[1,1] = 1.0
+  After scaling by sqrt(2) = 1.4142: [0.7071 0.     0.7071]
+  After softmax: [0.4011 0.1978 0.4011]
+  Library-path result for same row: [0.4011 0.1978 0.4011]
+  MATCH: True
+  Manual output row 0: [6.0167 3.9833]
+  Function output row 0: [6.0167 3.9833]
+  MATCH: True
+
+------------------------------------------------------------------------------------------
+TEST 2: Attention weight properties
+------------------------------------------------------------------------------------------
+
+All weights >= 0:              True
+All weights <= 1:              True
+Every row sums to 1.0:         True
+Row sums: [1. 1. 1.]
+
+These three properties confirm the attention weights form a valid
+probability distribution over the input positions -- each query
+distributes exactly 100% of its 'attention budget' across all keys.
+
+------------------------------------------------------------------------------------------
+TEST 3: Why divide by sqrt(d_k)? (empirical demonstration)
+------------------------------------------------------------------------------------------
+
+d_k = 4:
+  Raw score std dev:      1.5326
+  Scaled score std dev:   0.7663
+  Max weight WITHOUT scaling: 0.9048
+  Max weight WITH scaling:    0.6650
+
+d_k = 64:
+  Raw score std dev:      6.6735
+  Scaled score std dev:   0.8342
+  Max weight WITHOUT scaling: 0.9996
+  Max weight WITH scaling:    0.5321
+
+d_k = 512:
+  Raw score std dev:      24.8373
+  Scaled score std dev:   1.0977
+  Max weight WITHOUT scaling: 1.0000
+  Max weight WITH scaling:    0.6265
+
+Observe: as d_k grows, unscaled dot products grow in magnitude, pushing
+softmax toward a one-hot distribution (max weight -> 1.0). That saturated
+regime has near-zero gradient, so the model can't learn. Scaling by
+sqrt(d_k) keeps the score variance ~constant regardless of d_k, holding
+softmax in a healthy, trainable range. This is the entire reason the
+paper's mechanism is called SCALED dot-product attention.
+
+------------------------------------------------------------------------------------------
+TEST 4: Causal (autoregressive) masking -- how GPT prevents 'cheating'
+------------------------------------------------------------------------------------------
+
+Causal mask (True = allowed to attend):
+[[ True False False False]
+ [ True  True False False]
+ [ True  True  True False]
+ [ True  True  True  True]]
+
+Resulting attention weights:
+[[1.     0.     0.     0.    ]
+ [0.7471 0.2529 0.     0.    ]
+ [0.3654 0.238  0.3966 0.    ]
+ [0.1658 0.311  0.2297 0.2935]]
+
+Note the strict lower-triangular structure: position 0 attends only to
+itself; position 3 attends to 0,1,2,3. Every entry above the diagonal is
+exactly 0.0 -- no token can see the future. This is what makes
+next-token prediction a well-posed training objective.
+Upper triangle all exactly zero: True
+
+------------------------------------------------------------------------------------------
+TEST 5: Multi-head attention (8 heads, d_model = 64)
+------------------------------------------------------------------------------------------
+
+Input shape:              (5, 64)   [seq_len, d_model]
+Number of heads:          8
+Dimensions per head:      8
+Output shape:             (5, 64)   [seq_len, d_model]  <- same as input
+Attention maps produced:  8 (one per head), each (5, 5)
+
+Each head's attention pattern for token 0 (showing they differ):
+  Head 0: [0.3655 0.082  0.1275 0.3155 0.1094]
+  Head 1: [0.1802 0.1215 0.2505 0.4193 0.0287]
+  Head 2: [0.484  0.0596 0.1549 0.0396 0.2618]
+  Head 3: [0.0954 0.2147 0.152  0.3156 0.2223]
+
+The heads produce genuinely DIFFERENT attention distributions over the
+same input -- this is the point of multi-head attention. Each head can
+specialize in a different type of relationship, and their concatenated
+outputs give the model a much richer representation than any single
+attention distribution could provide.
+
+==========================================================================================
+ALL TESTS PASSED -- implementation verified against manual computation
+==========================================================================================

@@ -1,0 +1,156 @@
+==========================================================================================
+COMPLETE TRANSFORMER BLOCK FROM SCRATCH (pure NumPy)
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+COMPONENT: Layer Normalization
+------------------------------------------------------------------------------------------
+
+Input (3 tokens, 4 features each):
+[[  1.   2.   3.   4.]
+ [ 10.  20.  30.  40.]
+ [ -5.   0.   5. 100.]]
+
+Per-token means before:     [ 2.5 25.  25. ]
+Per-token std devs before:  [ 1.118  11.1803 43.4454]
+
+After LayerNorm:
+[[-1.3416 -0.4472  0.4472  1.3416]
+ [-1.3416 -0.4472  0.4472  1.3416]
+ [-0.6905 -0.5754 -0.4603  1.7263]]
+
+Per-token means after:      [ 0.  0. -0.]   <- all ~0
+Per-token std devs after:   [1. 1. 1.]   <- all ~1
+
+Critically, normalization happens PER TOKEN across features. Token 3's
+wildly different scale (-5 to 100) is normalized using only token 3's own
+statistics -- it never looks at the other tokens or other batch examples.
+This is what makes LayerNorm batch-size-independent and safe at inference.
+
+------------------------------------------------------------------------------------------
+COMPONENT: Residual Connections
+------------------------------------------------------------------------------------------
+
+The residual pattern is: output = x + Sublayer(x)
+
+Why this matters -- gradient flow. Consider the derivative:
+    d(x + F(x))/dx = 1 + dF(x)/dx
+
+That '+1' term is the key. Even if dF/dx is tiny (a sublayer that barely
+affects its input), the gradient still flows backward at full strength
+through the identity path. Stacking 96 layers is only feasible because
+each residual connection guarantees an unobstructed gradient highway.
+
+Empirical check -- simulating stacked sublayers whose local derivative
+dF/dx = 0.7 (a plausibly 'weak' sublayer):
+
+  Layers    Without residual      With residual         
+  ----------------------------------------------------
+  10        2.825e-02             2.016e+02             
+  25        1.341e-04             5.771e+05             
+  50        1.798e-08             3.330e+11             
+  96        1.347e-15             1.328e+22             
+
+  Without residuals, the gradient decays exponentially toward zero.
+  With residuals, the '+1' identity term means the gradient does NOT
+  decay -- it actually grows, which is why Transformers additionally
+  need LayerNorm to keep the magnitudes controlled. The two components
+  work as a pair: residuals guarantee gradient flow, LayerNorm keeps
+  the resulting magnitudes numerically stable.
+
+(Compare this to the Day 3 LSTM result, where the gradient literally hit
+ 0.000000 across just 55 timesteps -- same underlying math, and residual
+ connections are precisely the architectural fix.)
+
+------------------------------------------------------------------------------------------
+COMPONENT: Position-wise Feed-Forward Network
+------------------------------------------------------------------------------------------
+
+Input shape:            (6, 64)
+Hidden (expanded) dim:  256   (= 4 x d_model, standard ratio)
+Output shape:           (6, 64)   <- back to d_model
+
+Each token passes through INDEPENDENTLY -- verifying that now:
+  FFN(token 2) computed alone:      [ 0.0367 -0.0533 -0.0512  0.0325  0.0014]
+  FFN(token 2) from full sequence:  [ 0.0367 -0.0533 -0.0512  0.0325  0.0014]
+  IDENTICAL: True
+
+This confirms the FFN does NO cross-token mixing. All communication
+between positions happens exclusively in the attention sublayer -- the
+FFN just processes each token's representation on its own.
+
+------------------------------------------------------------------------------------------
+FULL BLOCK: Post-Norm (2017 paper) vs Pre-Norm (modern LLMs)
+------------------------------------------------------------------------------------------
+
+Input shape:              (6, 64)
+Post-Norm output shape:   (6, 64)
+Pre-Norm output shape:    (6, 64)
+
+Post-Norm output stats:  mean=0.000000, std=0.999995
+Pre-Norm output stats:   mean=0.011575, std=0.951478
+
+Note Post-Norm's output is tightly normalized (LayerNorm is the final
+operation), while Pre-Norm's output retains the residual stream's scale.
+Pre-Norm's unnormalized residual path is exactly why it trains more
+stably at extreme depth -- the gradient highway is never interrupted by
+a normalization step.
+
+Attention maps produced: 8 (one per head)
+Each attention map shape: (6, 6)
+
+------------------------------------------------------------------------------------------
+DECODER-ONLY VARIANT: same block, with causal masking
+------------------------------------------------------------------------------------------
+
+Head 0 attention weights with causal mask:
+[[1.     0.     0.     0.     0.     0.    ]
+ [0.5047 0.4953 0.     0.     0.     0.    ]
+ [0.3281 0.3292 0.3427 0.     0.     0.    ]
+ [0.2493 0.2436 0.2528 0.2544 0.     0.    ]
+ [0.1981 0.2003 0.2022 0.1968 0.2026 0.    ]
+ [0.1608 0.1635 0.1703 0.1621 0.1724 0.1709]]
+
+Upper triangle (future positions) all exactly zero: True
+
+This single change -- adding a lower-triangular mask -- is the ONLY
+architectural difference that converts an encoder block (BERT-style,
+bidirectional) into a decoder block (GPT-style, autoregressive).
+
+------------------------------------------------------------------------------------------
+PARAMETER COUNT BREAKDOWN
+------------------------------------------------------------------------------------------
+
+This demo block (d_model=64, heads=8):
+  Attention (W_q,W_k,W_v,W_o):        16,384  (32.9%)
+  Feed-Forward Network:                33,088  (66.5%)
+  LayerNorm parameters:                   256  (0.5%)
+  TOTAL per block:                     49,728
+
+GPT-2 Small block (d_model=768, heads=12):
+  Attention (W_q,W_k,W_v,W_o):     2,359,296  (33.3%)
+  Feed-Forward Network:             4,722,432  (66.7%)
+  LayerNorm parameters:                 3,072  (0.0%)
+  TOTAL per block:                  7,084,800
+
+GPT-2 Medium block (d_model=1024, heads=16):
+  Attention (W_q,W_k,W_v,W_o):     4,194,304  (33.3%)
+  Feed-Forward Network:             8,393,728  (66.7%)
+  LayerNorm parameters:                 4,096  (0.0%)
+  TOTAL per block:                 12,592,128
+
+BERT-Base block (d_model=768, heads=12):
+  Attention (W_q,W_k,W_v,W_o):     2,359,296  (33.3%)
+  Feed-Forward Network:             4,722,432  (66.7%)
+  LayerNorm parameters:                 3,072  (0.0%)
+  TOTAL per block:                  7,084,800
+
+Key insight: the FFN holds roughly TWO-THIRDS of every block's
+parameters, despite attention getting all the conceptual attention (pun
+intended). LayerNorm contributes a negligible fraction. For a 12-layer
+GPT-2 Small, 12 x 7,087,872 = ~85M parameters in the blocks alone,
+before counting embeddings.
+
+==========================================================================================
+ALL TRANSFORMER COMPONENTS IMPLEMENTED AND VERIFIED
+==========================================================================================
