@@ -1,0 +1,184 @@
+==========================================================================================
+TEMPERATURE, TOP-K, AND TOP-P SAMPLING FROM SCRATCH
+(applied to REAL probability distributions from our Day 3 trigram model)
+==========================================================================================
+
+Context: ('the',)   (bigram model -- chosen because it has 1,460 REAL observed
+ continuations in the corpus, giving a much less smoothing-dominated distribution
+ than a sparser trigram context would.)
+Full vocabulary size: 5259
+
+Top 10 tokens in the RAW (unmodified) distribution:
+  pandemic        P=0.010418
+  first           P=0.008037
+  who             P=0.006102
+  virus           P=0.005060
+  generator       P=0.005060
+  function        P=0.004316
+  same            P=0.004167
+  next            P=0.004018
+  united          P=0.003423
+  planet          P=0.002977
+
+------------------------------------------------------------------------------------------
+TEMPERATURE SAMPLING
+------------------------------------------------------------------------------------------
+
+Formula: p_i' = p_i^(1/T) / sum(p_j^(1/T))
+
+
+--- Temperature = 0.3 ---
+  Top 5 after temperature scaling:
+    pandemic        P=0.4840
+    first           P=0.2038
+    who             P=0.0814
+    virus           P=0.0436
+    generator       P=0.0436
+  Distribution entropy: 1.8759  (higher = more spread out / random)
+
+--- Temperature = 1.0 ---
+  Top 5 after temperature scaling:
+    pandemic        P=0.0104
+    first           P=0.0080
+    who             P=0.0061
+    virus           P=0.0051
+    generator       P=0.0051
+  Distribution entropy: 8.3001  (higher = more spread out / random)
+
+--- Temperature = 2.0 ---
+  Top 5 after temperature scaling:
+    pandemic        P=0.0015
+    first           P=0.0013
+    who             P=0.0011
+    virus           P=0.0010
+    generator       P=0.0010
+  Distribution entropy: 8.5373  (higher = more spread out / random)
+
+OBSERVATION: at T=0.3 the top candidate's probability increases sharply
+(the distribution SHARPENS -- closer to always picking the same top word,
+i.e. closer to greedy/deterministic decoding). At T=2.0 probability mass
+spreads toward previously-unlikely tokens (the distribution FLATTENS --
+more randomness, more diversity, more risk of incoherence). Entropy
+increases monotonically with T, confirming this numerically.
+
+------------------------------------------------------------------------------------------
+TOP-K SAMPLING
+------------------------------------------------------------------------------------------
+
+--- k = 1 ---
+  Candidates with nonzero probability after filtering: 1
+  Top 3 remaining:
+    pandemic        P=1.0000
+
+--- k = 3 ---
+  Candidates with nonzero probability after filtering: 3
+  Top 3 remaining:
+    pandemic        P=0.4242
+    first           P=0.3273
+    who             P=0.2485
+
+--- k = 10 ---
+  Candidates with nonzero probability after filtering: 10
+  Top 3 remaining:
+    pandemic        P=0.1944
+    first           P=0.1500
+    who             P=0.1139
+
+--- k = 50 ---
+  Candidates with nonzero probability after filtering: 50
+  Top 3 remaining:
+    pandemic        P=0.0930
+    first           P=0.0717
+    who             P=0.0544
+
+OBSERVATION: k=1 is equivalent to GREEDY decoding -- always picks the single
+highest-probability token, fully deterministic. As k increases, more of the
+long tail becomes eligible for sampling, increasing diversity but also the
+chance of picking a less sensible continuation.
+
+------------------------------------------------------------------------------------------
+TOP-P (NUCLEUS) SAMPLING
+------------------------------------------------------------------------------------------
+
+--- p = 0.3 ---
+  Number of tokens needed to reach cumulative probability 0.3: 571
+  Top 3 remaining:
+    pandemic        P=0.0347
+    first           P=0.0268
+    who             P=0.0203
+
+--- p = 0.7 ---
+  Number of tokens needed to reach cumulative probability 0.7: 3244
+  Top 3 remaining:
+    pandemic        P=0.0149
+    first           P=0.0115
+    who             P=0.0087
+
+--- p = 0.95 ---
+  Number of tokens needed to reach cumulative probability 0.95: 4924
+  Top 3 remaining:
+    pandemic        P=0.0110
+    first           P=0.0085
+    who             P=0.0064
+
+OBSERVATION: unlike top-k's FIXED cutoff count, top-p's cutoff COUNT adapts
+to the shape of the distribution at each individual step. Compare the
+'Number of tokens needed' line across the three p values above -- this
+number is the direct evidence that top-p is adaptive where top-k is rigid.
+
+------------------------------------------------------------------------------------------
+SIDE-BY-SIDE: 200 samples drawn under each strategy
+------------------------------------------------------------------------------------------
+
+RAW distribution (no modification):
+  Non-zero-probability candidates remaining: 5259 / 5259
+  200 samples drawn -> outcome distribution: {'who': 3, 'compiler': 2, 'country': 2, 'following': 2, 'world': 2, 'first': 2, 'covers': 2, 'habitable': 1}
+
+Temperature = 0.3 (sharpened):
+  Non-zero-probability candidates remaining: 5259 / 5259
+  200 samples drawn -> outcome distribution: {'pandemic': 102, 'first': 41, 'who': 17, 'generator': 9, 'virus': 7, 'function': 3, 'star': 3, 'next': 3}
+
+Temperature = 2.0 (flattened):
+  Non-zero-probability candidates remaining: 5259 / 5259
+  200 samples drawn -> outcome distribution: {'banned': 2, 'world': 2, 'workplace': 2, 'likea': 2, 'jonathan': 2, 'pandemic': 2, 'besuperior': 1, 'tracingattempts': 1}
+
+Top-k, k=5:
+  Non-zero-probability candidates remaining: 5 / 5259
+  200 samples drawn -> outcome distribution: {'pandemic': 57, 'first': 49, 'generator': 36, 'virus': 30, 'who': 28}
+
+Top-p, p=0.7:
+  Non-zero-probability candidates remaining: 3244 / 5259
+  200 samples drawn -> outcome distribution: {'pandemic': 5, 'first': 5, 'same': 3, 'loop': 3, 'code': 3, 'who': 2, 'global': 2, 'accompanied': 2}
+
+==========================================================================================
+SUMMARY: WHY THESE STRATEGIES EXIST AND WHEN TO USE EACH
+==========================================================================================
+
+Greedy decoding (always pick argmax, equivalent to T->0 or top-k=1):
+  Fully deterministic, always the same output for the same input. Can get
+  stuck in repetitive loops ("the the the...") since it never explores
+  lower-probability-but-reasonable alternatives.
+
+Temperature:
+  Simple global control over randomness. Low T = focused/deterministic
+  (good for factual Q&A, code generation). High T = creative/diverse (good
+  for brainstorming, creative writing). Downside: applies uniformly across
+  the WHOLE distribution regardless of shape -- doesn't adapt to how
+  confident vs uncertain the model is at each step.
+
+Top-k:
+  Hard cutoff at a fixed NUMBER of candidates. Simple and predictable, but
+  the fixed count doesn't adapt: when the model is very confident (one
+  token should dominate), top-k=50 wastefully keeps 49 near-irrelevant
+  options open; when the model is uncertain (probability spread thin),
+  top-k=50 might exclude reasonable tokens ranked 51+.
+
+Top-p (nucleus):
+  Adapts the candidate COUNT to the actual shape of the distribution at
+  each step -- confident steps get a small nucleus, uncertain steps get a
+  larger one. This is why top-p (often combined with a modest temperature)
+  is the most common default in production LLM APIs today.
+
+In practice, production systems typically combine temperature + top-p (and
+sometimes top-k as an extra safety bound) rather than using any one
+strategy alone.

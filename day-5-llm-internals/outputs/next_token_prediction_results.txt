@@ -1,0 +1,65 @@
+==========================================================================================
+NEXT-TOKEN PREDICTION, STEP BY STEP (using our real trigram model from Day 3)
+==========================================================================================
+
+Model trained on 1240 real sentences from the Day 1/2 corpus.
+Vocabulary size: 5259
+
+------------------------------------------------------------------------------------------
+PART A: Tokenizing an input sentence
+------------------------------------------------------------------------------------------
+
+Input sentence:  "Scientists say the virus"
+Tokenized:       ['scientists', 'say', 'the', 'virus']
+
+(In a real LLM this step would use BPE/WordPiece subword tokenization, as built in
+ Day 1 -- here we use simple word tokenization since our trigram model was trained
+ on whole words. The PRINCIPLE is identical: raw text -> a sequence of discrete units
+ the model can consume.)
+
+------------------------------------------------------------------------------------------
+PART B: Autoregressive generation, one real prediction at a time
+------------------------------------------------------------------------------------------
+
+--- STEP 1 ---
+Current sequence so far: the virus
+Model/context used: trigram, context=('the', 'virus')
+  Top 5 candidate next tokens:
+    had             P=0.0008  #
+    </s>            P=0.0008  #
+    was             P=0.0006  #
+    would           P=0.0006  #
+    that            P=0.0006  #
+  --> SAMPLED: '</s>'
+  (end-of-sequence token sampled -- generation would stop here)
+
+FINAL GENERATED SEQUENCE: the virus </s>
+
+------------------------------------------------------------------------------------------
+THE KEY INSIGHT
+------------------------------------------------------------------------------------------
+
+Notice EXACTLY what happened at every step:
+  1. The model looked at the current context (the last n-1 tokens)
+  2. It produced a PROBABILITY DISTRIBUTION over every possible next token
+  3. One token was sampled from that distribution
+  4. That token was APPENDED to the sequence
+  5. The new, longer sequence became the context for the NEXT prediction
+
+This loop -- predict distribution, sample, append, repeat -- is the ENTIRE
+generation mechanism of every autoregressive language model, including GPT-4,
+Claude, and every other modern LLM. The only thing that changes going from a
+trigram model to a 175-billion-parameter Transformer is HOW STEP 2 computes the
+distribution -- frequency counts here, billions of learned attention/FFN weights
+there. The control loop wrapping that computation is identical.
+
+------------------------------------------------------------------------------------------
+WHY THIS IS CALLED 'AUTOREGRESSIVE'
+------------------------------------------------------------------------------------------
+
+'Auto' = self, 'regressive' = regressing/depending on past values. The model's
+own PAST OUTPUTS become its FUTURE INPUTS. Token 5 is produced by looking at
+tokens 1-4 (which includes tokens the model itself already generated at steps 1-4).
+This is precisely why generation is sequential (Day 3/4): you cannot compute token
+5's distribution until token 4 has actually been sampled and appended, because
+token 4 is part of token 5's own input.
