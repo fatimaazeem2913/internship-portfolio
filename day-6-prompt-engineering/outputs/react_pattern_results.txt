@@ -1,0 +1,79 @@
+====================================================================================================
+REACT (REASON + ACT) PATTERN -- SIMULATED TOOL-USING SCENARIO
+====================================================================================================
+
+QUESTION: Which country has the higher total GDP: Japan or Germany? (Total GDP = population x GDP per capita.)
+
+AVAILABLE TOOLS: Search (looks up facts), Calculator (evaluates arithmetic)
+
+WHY THIS QUESTION NEEDS ReAct: it requires MULTIPLE pieces of external,
+up-to-date information (population and GDP/capita figures a model shouldn't
+just guess from memory) AND a multi-step calculation that's error-prone to do
+mentally with large numbers (Day 6's CoT experiments showed this exact class
+of error). A single-shot prompt with no tool access would have to either
+hallucinate the figures or refuse to answer confidently.
+
+----------------------------------------------------------------------------------------------------
+THE REACT TRACE
+----------------------------------------------------------------------------------------------------
+
+--- Turn 1 ---
+Thought: To compare total GDP, I need population and GDP-per-capita for both countries, then multiply each pair and compare the results. I don't have these figures memorized reliably enough to trust without checking, so I'll look them up with the Search tool first.
+Action: Search[population of japan]
+Observation: approximately 123,000,000 (2026 estimate)
+
+--- Turn 2 ---
+Thought: Got Japan's population. Now I need Japan's GDP per capita.
+Action: Search[gdp per capita japan]
+Observation: approximately $34,000 USD (2026 estimate)
+
+--- Turn 3 ---
+Thought: Now the same two facts for Germany, starting with population.
+Action: Search[population of germany]
+Observation: approximately 83,500,000 (2026 estimate)
+
+--- Turn 4 ---
+Thought: And Germany's GDP per capita.
+Action: Search[gdp per capita germany]
+Observation: approximately $52,000 USD (2026 estimate)
+
+--- Turn 5 ---
+Thought: I now have all four numbers. Total GDP = population x GDP per capita. I should NOT do this multiplication in my head for large numbers -- I'll use the Calculator tool to avoid an arithmetic slip, especially since these are large multi-digit multiplications.
+Action: Calculator[123000000 * 34000]
+Observation: 4182000000000
+
+--- Turn 6 ---
+Thought: That's Japan's total GDP. Now Germany's, using the same approach.
+Action: Calculator[83500000 * 52000]
+Observation: 4342000000000
+
+--- Turn 7 ---
+Thought: Japan: ~4.182 trillion. Germany: ~4.342 trillion. Germany's total GDP is higher despite having a much smaller population, because its GDP per capita is substantially higher. I now have enough information to answer.
+Action: (none -- sufficient information gathered)
+
+--- FINAL ANSWER ---
+Germany has the higher total GDP (~$4.34 trillion vs. Japan's ~$4.18 trillion), even though Japan has a larger population (123M vs 83.5M) -- Germany's significantly higher GDP per capita (~$52,000 vs ~$34,000) more than compensates.
+
+====================================================================================================
+THE REACT LOOP, GENERALIZED
+====================================================================================================
+
+1. THOUGHT: the model reasons, in natural language, about what it knows, what it
+   still needs, and what to do next -- this reasoning is made EXPLICIT and visible,
+   not hidden inside a single opaque forward pass.
+2. ACTION: the model emits a structured call to a specific tool with specific
+   arguments (Search[query], Calculator[expression], etc.) -- this is parsed by
+   the surrounding orchestration code, not executed by the LLM itself.
+3. OBSERVATION: the tool's REAL result is fed back into the model's context as
+   the next turn's input -- critically, this is genuine external information the
+   model could not have known or reliably computed on its own.
+4. REPEAT from Thought, now with the new Observation available as context, until
+   the model's Thought concludes it has enough information, at which point it
+   gives a Final Answer instead of another Action.
+
+WHY THIS MATTERS: this pattern is what turns a language model into an "agent" --
+something that can interact with real systems (databases, APIs, calculators,
+web search, code execution) rather than only ever generating text from its own
+training-time knowledge. Every "AI agent" product performing multi-step tasks
+(browsing, running code, querying APIs) is built on some variant of this
+Thought -> Action -> Observation loop.

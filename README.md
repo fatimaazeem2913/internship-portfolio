@@ -11,6 +11,7 @@ This repository contains all work completed during my AI/ML internship, organize
 | Day 3 | From static vectors to context — N-gram language models, LSTM gradient analysis, BERT contextual embeddings, t-SNE visualization | [`day-3-context-attention/`](./day-3-context-attention) |
 | Day 4 | Transformer architecture — attention from scratch in NumPy, positional encoding, full block implementation, GPT-2 decoder-only study | [`day-4-transformer-architecture/`](./day-4-transformer-architecture) |
 | Day 5 | How LLMs work internally — training pipeline, autoregressive generation, sampling strategies from scratch, architecture comparison, emergent capabilities | [`day-5-llm-internals/`](./day-5-llm-internals) |
+| Day 6 | Prompt engineering fundamentals — prompt anatomy, zero/one/few-shot comparison, Chain-of-Thought accuracy testing, ReAct pattern, reusable template library | [`day-6-prompt-engineering/`](./day-6-prompt-engineering) |
 ## The Full Arc
 
 Each day is designed to expose a specific limitation of the previous day's approach:
@@ -21,6 +22,7 @@ Each day is designed to expose a specific limitation of the previous day's appro
 - **Day 4** builds the Transformer from first principles in pure NumPy, showing how one architecture resolves every limitation measured in Days 1–3 — and why the O(n²) cost of attention became the defining constraint of the LLM era.
 The full technical progression is documented in each day's `REPORT.md` and `README.md`.
 - **Day 5** shows how these components are assembled into a real training pipeline (pre-training → SFT → RLHF), demonstrates that autoregressive generation is just "predict, sample, append, repeat" using a real self-built language model, and researches the emergent capabilities that appear only once this simple objective is scaled far enough.
+- **Day 6** shows how to get reliable, controllable behavior out of a model whose weights you cannot change — measuring exactly how much structure, demonstration, and explicit reasoning improve output quality and accuracy, and building the tool-use pattern (ReAct) that turns a language model into an agent.
 ## Author
 
 **Fatima Azeem**

@@ -1,0 +1,223 @@
+"""
+prompt_template_library.py
+------------------------------
+A reusable library of prompt templates for five common task types:
+summarization, entity extraction, sentiment analysis, code generation, and
+data transformation. Each template follows the prompt anatomy documented
+in REPORT.md Part 1: Role/Persona + Context + Task/Instruction + Examples
++ Output Format constraints.
+
+Templates use Python's str.format() with named placeholders so they can be
+reused programmatically -- fill in the placeholders and send the result to
+any LLM API.
+"""
+
+
+TEMPLATES = {}
+
+# ===================================================================
+TEMPLATES["summarization"] = {
+    "template": """You are a professional editorial summarizer for a technical publication.
+
+CONTEXT: You will be given a source document. Your readers are busy professionals \
+who need the key facts without reading the full text.
+
+TASK: Summarize the following document in exactly {n_sentences} sentences. \
+Preserve any specific numbers, dates, or named entities exactly as written. \
+Do not add information not present in the source. Do not include your own opinion.
+
+OUTPUT FORMAT: Plain text, {n_sentences} sentences, no bullet points, no headers.
+
+DOCUMENT:
+\"\"\"
+{document}
+\"\"\"
+
+SUMMARY:""",
+    "placeholders": ["n_sentences", "document"],
+    "example_fill": {
+        "n_sentences": "2",
+        "document": (
+            "The World Health Organization declared the COVID-19 pandemic a public "
+            "health emergency of international concern in January 2020. The "
+            "declaration was later ended in May 2023, though the disease continues "
+            "to circulate globally as of 2026."
+        ),
+    },
+}
+
+# ===================================================================
+TEMPLATES["entity_extraction"] = {
+    "template": """You are a data extraction system that outputs ONLY valid JSON, no prose.
+
+CONTEXT: You will receive unstructured text that may contain the following entity \
+types: PERSON, ORGANIZATION, DATE, MONEY, LOCATION.
+
+TASK: Extract every instance of these entity types from the text below.
+
+EXAMPLE:
+Text: "Acme Corp signed a $2 million deal with Jane Doe in Berlin on March 3rd."
+Output: {{"PERSON": ["Jane Doe"], "ORGANIZATION": ["Acme Corp"], "DATE": ["March 3rd"], "MONEY": ["$2 million"], "LOCATION": ["Berlin"]}}
+
+OUTPUT FORMAT: A single JSON object with keys PERSON, ORGANIZATION, DATE, MONEY, \
+LOCATION, each mapping to a list of strings (empty list if none found). No other text.
+
+TEXT:
+\"\"\"
+{text}
+\"\"\"
+
+OUTPUT:""",
+    "placeholders": ["text"],
+    "example_fill": {
+        "text": "Marcus Aurelius Consulting billed Global Tech Inc $2,450 on November 3rd, 2026, for work performed in Austin.",
+    },
+}
+
+# ===================================================================
+TEMPLATES["sentiment_analysis"] = {
+    "template": """You are a customer feedback analyst who understands sarcasm, \
+mixed sentiment, and implied meaning, not just surface wording.
+
+CONTEXT: Reviews may be sincere, sarcastic, or mixed (positive about one aspect, \
+negative about another).
+
+TASK: Classify the overall sentiment as one of: Positive, Negative, Neutral, Mixed. \
+If sarcasm is present, classify by the underlying intent, not the literal words. \
+Briefly justify your classification in one clause.
+
+EXAMPLES:
+Review: "This blender is genuinely amazing, works perfectly every time."
+Sentiment: Positive (sincere, unqualified praise)
+
+Review: "Wow, five stars, my order arrived a MONTH late. Just wonderful service."
+Sentiment: Negative (sarcastic -- complaining about a late order)
+
+Review: "Great picture quality, but the remote is garbage and stopped working in a week."
+Sentiment: Mixed (positive about picture quality, negative about the remote)
+
+OUTPUT FORMAT: "Sentiment: <label> (<one-clause justification>)"
+
+REVIEW:
+\"\"\"
+{review}
+\"\"\"
+
+CLASSIFICATION:""",
+    "placeholders": ["review"],
+    "example_fill": {
+        "review": "Oh great, ANOTHER update that breaks the login page. Exactly what I needed today.",
+    },
+}
+
+# ===================================================================
+TEMPLATES["code_generation"] = {
+    "template": """You are a senior {language} engineer who writes production-quality, \
+well-documented code.
+
+CONTEXT: You are writing a single, self-contained function for a code review-ready \
+pull request. Assume standard library only unless told otherwise.
+
+TASK: Write a {language} function that: {task_description}
+
+REQUIREMENTS:
+- Include a docstring describing parameters, return value, and behavior.
+- Handle the edge case(s): {edge_cases}
+- Do not include example/test code -- function definition ONLY.
+
+OUTPUT FORMAT: A single {language} code block, nothing else (no explanation before \
+or after the code).
+
+FUNCTION:""",
+    "placeholders": ["language", "task_description", "edge_cases"],
+    "example_fill": {
+        "language": "Python",
+        "task_description": "takes a list of numbers and returns the second-largest unique value",
+        "edge_cases": "fewer than 2 unique values in the list (should raise ValueError)",
+    },
+}
+
+# ===================================================================
+TEMPLATES["data_transformation"] = {
+    "template": """You are a data transformation utility that converts between \
+structured formats exactly and deterministically.
+
+CONTEXT: You will receive data in {input_format} format. It must be converted to \
+{output_format} format, preserving every field and value exactly -- no summarizing, \
+no adding fields, no dropping fields.
+
+TASK: Convert the following {input_format} data to {output_format}.
+
+EXAMPLE:
+Input ({input_format}): {example_input}
+Output ({output_format}): {example_output}
+
+OUTPUT FORMAT: Only the converted {output_format} data. No explanation, no markdown \
+code fences, no commentary.
+
+INPUT DATA:
+{input_data}
+
+OUTPUT:""",
+    "placeholders": ["input_format", "output_format", "example_input", "example_output", "input_data"],
+    "example_fill": {
+        "input_format": "CSV",
+        "output_format": "JSON",
+        "example_input": "name,age\\nAlice,30",
+        "example_output": '[{"name": "Alice", "age": 30}]',
+        "input_data": "name,age,city\nBob,25,Chicago\nCarla,41,Miami",
+    },
+}
+
+
+def render_template(task_name, **kwargs):
+    """Fill a template's placeholders with provided values."""
+    t = TEMPLATES[task_name]
+    return t["template"].format(**kwargs)
+
+
+if __name__ == "__main__":
+    lines = []
+
+    def out(s=""):
+        print(s)
+        lines.append(s)
+
+    out("=" * 100)
+    out("REUSABLE PROMPT TEMPLATE LIBRARY")
+    out("=" * 100)
+    out("\nEach template follows the anatomy: Role/Persona + Context + Task/Instruction")
+    out("+ Examples + Output Format constraints (documented in REPORT.md Part 1).\n")
+
+    for task_name, t in TEMPLATES.items():
+        out(f"\n{'#'*100}")
+        out(f"TEMPLATE: {task_name.upper()}")
+        out(f"{'#'*100}")
+        out(f"\nPlaceholders: {t['placeholders']}")
+        out(f"\n--- RAW TEMPLATE ---\n{t['template']}")
+        out(f"\n--- RENDERED WITH EXAMPLE VALUES ---")
+        rendered = render_template(task_name, **t["example_fill"])
+        out(rendered)
+
+    out(f"\n\n{'='*100}")
+    out("USAGE NOTE")
+    out("=" * 100)
+    out("""
+In a real application, these templates would be stored in a shared library/config
+(not hardcoded per call site), version-controlled, and filled programmatically:
+
+    from prompt_template_library import render_template
+    prompt = render_template("sentiment_analysis", review=user_review_text)
+    response = llm_client.generate(prompt)
+
+This separates PROMPT ENGINEERING (owned/tuned by whoever maintains this file) from
+APPLICATION CODE (which just fills placeholders and calls the LLM) -- the same
+separation of concerns as templating engines in web development, applied to LLM
+prompts. Each template can be independently A/B tested, versioned, and improved
+without touching the application logic that uses it.
+""")
+
+    with open("outputs/prompt_template_library_output.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+    print("\n\nSaved to outputs/prompt_template_library_output.txt")
