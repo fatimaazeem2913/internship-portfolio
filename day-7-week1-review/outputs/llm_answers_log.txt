@@ -1,0 +1,95 @@
+====================================================================================================
+LLM ANSWER GENERATION: TEMPERATURE 0.1 vs 0.9
+====================================================================================================
+
+Query: "Who is the president of Pakistan?"
+
+Retrieved context (from embedding retrieval):
+Zardari Serving Second Term as President of
+Pakistan
+ISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as
+the 14th President on 10 March 2024. This is his secon...
+
+----------------------------------------------------------------------------------------------------
+FULL STRUCTURED PROMPT (Role + Context + Few-Shot + Output Format)
+----------------------------------------------------------------------------------------------------
+[ROLE]
+You are a precise, factual question-answering assistant for a news
+research tool. You answer ONLY using the provided context -- you never
+use outside knowledge, and you never guess if the context doesn't contain
+the answer.
+
+[CONTEXT]
+"""
+Zardari Serving Second Term as President of
+Pakistan
+ISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as
+the 14th President on 10 March 2024. This is his second term in the role, having previously
+served as the 11th President of Pakistan from September 2008 to September 2013. Zardari's re-election makes him the first civilian in Pakistan's history to serve two
+non-consecutive presidential terms.
+"""
+
+[FEW-SHOT EXAMPLES]
+Context: "The Eiffel Tower was completed in 1889 and stands 330 meters tall."
+Query: "How tall is the Eiffel Tower?"
+Output: {"answer": "330 meters", "confidence": "high", "source_supported": true}
+
+Context: "The company reported quarterly revenue of $4.2 million, up 12% year over year."
+Query: "What was the company's profit margin?"
+Output: {"answer": "The context does not state the profit margin.", "confidence": "low", "source_supported": false}
+
+[TASK]
+Using ONLY the context above, answer the query below.
+
+Query: "Who is the president of Pakistan?"
+
+[OUTPUT FORMAT]
+Respond with ONLY a JSON object with exactly these keys:
+  "answer": a concise natural-language answer
+  "confidence": "high", "medium", or "low"
+  "source_supported": true or false (was the answer directly supported by the context?)
+
+OUTPUT:
+
+----------------------------------------------------------------------------------------------------
+GENERATION AT TEMPERATURE 0.1 (low -- focused, near-deterministic)
+----------------------------------------------------------------------------------------------------
+{
+  "answer": "Asif Ali Zardari is the President of Pakistan.",
+  "confidence": "high",
+  "source_supported": true
+}
+
+----------------------------------------------------------------------------------------------------
+GENERATION AT TEMPERATURE 0.9 (high -- more elaborative/varied)
+----------------------------------------------------------------------------------------------------
+{
+  "answer": "Asif Ali Zardari currently serves as President of Pakistan, having taken office as the 14th President on 10 March 2024 -- notably his second term in the role, after previously serving as the 11th President from 2008 to 2013.",
+  "confidence": "high",
+  "source_supported": true
+}
+
+====================================================================================================
+HOW THE OUTPUT CHANGED
+====================================================================================================
+
+At T=0.1, the answer is short, direct, and minimally hedged -- exactly one
+fact stated plainly, mirroring how low temperature sharpens the probability
+distribution toward the single most likely continuation (Day 5's measured
+temperature effect: P(top token) rose from 1% to 48% at T=0.3 in that
+experiment).
+
+At T=0.9, the answer is longer and more elaborative, voluntarily including
+secondary details that were present in the context but not strictly
+necessary to answer the query (the previous term, the exact date) -- this
+mirrors how higher temperature flattens the distribution, giving more
+probability mass to less-obvious-but-still-reasonable continuations, which
+in a real LLM manifests as more varied phrasing and a greater willingness
+to include tangential-but-relevant detail.
+
+Both answers remain FACTUALLY CORRECT and fully supported by the retrieved
+context -- temperature changed the STYLE and LENGTH of the answer, not its
+core correctness, precisely because the underlying context genuinely and
+unambiguously supports only one factual answer. Temperature's effect is
+much more dramatic on genuinely open-ended or creative generation tasks
+than on a narrow, well-supported factual QA task like this one.

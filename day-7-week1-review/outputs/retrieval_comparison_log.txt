@@ -1,0 +1,64 @@
+====================================================================================================
+RETRIEVAL COMPARISON: BAG-OF-WORDS vs TF-IDF vs EMBEDDINGS
+====================================================================================================
+
+QUERY: "Who is the president of Pakistan?"
+Corpus size: 17 chunks across 3 source documents
+
+----------------------------------------------------------------------------------------------------
+METHOD 1: Bag-of-Words (raw count cosine similarity)
+----------------------------------------------------------------------------------------------------
+Top-1 chunk_id: 6  (source: news_article)
+Score: 0.6209
+Text: Zardari Serving Second Term as President of
+Pakistan
+ISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as
+the 14th President on 10 March 2024. This is his secon...
+
+----------------------------------------------------------------------------------------------------
+METHOD 2: TF-IDF (weighted cosine similarity)
+----------------------------------------------------------------------------------------------------
+Top-1 chunk_id: 6  (source: news_article)
+Score: 0.5732
+Text: Zardari Serving Second Term as President of
+Pakistan
+ISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as
+the 14th President on 10 March 2024. This is his secon...
+
+----------------------------------------------------------------------------------------------------
+METHOD 3: Sentence Embeddings (Word2Vec-averaged substitute -- see honesty note)
+----------------------------------------------------------------------------------------------------
+Top-1 chunk_id: 6  (source: news_article)
+Score: 0.9921
+Text: Zardari Serving Second Term as President of
+Pakistan
+ISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as
+the 14th President on 10 March 2024. This is his secon...
+
+====================================================================================================
+COMPARISON TABLE
+====================================================================================================
+
+Method         Top chunk_id   Source              Score     
+------------------------------------------------------------
+BoW            6              news_article        0.6209    
+TF-IDF         6              news_article        0.5732    
+Embeddings     6              news_article        0.9921    
+
+All three methods agree on the same top chunk: True
+
+OBSERVATIONS:
+- All three methods correctly identify the news_article source as most relevant,
+  since the query and that document share exact keyword overlap ('president',
+  'pakistan') -- a case where even simple counting-based methods perform well.
+- The retrieval SCORES differ meaningfully between methods: TF-IDF's score differs
+  from BoW's because rare, distinguishing words (like 'zardari' or 'pakistan',
+  which appear in few chunks) get upweighted relative to common words -- this is
+  the exact same TF-IDF mechanism verified mathematically in Day 2.
+- The embedding method's score reflects semantic similarity learned from this
+  corpus's own co-occurrence patterns (Day 2's Word2Vec mechanism), rather than
+  exact keyword matching -- meaningful even without a single shared word, though
+  on THIS query the keyword overlap is strong enough that all methods converge
+  on the same chunk.
+
+=> Using the EMBEDDING result as the final retrieved context (per task spec).

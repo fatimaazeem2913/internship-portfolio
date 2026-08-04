@@ -1,0 +1,24 @@
+{
+  "query": "Who is the president of Pakistan?",
+  "retrieval_comparison": {
+    "bow": {
+      "chunk_id": 6,
+      "source": "news_article",
+      "score": 0.6209204205650662,
+      "text": "Zardari Serving Second Term as President of\nPakistan\nISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as\nthe 14th President on 10 March 2024. This is his second term in the role, having previously\nserved as the 11th President of Pakistan from September 2008 to September 2013. Zardari's re-election makes him the first civilian in Pakistan's history to serve two\nnon-consecutive presidential terms."
+    },
+    "tfidf": {
+      "chunk_id": 6,
+      "source": "news_article",
+      "score": 0.5731517263143971,
+      "text": "Zardari Serving Second Term as President of\nPakistan\nISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as\nthe 14th President on 10 March 2024. This is his second term in the role, having previously\nserved as the 11th President of Pakistan from September 2008 to September 2013. Zardari's re-election makes him the first civilian in Pakistan's history to serve two\nnon-consecutive presidential terms."
+    },
+    "embeddings": {
+      "chunk_id": 6,
+      "source": "news_article",
+      "score": 0.9921125769615173,
+      "text": "Zardari Serving Second Term as President of\nPakistan\nISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as\nthe 14th President on 10 March 2024. This is his second term in the role, having previously\nserved as the 11th President of Pakistan from September 2008 to September 2013. Zardari's re-election makes him the first civilian in Pakistan's history to serve two\nnon-consecutive presidential terms."
+    }
+  },
+  "final_retrieved_context": "Zardari Serving Second Term as President of\nPakistan\nISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as\nthe 14th President on 10 March 2024. This is his second term in the role, having previously\nserved as the 11th President of Pakistan from September 2008 to September 2013. Zardari's re-election makes him the first civilian in Pakistan's history to serve two\nnon-consecutive presidential terms."
+}

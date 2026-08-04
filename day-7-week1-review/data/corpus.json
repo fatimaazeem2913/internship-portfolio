@@ -1,0 +1,104 @@
+[
+  {
+    "chunk_id": 0,
+    "source": "research_paper",
+    "raw_text": "Scaled Dot-Product Attention: A Review\nAbstract\nSelf-attention has become the dominant mechanism for sequence modeling in natural\nlanguage processing, replacing recurrent architectures in most modern systems. This paper\nreviews the scaled dot-product attention mechanism, its computational properties, and the\narchitectural choices that allow Transformer models to be trained in parallel across very long\nsequences. 1.",
+    "cleaned_text": "scaled dot product attention review abstract self attention become dominant mechanism sequence modeling natural language processing replacing recurrent architecture modern system paper review scaled dot product attention mechanism computational property architectural choice allow transformer model trained parallel across long sequence"
+  },
+  {
+    "chunk_id": 1,
+    "source": "research_paper",
+    "raw_text": "Introduction\nRecurrent neural networks process sequences one token at a time, with each hidden state\ndepending on the previous one. This sequential dependency prevents parallelization during\ntraining and causes gradients to vanish across long sequences, since the gradient signal must\npass through many multiplicative steps to reach early tokens. Self-attention resolves both limitations by allowing every position in a sequence to attend\ndirectly to every other position in a single operation, with a path length of one between any\ntwo tokens regardless of their distance in the sequence.",
+    "cleaned_text": "introduction recurrent neural network process sequence one token time hidden state depending previous one sequential dependency prevents parallelization training cause gradient vanish across long sequence since gradient signal must pas many multiplicative step reach early token self attention resolve limitation allowing every position sequence attend directly every position single operation path length one two token regardless distance sequence"
+  },
+  {
+    "chunk_id": 2,
+    "source": "research_paper",
+    "raw_text": "2. Scaled Dot-Product Attention\nGiven a set of queries Q, keys K, and values V, attention is computed as the softmax of the\nscaled dot product between queries and keys, applied to the values. The scaling factor of one\nover the square root of the key dimension prevents the dot products from growing too large in\nmagnitude, which would otherwise push the softmax function into regions with extremely\nsmall gradients.",
+    "cleaned_text": "scaled dot product attention given set query key value attention computed softmax scaled dot product query key applied value scaling factor one square root key dimension prevents dot product growing large magnitude would otherwise push softmax function region extremely small gradient"
+  },
+  {
+    "chunk_id": 3,
+    "source": "research_paper",
+    "raw_text": "Multi-head attention extends this mechanism by computing several attention operations in\nparallel, each over a smaller subspace of the representation. This allows different heads to\nspecialize in different types of relationships between tokens, such as syntactic dependencies\nor coreference. 3.",
+    "cleaned_text": "multi head attention extends mechanism computing several attention operation parallel smaller subspace representation allows different head specialize different type relationship token syntactic dependency coreference"
+  },
+  {
+    "chunk_id": 4,
+    "source": "research_paper",
+    "raw_text": "Positional Encoding\nBecause self-attention has no inherent notion of token order, position information must be\ninjected separately. The original Transformer uses sinusoidal functions of different\nfrequencies for this purpose, which allows the model to generalize to sequence lengths not\nseen during training and to learn relative-position relationships as linear transformations. 4.",
+    "cleaned_text": "positional encoding self attention inherent notion token order position information must injected separately original transformer us sinusoidal function different frequency purpose allows model generalize sequence length seen training learn relative position relationship linear transformation"
+  },
+  {
+    "chunk_id": 5,
+    "source": "research_paper",
+    "raw_text": "Conclusion\nThe combination of self-attention, position-wise feed-forward networks, residual connections,\nand layer normalization allows Transformer models to be trained efficiently at very large scale,\nand has become the foundation of essentially all modern large language models.",
+    "cleaned_text": "conclusion combination self attention position wise feed forward network residual connection layer normalization allows transformer model trained efficiently large scale become foundation essentially modern large language model"
+  },
+  {
+    "chunk_id": 6,
+    "source": "news_article",
+    "raw_text": "Zardari Serving Second Term as President of\nPakistan\nISLAMABAD -- Asif Ali Zardari is the current President of Pakistan, having assumed office as\nthe 14th President on 10 March 2024. This is his second term in the role, having previously\nserved as the 11th President of Pakistan from September 2008 to September 2013. Zardari's re-election makes him the first civilian in Pakistan's history to serve two\nnon-consecutive presidential terms.",
+    "cleaned_text": "zardari serving second term president pakistan islamabad asif ali zardari current president pakistan assumed office th president march second term role previously served th president pakistan september september zardari election make first civilian pakistan history serve two non consecutive presidential term"
+  },
+  {
+    "chunk_id": 7,
+    "source": "news_article",
+    "raw_text": "He succeeded Arif Alvi, who served as the 13th President\nfrom September 2018 to March 2024. As President, Zardari serves as the ceremonial head of state and ceremonial\ncommander-in-chief of the Pakistan Armed Forces, while executive authority in Pakistan's\nparliamentary system rests primarily with the Prime Minister, currently Shehbaz Sharif. The\nPresident's official residence is the Aiwan-e-Sadr in Islamabad.",
+    "cleaned_text": "succeeded arif alvi served th president september march president zardari serf ceremonial head state ceremonial commander chief pakistan armed force executive authority pakistan parliamentary system rest primarily prime minister currently shehbaz sharif president official residence aiwan sadr islamabad"
+  },
+  {
+    "chunk_id": 8,
+    "source": "news_article",
+    "raw_text": "Zardari currently heads the Pakistan Peoples Party, a position he has held since December\n2015. His political career has spanned several decades, including serving as a federal\nminister in the 1990s under Prime Minister Benazir Bhutto, to whom he was married. Under Pakistan's constitution, the President is elected by an electoral college for a term of five\nyears, renewable once consecutively.",
+    "cleaned_text": "zardari currently head pakistan people party position held since december political career spanned several decade including serving federal minister prime minister benazir bhutto married pakistan constitution president elected electoral college term five year renewable consecutively"
+  },
+  {
+    "chunk_id": 9,
+    "source": "news_article",
+    "raw_text": "The office was first established in 1956, with Iskander\nMirza serving as its inaugural holder.",
+    "cleaned_text": "office first established iskander mirza serving inaugural holder"
+  },
+  {
+    "chunk_id": 10,
+    "source": "technical_manual",
+    "raw_text": "WiFi Router Quick Start Guide\n1. Package Contents\nYour router package includes: one dual-band wireless router, one power adapter (12V, 1.5A),\none Ethernet cable, and this quick start guide. Verify all items are present before proceeding\nwith setup.",
+    "cleaned_text": "wifi router quick start guide package content router package includes one dual band wireless router one power adapter one ethernet cable quick start guide verify item present proceeding setup"
+  },
+  {
+    "chunk_id": 11,
+    "source": "technical_manual",
+    "raw_text": "2. Initial Setup\nConnect the power adapter to the router and to a wall outlet. Wait approximately 60 seconds\nfor the power LED to turn solid green, indicating the router has finished booting.",
+    "cleaned_text": "initial setup connect power adapter router wall outlet wait approximately second power led turn solid green indicating router finished booting"
+  },
+  {
+    "chunk_id": 12,
+    "source": "technical_manual",
+    "raw_text": "Connect one\nend of the included Ethernet cable to the WAN port on the router, and the other end to your\nmodem. Using a computer or mobile device, connect to the default wireless network printed on the\nlabel on the bottom of the router. Open a web browser and navigate to 192.168.1.1 to access\nthe setup wizard.",
+    "cleaned_text": "connect one end included ethernet cable wan port router end modem using computer mobile device connect default wireless network printed label bottom router open web browser navigate access setup wizard"
+  },
+  {
+    "chunk_id": 13,
+    "source": "technical_manual",
+    "raw_text": "3. Configuring Wireless Settings\nIn the setup wizard, you will be prompted to create a new network name (SSID) and\npassword. We recommend using WPA3 encryption if your devices support it, or WPA2 as a\nfallback.",
+    "cleaned_text": "configuring wireless setting setup wizard prompted create new network name ssid password recommend using wpa encryption device support wpa fallback"
+  },
+  {
+    "chunk_id": 14,
+    "source": "technical_manual",
+    "raw_text": "Avoid using WEP encryption, as it is no longer considered secure. The router supports simultaneous dual-band operation on both the 2.4GHz and 5GHz\nfrequencies. The 2.4GHz band offers longer range but lower maximum speeds; the 5GHz\nband offers higher speeds but shorter range and is more susceptible to interference from\nwalls.",
+    "cleaned_text": "avoid using wep encryption longer considered secure router support simultaneous dual band operation ghz ghz frequency ghz band offer longer range lower maximum speed ghz band offer higher speed shorter range susceptible interference wall"
+  },
+  {
+    "chunk_id": 15,
+    "source": "technical_manual",
+    "raw_text": "4. Troubleshooting\nIf the power LED is blinking amber, the router is experiencing a firmware issue and may need\nto be reset. Press and hold the reset button on the back panel for 10 seconds to restore\nfactory default settings.",
+    "cleaned_text": "troubleshooting power led blinking amber router experiencing firmware issue may need reset press hold reset button back panel second restore factory default setting"
+  },
+  {
+    "chunk_id": 16,
+    "source": "technical_manual",
+    "raw_text": "Note that this will erase any custom configuration. If devices cannot connect to the internet despite a strong WiFi signal, verify the WAN cable is\nsecurely connected to the modem, and confirm the modem itself has an active internet\nconnection by checking its own status lights.",
+    "cleaned_text": "note erase custom configuration device connect internet despite strong wifi signal verify wan cable securely connected modem confirm modem active internet connection checking status light"
+  }
+]
