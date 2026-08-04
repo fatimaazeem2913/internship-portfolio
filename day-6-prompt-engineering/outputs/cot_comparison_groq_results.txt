@@ -1,0 +1,220 @@
+====================================================================================================
+CHAIN-OF-THOUGHT vs DIRECT ANSWER -- REAL Groq Free API (llama-3.3-70b-versatile)
+====================================================================================================
+
+--- PROBLEM 1 ---
+Question: A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?
+Ground truth: $0.05
+
+[DIRECT] $0.05
+  CORRECT
+
+[CoT] To solve this problem, let's break it down into steps.
+
+Step 1: Define the variables.
+Let's denote the cost of the ball as B (in dollars) and the cost of the bat as T (in dollars).
+
+Step 2: Translate the given information into equations.
+We have two pieces of information:
+1. The total cost of the bat and the ball is $1.10.
+2. The bat costs $1.00 more than the ball.
+
+This can be translated into the following equations:
+1. T + B = 1.10 (The total cost of the bat and the ball is $1.10)
+2. T = B + 1.00 (The bat costs $1.00 more than the ball)
+
+Step 3: Solve the equations.
+We can substitute the second equation into the first equation to find the value of B (the cost of the ball).
+Substituting T = B + 1.00 into the equation T + B = 1.10 gives us:
+(B + 1.00) + B = 1.10
+
+Step 4: Simplify and solve for B.
+Combine like terms:
+2B + 1.00 = 1.10
+
+Subtract 1.00 from both sides to isolate the terms with B:
+2B = 1.10 - 1.00
+2B = 0.10
+
+Divide both sides by 2 to solve for B:
+B = 0.10 / 2
+B = 0.05
+
+Therefore, the ball costs $0.05.
+  CORRECT
+
+--- PROBLEM 2 ---
+Question: If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?
+Ground truth: 5 minutes
+
+[DIRECT] 5 minutes.
+  CORRECT
+
+[CoT] To solve this problem, let's break it down into steps.
+
+1. **Understand the given situation**: It takes 5 machines 5 minutes to make 5 widgets. This means that each machine is making 1 widget in 5 minutes.
+
+2. **Determine the production rate of one machine**: From the given information, we can see that 1 machine can produce 1 widget in 5 minutes. This is the production rate per machine.
+
+3. **Apply the production rate to the new scenario**: We are asked how long it would take 100 machines to make 100 widgets. Since each machine can make 1 widget in 5 minutes, having more machines will allow for the production of more widgets in the same amount of time, but it won't change the time it takes for one machine to make one widget.
+
+4. **Calculate the time needed for 100 machines to make 100 widgets**: Since each machine can make 1 widget in 5 minutes, 100 machines can make 100 widgets in the same 5 minutes. The increase in the number of machines directly scales with the increase in the number of widgets to be produced, without changing the time required.
+
+Therefore, it would take 100 machines 5 minutes to make 100 widgets, as the production capacity scales linearly with the number of machines.
+  CORRECT
+
+--- PROBLEM 3 ---
+Question: A patch of lily pads on a lake doubles in size every day. If it takes 48 days for the patch to cover the entire lake, how many days would it take to cover HALF the lake?
+Ground truth: 47 days
+
+[DIRECT] 47
+  INCORRECT
+
+[CoT] To solve this problem, let's break it down step by step.
+
+1. **Understanding the Problem**: The patch of lily pads doubles in size every day. This means if it covers half the lake one day, it will cover the entire lake the next day, because it doubles in size.
+
+2. **Identifying the Key Information**: It takes 48 days for the patch to cover the entire lake.
+
+3. **Working Backwards**: Since the patch doubles in size every day and it covers the entire lake on the 48th day, we can work backwards to find out when it covers half the lake.
+
+4. **The Day Before It Covers the Entire Lake**: If the patch covers the entire lake on the 48th day, then on the day before (the 47th day), it must have covered half the lake. This is because it doubles in size every day, so if it's covering the whole lake on the 48th day, it must have been half the size (covering half the lake) on the 47th day.
+
+5. **Conclusion**: Therefore, it would take 47 days for the patch to cover half the lake, because on the 48th day, it will have doubled in size from half the lake to the whole lake.
+
+The final answer is: $\boxed{47}$
+  CORRECT
+
+--- PROBLEM 4 ---
+Question: Sarah has 3 boxes of apples with 12 apples each. She gives away 8 apples, then buys 2 more boxes of 12 apples each. How many apples does she have now?
+Ground truth: 52
+
+[DIRECT] 60
+  INCORRECT
+
+[CoT] To find out how many apples Sarah has now, let's break down the problem into steps.
+
+1. **Initial Number of Apples**: Sarah starts with 3 boxes of apples, and each box contains 12 apples. So, the initial number of apples is 3 boxes * 12 apples per box = 36 apples.
+
+2. **Apples Given Away**: Sarah gives away 8 apples. So, after giving away these apples, she has 36 apples - 8 apples = 28 apples left.
+
+3. **Buying More Apples**: Sarah then buys 2 more boxes of apples, with each box containing 12 apples. So, she buys 2 boxes * 12 apples per box = 24 apples.
+
+4. **Total Apples Now**: To find the total number of apples Sarah has now, we add the apples she had after giving some away to the new apples she bought. So, 28 apples (that she had after giving some away) + 24 apples (that she bought) = 52 apples.
+
+Therefore, Sarah now has 52 apples.
+  CORRECT
+
+--- PROBLEM 5 ---
+Question: A shirt costs $80. It is on sale for 25% off. At checkout there is an ADDITIONAL 10% off the already-discounted price. What is the final price?
+Ground truth: $54.00
+
+[DIRECT] $57.00
+  INCORRECT
+
+[CoT] To find the final price of the shirt, let's break down the problem into steps.
+
+**Step 1: Calculate the initial discount of 25% off the original price.**
+
+Original price of the shirt = $80
+Discount = 25% of $80
+= 0.25 * $80
+= $20
+
+So, the price after the first discount = Original price - Discount
+= $80 - $20
+= $60
+
+**Step 2: Calculate the additional 10% off the already-discounted price.**
+
+Price after the first discount = $60
+Additional discount = 10% of $60
+= 0.10 * $60
+= $6
+
+**Step 3: Calculate the final price after both discounts.**
+
+Final price = Price after the first discount - Additional discount
+= $60 - $6
+= $54
+
+Therefore, the final price of the shirt after both discounts is $54.
+  INCORRECT
+
+--- PROBLEM 6 ---
+Question: If 3 cats can catch 3 mice in 3 minutes, how many mice can 100 cats catch in 100 minutes?
+Ground truth: approximately 3333
+
+[DIRECT] 10000
+  INCORRECT
+
+[CoT] To solve this problem, let's break it down into steps.
+
+Step 1: Understand the given information.
+- 3 cats can catch 3 mice in 3 minutes.
+
+This means that the rate of catching mice per cat is constant. Essentially, each cat catches one mouse in 3 minutes.
+
+Step 2: Determine the rate at which one cat catches mice.
+- Since 3 cats catch 3 mice in 3 minutes, it implies that 1 cat catches 1 mouse in 3 minutes.
+
+Step 3: Calculate how many mice one cat can catch in 100 minutes.
+- If 1 cat catches 1 mouse in 3 minutes, then in 100 minutes, the cat can catch (100 / 3) mice.
+- The calculation is: 100 minutes / 3 minutes per mouse = 33.33 mice per cat in 100 minutes.
+
+Step 4: Calculate how many mice 100 cats can catch in 100 minutes.
+- Since one cat can catch approximately 33.33 mice in 100 minutes, 100 cats can catch 100 * 33.33 mice in 100 minutes.
+- The calculation is: 100 cats * 33.33 mice per cat = 3333 mice.
+
+Therefore, 100 cats can catch approximately 3333 mice in 100 minutes.
+  CORRECT
+
+--- PROBLEM 7 ---
+Question: All squares are rectangles. Some rectangles are not squares. Is the statement 'no rectangles are squares' TRUE or FALSE?
+Ground truth: FALSE
+
+[DIRECT] FALSE
+  CORRECT
+
+[CoT] To determine if the statement 'no rectangles are squares' is TRUE or FALSE, let's break down the information provided step by step:
+
+1. **All squares are rectangles**: This statement tells us that every square, by definition, has all the properties of a rectangle. A square is a special kind of rectangle where all sides are of equal length, and all angles are right angles (90 degrees).
+
+2. **Some rectangles are not squares**: This statement indicates that while all squares are rectangles, not all rectangles are squares. This is because a rectangle can have sides of different lengths, which would not meet the criteria for being a square.
+
+3. **Analyzing the statement 'no rectangles are squares'**: Given the first statement, we know that all squares are indeed rectangles. This directly contradicts the statement 'no rectangles are squares' because if all squares are rectangles, then at least some rectangles (those that are squares) are indeed squares.
+
+Therefore, considering the information provided and the logical analysis, the statement 'no rectangles are squares' is **FALSE**. This is because we have established that all squares are rectangles, which means some rectangles (specifically, the ones that are squares) are indeed squares.
+  CORRECT
+
+--- PROBLEM 8 ---
+Question: Tom has 5 red marbles and 7 blue marbles. He is 10 years old. He gives 3 red marbles to his sister. How many marbles does Tom have left?
+Ground truth: 9
+
+[DIRECT] 9
+  CORRECT
+
+[CoT] To find out how many marbles Tom has left, let's break down the information and work through it step by step.
+
+1. **Identify the initial number of marbles Tom has:**
+   - Tom starts with 5 red marbles and 7 blue marbles.
+   - Total marbles initially = red marbles + blue marbles = 5 + 7 = 12 marbles.
+
+2. **Determine the number of marbles Tom gives away:**
+   - Tom gives 3 red marbles to his sister.
+   - This means he is left with 5 - 3 = 2 red marbles.
+
+3. **Calculate the total number of marbles Tom has left:**
+   - Since Tom only gave away red marbles, the number of blue marbles remains the same, which is 7.
+   - The number of red marbles Tom has left is 2 (from step 2).
+   - Total marbles Tom has left = remaining red marbles + blue marbles = 2 + 7 = 9 marbles.
+
+Therefore, after giving 3 red marbles to his sister, Tom has 9 marbles left.
+  CORRECT
+
+
+====================================================================================================
+SUMMARY
+====================================================================================================
+Direct-answer accuracy: 4/8 (50.0%)
+Chain-of-Thought accuracy: 7/8 (87.5%)

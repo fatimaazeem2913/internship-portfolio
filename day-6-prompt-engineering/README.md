@@ -6,7 +6,7 @@ This project was completed as part of Day 6 internship tasks. The objective was 
 
 The work covers the five-component prompt anatomy, a measured comparison of zero-shot/one-shot/few-shot prompting across three distinct task types, a Chain-of-Thought accuracy experiment on 8 reasoning problems (several drawn from classic cognitive-reflection literature), a full ReAct (Reason + Act) trace for a simulated tool-using scenario, a reusable prompt template library for 5 common task types, and 10 documented best practices with before/after examples.
 
-**Methodology note:** `api.openai.com` is unreachable from this verification environment (confirmed directly in Day 5). Every prompting experiment here was genuinely run against Claude instead, since the prompting principles being tested (structure, demonstration, explicit reasoning, tool-use loops) are model-agnostic and documented across every major LLM family — see `REPORT.md`'s methodology note for the full explanation.
+**Methodology note:** all experiments in this project were run against a real, independent production LLM — Meta's Llama 3.3 70B, served via Groq's free API tier (fully OpenAI SDK-compatible, no credit card required). Prompts are stored as separate `.md` files under `prompts/`, loaded programmatically by `prompt_loader.py` and kept fully separate from application/API-calling code. See `REPORT.md` for the complete real results, including two genuinely useful findings surfaced only by real testing: a real tool-matching bug found and fixed in the ReAct script, and a real hallucination (an unrequested "65% layout" spec) observed in one few-shot generation response.
 
 ---
 
@@ -106,7 +106,9 @@ Documented in `REPORT.md` Part 6, each with a concrete before/after example draw
 
 ## Challenges Encountered
 
-- The task specification calls for testing against the OpenAI API, which is unreachable from this verification sandbox (confirmed directly in Day 5 — a request to `api.openai.com` returns a blocked/403 response). Rather than fabricate plausible-looking results, every experiment was run as a genuine, independently-reasoned attempt against Claude, with this substitution documented transparently in both `REPORT.md` and this README, since the underlying prompting principles being tested are model-agnostic.
+- OpenAI's API required billing credit to be added before any request would succeed, even with a valid key (a `429 insufficient_quota` error) — resolved by switching to Groq's free API tier instead, which is fully OpenAI SDK-compatible (only `base_url` and model name differ) and requires no payment method for a generous daily request allowance.
+- The first version of `react_pattern_demo_groq.py`'s `search_tool()` required an exact string match against the knowledge base. The real model phrased its search queries with natural variation ("Germany population" vs. the stored key "population of germany"), causing every lookup to fail and the agentic loop to exhaust its turn limit without an answer. Fixed by switching to keyword-overlap matching — a real bug, found and fixed through actual testing against a real model, that a scripted/simulated version would never have surfaced.
+- A real few-shot generation response included a "65% layout" spec that was never present in the input product description — a small, genuine hallucination surfaced by real API testing, documented honestly rather than omitted.
 - An early version of the Chain-of-Thought grading script had a substring-matching bug that marked a genuinely correct answer (~3,333 mice) as incorrect due to a formatting mismatch between the ground-truth string and the answer string — caught by inspecting the per-problem grading output directly rather than trusting the aggregate summary number, and fixed by aligning the ground-truth wording with the answer format.
 - Designing genuinely non-rigged test cases for the zero-shot/few-shot comparison required deliberately choosing tasks with real, well-documented ambiguity (sarcasm, unstated format conventions, unstated brand voice) rather than artificially difficult or contrived inputs — ensuring the zero-shot failures reflect a real, general phenomenon rather than a cherry-picked edge case.
 
@@ -139,7 +141,7 @@ Through this project, the following was learned:
 - That Chain-of-Thought prompting produces a dramatic, measurable accuracy improvement, but specifically and only on problems where a tempting-but-wrong shortcut exists — applying it universally has a real cost with no universal benefit.
 - How the ReAct pattern turns a language model into a tool-using agent by interleaving explicit reasoning with structured, externally-executed actions and real observations — the foundational pattern behind modern AI agent products.
 - How to build a maintainable, reusable prompt template library that separates prompt engineering from application logic, mirroring standard software engineering separation-of-concerns practices.
-- How to design genuinely fair, non-rigged experiments when a specified tool (the OpenAI API) is unavailable, and how to document that substitution transparently rather than either fabricating results or silently skipping the task.
+- How to diagnose and fix a real bug (brittle exact-match tool lookup) surfaced only through genuine testing against an independent model, and how honest, non-simulated testing surfaces findings — like a real few-shot-induced hallucination — that a self-reasoned simulation would never catch.
 
 ---
 

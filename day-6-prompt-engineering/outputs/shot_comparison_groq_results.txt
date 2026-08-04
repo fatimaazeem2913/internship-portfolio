@@ -1,0 +1,102 @@
+====================================================================================================
+ZERO/ONE/FEW-SHOT COMPARISON -- REAL Groq Free API (llama-3.3-70b-versatile)
+====================================================================================================
+
+
+####################################################################################################
+TASK: CLASSIFICATION
+####################################################################################################
+
+Input: Oh great, ANOTHER update that breaks the login page. Exactly what I needed today.
+
+--- ZERO_SHOT ---
+Response: The sentiment of this review is Negative. The use of sarcasm ("Oh great") and the phrase "Exactly what I needed today" (which is clearly meant to be ironic) indicate frustration and annoyance with the update.
+
+--- ONE_SHOT ---
+Response: Negative (sarcastic -- complaining about a software update causing problems)
+
+--- FEW_SHOT ---
+Response: Negative (sarcastic -- complaining about a frustrating update)
+
+
+####################################################################################################
+TASK: EXTRACTION
+####################################################################################################
+
+Input: Invoice ref 88213 -- billed to Marcus Aurelius Consulting, due 3rd of Nov, amount owing: two thousand four hundred and fifty dollars
+
+--- ZERO_SHOT ---
+Response: Here are the extracted details:
+
+* Client name: Marcus Aurelius Consulting
+* Due date: 3rd of November
+* Amount: $2,450
+
+--- ONE_SHOT ---
+Response: To extract the required information from the given invoice text, we can follow these steps:
+
+1. Identify the client name: "Marcus Aurelius Consulting"
+2. Identify the due date: "3rd of Nov". Since the year is not specified, we assume it's 2026. So, the due date in YYYY-MM-DD format is "2026-11-03".
+3. Identify the amount: "two thousand four hundred and fifty dollars". Converting this to a plain number gives us 2450.
+
+So, the extracted information in the required format is:
+
+{"name": "Marcus Aurelius Consulting", "due_date": "2026-11-03", "amount": 2450}
+
+--- FEW_SHOT ---
+Response: To extract the required information from the given invoice text, we can follow these steps:
+
+1. Identify the client name: "Marcus Aurelius Consulting"
+2. Identify the due date: "3rd of Nov". Since the year is not given, we assume it's 2026. So, the due date in YYYY-MM-DD format is "2026-11-03".
+3. Identify the amount: "two thousand four hundred and fifty dollars". Converting this to a plain number gives us 2450.
+
+So, the extracted information in the required format is:
+
+{"name": "Marcus Aurelius Consulting", "due_date": "2026-11-03", "amount": 2450}
+
+
+####################################################################################################
+TASK: GENERATION
+####################################################################################################
+
+Input: a wireless mechanical keyboard with hot-swappable switches and a 4000mAh battery
+
+--- ZERO_SHOT ---
+Response: **Introducing the Ultimate Wireless Mechanical Keyboard: Freedom to Type, Unleashed**
+
+Take your typing experience to the next level with our cutting-edge wireless mechanical keyboard, designed to deliver unparalleled performance, customization, and convenience. This revolutionary keyboard boasts hot-swappable switches, allowing you to tailor your typing experience to your unique preferences, and a massive 4000mAh battery that keeps you typing for days on end.
+
+**Hot-Swappable Switches: Customize Your Typing Experience**
+
+With our innovative hot-swappable switch design, you can easily swap out switches to suit your typing style, without the need for soldering or technical expertise. Choose from a wide range of switch types, including linear, tactile, and clicky, to find the perfect balance of sound, feel, and feedback. Whether you're a gamer, programmer, or writer, our hot-swappable switches ensure that your keyboard is tailored to your unique needs.
+
+**Long-Lasting Battery Life: Type for Days**
+
+Our wireless mechanical keyboard is powered by a massive 4000mAh battery, providing up to 2 weeks of continuous use on a single charge. With our advanced power-saving technology, you can enjoy uninterrupted typing sessions, even on the go. When it's time to recharge, simply plug in the included USB-C cable and get back to typing in no time.
+
+**Wireless Freedom: Cut the Cord, Not the Performance**
+
+Experience the freedom to type anywhere, without the constraints of a wired connection. Our wireless mechanical keyboard uses advanced 2.4GHz wireless technology, providing a stable and reliable connection with minimal latency. With a range of up to 10 meters, you can type from the comfort of your couch, or take your keyboard on the go.
+
+**Premium Features: Built to Last**
+
+Our wireless mechanical keyboard is built with premium materials and designed to withstand the rigors of heavy use. With a durable aluminum frame, double-shot keycaps, and a spill-resistant design, you can trust that your keyboard will withstand even the toughest typing sessions.
+
+**Key Features:**
+
+* Hot-swappable switches for customizable typing experience
+* 4000mAh battery with up to 2 weeks of continuous use
+* Advanced 2.4GHz wireless technology with minimal latency
+* Durable aluminum frame and double-shot keycaps
+* Spill-resistant design for added protection
+* Compatible with Windows, Mac, and Linux operating systems
+
+**Upgrade Your Typing Experience:**
+
+Experience the ultimate in wireless mechanical keyboard technology. Order yours today and discover a new world of typing freedom and customization.
+
+--- ONE_SHOT ---
+Response: Wireless mechanical keyboard. Hot-swappable switches. 4000mAh battery. Compatible with Cherry MX-style switches. USB-C charging.
+
+--- FEW_SHOT ---
+Response: "Wireless connectivity. Hot-swappable switches. 4000mAh battery. Approx. 100 hours per charge. 65% layout. Aluminum frame. USB-C charging. Compatible with Cherry MX-style switches."
