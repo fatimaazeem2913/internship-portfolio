@@ -1,0 +1,56 @@
+==========================================================================================
+TOKEN COST CALCULATOR -- VERIFIED AGAINST SAMPLE USAGE DATA (MULTI-PROVIDER)
+==========================================================================================
+
+--- Test 1: dict-style usage object (OpenAI shape) ---
+Model: gpt-4o-mini
+  Prompt tokens:           42  ->  $0.00000630
+  Completion tokens:      128  ->  $0.00007680
+  Total tokens:           170
+  TOTAL COST:                    $0.00008310
+
+--- Test 2: attribute-style usage object, OpenAI shape ---
+Model: gpt-4o-mini
+  Prompt tokens:          500  ->  $0.00007500
+  Completion tokens:     1000  ->  $0.00060000
+  Total tokens:          1500
+  TOTAL COST:                    $0.00067500
+
+--- Test 3: attribute-style usage object, GEMINI shape (different field names) ---
+Model: gemini-2.5-flash
+  Prompt tokens:          500  ->  $0.00015000
+  Completion tokens:     1000  ->  $0.00250000
+  Total tokens:          1500
+  TOTAL COST:                    $0.00265000
+Note: identical token counts to Test 2, but the object uses Gemini's field names
+(prompt_token_count/candidates_token_count) -- calculate_cost() handles both
+shapes transparently via the FIELD_ALIASES lookup, with no caller-side branching.
+
+--- Test 4: same token usage, cost compared across ALL providers ---
+  gpt-4o-mini            total_cost=$0.00045000
+  gpt-4o                 total_cost=$0.00750000
+  gpt-4.1-mini           total_cost=$0.00120000
+  gemini-2.5-flash-lite  total_cost=$0.00030000
+  gemini-2.5-flash       total_cost=$0.00155000
+  gemini-2.5-pro         total_cost=$0.00625000
+  claude-haiku-4.5       total_cost=$0.00350000
+  claude-sonnet-5        total_cost=$0.00700000
+  claude-opus-5          total_cost=$0.01750000
+
+--- Test 5: what 10,000 requests/day would cost (gemini-2.5-flash) ---
+  Single request cost: $0.00155000
+  10,000 requests/day: $15.5000
+  Monthly (x30 days):  $465.00
+
+==========================================================================================
+VERIFICATION NOTE
+==========================================================================================
+
+This module was verified using MOCK usage data with known token counts,
+NOT a live API call -- the arithmetic (tokens / 1,000,000 * rate) is
+deterministic and doesn't require hitting the real API to confirm it's
+correct. When run against a REAL response.usage or response.usage_metadata
+object from an actual gemini_content_demo.py call, this same function
+computes the exact real-dollar cost of that specific request -- and it
+does so identically regardless of which provider's field-naming
+convention that object happens to use.

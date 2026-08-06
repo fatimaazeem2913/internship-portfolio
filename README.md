@@ -13,6 +13,7 @@ This repository contains all work completed during my AI/ML internship, organize
 | Day 5 | How LLMs work internally — training pipeline, autoregressive generation, sampling strategies from scratch, architecture comparison, emergent capabilities | [`day-5-llm-internals/`](./day-5-llm-internals) |
 | Day 6 | Prompt engineering fundamentals — prompt anatomy, zero/one/few-shot comparison, Chain-of-Thought accuracy testing, ReAct pattern, reusable template library | [`day-6-prompt-engineering/`](./day-6-prompt-engineering) |
 | Day 7 | Week 1 review mini-project — full RAG pipeline (PDF extraction, 3-way retrieval, structured LLM prompting), code refactoring, and a complete Transformer walkthrough | [`day-7-week1-review/`](./day-7-week1-review) |
+| Day 8 | OpenAI SDK setup & programmable executions — structured prompts, token cost economics, Chat Completions vs Responses API (via Gemini's parallel generateContent vs Interactions API), streaming, and a cross-provider model comparison | [`day-8-openai-sdk-setup/`](./day-8-openai-sdk-setup) |
 ## The Full Arc
 
 Each day is designed to expose a specific limitation of the previous day's approach:
@@ -25,6 +26,9 @@ The full technical progression is documented in each day's `REPORT.md` and `READ
 - **Day 5** shows how these components are assembled into a real training pipeline (pre-training → SFT → RLHF), demonstrates that autoregressive generation is just "predict, sample, append, repeat" using a real self-built language model, and researches the emergent capabilities that appear only once this simple objective is scaled far enough.
 - **Day 6** shows how to get reliable, controllable behavior out of a model whose weights you cannot change — measuring, against a real, independent production model (Llama 3.3 70B via Groq's free API), exactly how much structure, demonstration, and explicit reasoning improve output quality and accuracy (CoT: 50% → 87.5%), building the tool-use pattern (ReAct) that turns a language model into an agent, and along the way finding and fixing a real tool-matching bug and documenting a genuine few-shot-induced hallucination — the kind of finding only real API testing surfaces.
 - **Day 7** assembles everything from Week 1 into one working system — a real retrieval-augmented generation pipeline — and closes with a full stage-by-stage Transformer walkthrough tracing a real query from raw text to a sampled output token.
+## Phase 2: LLM APIs & Full-Stack Chat (Days 8-14)
+
+- **Day 8** opens Phase 2 by making LLM API economics concrete — real token cost calculation across OpenAI, Gemini, and Claude, a genuine architectural parallel discovered between Gemini's Interactions API and OpenAI's Responses API, and a verified 58x monthly cost spread across provider tiers for identical request volume.
  ## Author
 
 **Fatima Azeem**
