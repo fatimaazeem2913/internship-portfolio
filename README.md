@@ -30,8 +30,9 @@ The full technical progression is documented in each day's `REPORT.md` and `READ
 ## Phase 2: LLM APIs & Full-Stack Chat (Days 8-14)
 
 - **Day 8** opens Phase 2 by making LLM API economics concrete — real token cost calculation across OpenAI, Gemini, and Claude, a genuine architectural parallel discovered between Gemini's Interactions API and OpenAI's Responses API, and a verified 58x monthly cost spread across provider tiers for identical request volume.
- ## Author
+
 - **Day 9** turns Day 6's prompt-engineering principles into tested production code, and along the way discovers and proves — with real executed data — that Google silently deprecated temperature control on its newest Gemini models: a creative task produced 3 fully distinct outputs even at temperature=0.0, direct empirical evidence the parameter no longer does anything.
+ ## Author
 **Fatima Azeem**
 AI/ML Internship
 
