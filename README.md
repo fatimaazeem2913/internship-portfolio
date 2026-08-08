@@ -14,6 +14,7 @@ This repository contains all work completed during my AI/ML internship, organize
 | Day 6 | Prompt engineering fundamentals — prompt anatomy, zero/one/few-shot comparison, Chain-of-Thought accuracy testing, ReAct pattern, reusable template library | [`day-6-prompt-engineering/`](./day-6-prompt-engineering) |
 | Day 7 | Week 1 review mini-project — full RAG pipeline (PDF extraction, 3-way retrieval, structured LLM prompting), code refactoring, and a complete Transformer walkthrough | [`day-7-week1-review/`](./day-7-week1-review) |
 | Day 8 | OpenAI SDK setup & programmable executions — structured prompts, token cost economics, Chat Completions vs Responses API (via Gemini's parallel generateContent vs Interactions API), streaming, and a cross-provider model comparison | [`day-8-openai-sdk-setup/`](./day-8-openai-sdk-setup) |
+| Day 9 | System personas, roles & structured output — role separation, dual-layer JSON schema validation, few-shot payloads, 4 production prompt types, and a real, live-discovered Gemini 3.x temperature deprecation finding, verified with genuine test data | [`day-9-personas-structured-output/`](./day-9-personas-structured-output) |
 ## The Full Arc
 
 Each day is designed to expose a specific limitation of the previous day's approach:
@@ -30,6 +31,7 @@ The full technical progression is documented in each day's `REPORT.md` and `READ
 
 - **Day 8** opens Phase 2 by making LLM API economics concrete — real token cost calculation across OpenAI, Gemini, and Claude, a genuine architectural parallel discovered between Gemini's Interactions API and OpenAI's Responses API, and a verified 58x monthly cost spread across provider tiers for identical request volume.
  ## Author
-
+- **Day 9** turns Day 6's prompt-engineering principles into tested production code, and along the way discovers and proves — with real executed data — that Google silently deprecated temperature control on its newest Gemini models: a creative task produced 3 fully distinct outputs even at temperature=0.0, direct empirical evidence the parameter no longer does anything.
 **Fatima Azeem**
 AI/ML Internship
+

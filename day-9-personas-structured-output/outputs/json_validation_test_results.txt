@@ -1,0 +1,50 @@
+==========================================================================================
+JSON SCHEMA ENFORCEMENT -- VALIDATION LOGIC TEST (pure Python, no API needed)
+==========================================================================================
+
+Schema requires: ['sentiment', 'confidence', 'key_points', 'product_mentioned']
+Valid sentiment values: {'positive', 'mixed', 'negative', 'neutral'}
+
+--- Valid, well-formed response ---
+Raw input: {"sentiment": "positive", "confidence": 0.92, "key_points": ["fast shipping", "great build quality"]...
+Status: OK
+Validated data: {'sentiment': 'positive', 'confidence': 0.92, 'key_points': ['fast shipping', 'great build quality'], 'product_mentioned': 'wireless keyboard'}
+
+--- Wrapped in markdown code fences (common real deviation) ---
+Raw input: ```json
+{"sentiment": "negative", "confidence": 0.78, "key_points": ["broke after a week"], "product...
+Status: OK
+Validated data: {'sentiment': 'negative', 'confidence': 0.78, 'key_points': ['broke after a week'], 'product_mentioned': 'phone case'}
+
+--- Missing a required field ---
+Raw input: {"sentiment": "positive", "confidence": 0.85, "key_points": ["good value"]}
+Status: VALIDATION_ERROR
+Error(s): ["Missing required field: 'product_mentioned'"]
+
+--- Invalid sentiment value (model didn't respect enum) ---
+Raw input: {"sentiment": "very happy", "confidence": 0.9, "key_points": ["loved it"], "product_mentioned": "bac...
+Status: VALIDATION_ERROR
+Error(s): ["Invalid sentiment value: 'very happy' (must be one of {'positive', 'mixed', 'negative', 'neutral'})"]
+
+--- confidence out of range ---
+Raw input: {"sentiment": "positive", "confidence": 1.5, "key_points": ["excellent"], "product_mentioned": "mug"...
+Status: VALIDATION_ERROR
+Error(s): ['confidence must be between 0 and 1, got 1.5']
+
+--- Completely malformed JSON ---
+Raw input: {sentiment: positive, confidence: 0.9,,, key_points: [}
+Status: PARSE_ERROR
+Error(s): JSON parsing failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+--- Wrong type for key_points (string instead of array) ---
+Raw input: {"sentiment": "neutral", "confidence": 0.5, "key_points": "it was okay", "product_mentioned": "lamp"...
+Status: VALIDATION_ERROR
+Error(s): ["Field 'key_points' has wrong type: expected <class 'list'>, got str"]
+
+==========================================================================================
+SUMMARY: 2/7 test cases resulted in valid, usable data
+(This is EXPECTED and CORRECT -- only 2 of 7 cases were deliberately valid or
+ recoverable; the other 5 were deliberately broken in different realistic ways
+ to prove the validation pipeline actually catches each failure mode distinctly
+ rather than crashing or silently accepting bad data.)
+==========================================================================================

@@ -1,0 +1,48 @@
+==========================================================================================
+FEW-SHOT EXAMPLES EMBEDDED IN MESSAGE PAYLOAD -- DATE NORMALIZATION
+==========================================================================================
+
+System instruction: You convert dates into strict ISO 8601 format (YYYY-MM-DD). Output ONLY the converted date, nothing else. If a year is not given, assume 2026.
+
+Few-shot payload (8 turns, 4 examples):
+  USER: 3rd of November
+  MODEL: 2026-11-03
+  USER: July 4, 1998
+  MODEL: 1998-07-04
+  USER: next Monday (today is 2026-08-03)
+  MODEL: 2026-08-10
+  USER: 12/25/2025
+  MODEL: 2025-12-25
+
+------------------------------------------------------------------------------------------
+TEST CASES: zero-shot (no examples) vs. few-shot (examples as message history)
+------------------------------------------------------------------------------------------
+
+Input: "Feb 14"   (expected: 2026-02-14)
+  Zero-shot result: 2026-02-14   CORRECT
+  Few-shot result:  2026-02-14   CORRECT
+
+Input: "the 1st of Jan, 2024"   (expected: 2024-01-01)
+  Zero-shot result: 2024-01-01   CORRECT
+  Few-shot result:  2024-01-01   CORRECT
+
+Input: "03/09/2026"   (expected: 2026-03-09)
+  Zero-shot result: 2026-03-09   CORRECT
+  Few-shot result:  2026-03-09   CORRECT
+
+Input: "this Friday (today is 2026-08-03)"   (expected: 2026-08-07)
+  Zero-shot result: 2026-08-07   CORRECT
+  Few-shot result:  2026-08-07   CORRECT
+
+==========================================================================================
+WHAT TO LOOK FOR IN REAL RESULTS
+==========================================================================================
+
+The most interesting test case is "03/09/2026" -- this is genuinely
+ambiguous (March 9th in MM/DD/YYYY, or September 3rd in DD/MM/YYYY).
+Without examples, the model has to guess a convention. WITH the few-shot
+examples above -- which included "12/25/2025" -> "2025-12-25" (unambiguous,
+since there's no 25th month, proving MM/DD/YYYY) -- the model has a
+concrete, demonstrated convention to follow rather than an assumption.
+This is the same principle verified in Day 6: examples resolve ambiguity
+through demonstration more reliably than a prose rule alone.

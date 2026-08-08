@@ -1,0 +1,83 @@
+==========================================================================================
+TEMPERATURE EXPERIMENT: FACTUAL TASK vs. CREATIVE TASK
+==========================================================================================
+
+##########################################################################################
+TASK TYPE 1: FACTUAL CLASSIFICATION (determinism is desirable)
+##########################################################################################
+Prompt: Review: "The product arrived on time and works exactly as described."
+
+--- Temperature = 0.0 ---
+  Run 1: Positive
+  Run 2: Positive
+  Run 3: Positive
+  Unique outputs across 3 runs: 1
+
+--- Temperature = 0.7 ---
+  Run 1: Positive
+  Run 2: Positive
+  Run 3: Positive
+  Unique outputs across 3 runs: 1
+
+--- Temperature = 1.5 ---
+  Run 1: Positive
+  Run 2: Positive
+  Run 3: Positive
+  Unique outputs across 3 runs: 1
+
+
+##########################################################################################
+TASK TYPE 2: CREATIVE COPYWRITING (variety is desirable)
+##########################################################################################
+Prompt: Write a one-sentence tagline for a new brand of hiking boots.
+
+--- Temperature = 0.0 ---
+  Run 1: Leave the map behind, follow your feet, and conquer the wild.
+  Run 2: Leave the trail behind, take the wild with you.
+  Run 3: Leave the map behind and let the earth guide you.
+  Unique outputs across 3 runs: 3
+
+--- Temperature = 0.7 ---
+  Run 1: Conquer the unknown, one trail at a time.
+  Run 2: Conquer the trail, not your feet.
+  Run 3: Built for the wild spaces between where the trail ends and your comfort zone begins.
+  Unique outputs across 3 runs: 3
+
+--- Temperature = 1.5 ---
+  Run 1: Leave the map behind and let the wild lead the way.
+  Run 2: Forge your own path, one summit at a time.
+  Run 3: Leave the trail behind, find where you belong.
+  Unique outputs across 3 runs: 3
+
+
+==========================================================================================
+PRODUCTION GUIDANCE: WHEN TO USE EACH TEMPERATURE
+==========================================================================================
+
+LOW temperature (0.0-0.2) -- use for:
+  - Classification, extraction, structured data generation (Day 9's JSON
+    schema task) -- you want the SAME correct answer every time
+  - Code generation -- you want the most statistically likely (usually
+    most conventional, most correct) code, not a "creative" variant
+  - Anything feeding into automated downstream processing, where
+    inconsistent output format would break a pipeline
+  - RAG/factual Q&A (Day 7's finding) -- there's one correct,
+    context-supported answer; don't introduce unnecessary variation
+
+MEDIUM temperature (0.5-0.8) -- use for:
+  - General conversational assistants -- natural-sounding variation in
+    phrasing without drifting into randomness
+  - Summarization where slight rewording between runs is acceptable
+
+HIGH temperature (1.0+) -- use for:
+  - Creative writing, brainstorming, marketing copy, taglines -- exactly
+    where you WANT different runs to produce genuinely different ideas
+  - A/B testing multiple creative variants from a single prompt
+
+THE CORE PRINCIPLE (Day 5/6, confirmed again here): temperature controls
+how much the probability distribution over next tokens is sharpened
+(low T) or flattened (high T) before sampling. On a FACTUAL task there is
+one correct answer, so sharpening toward it is exactly what you want. On
+a CREATIVE task there are many EQUALLY VALID answers, so flattening
+toward diversity is exactly what you want. The mechanism is identical
+either way -- only which behavior is DESIRABLE changes with the task.

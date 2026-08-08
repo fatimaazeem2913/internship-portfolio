@@ -1,0 +1,81 @@
+==========================================================================================
+FOUR PRODUCTION PROMPT TYPES
+==========================================================================================
+
+##########################################################################################
+1. STRUCTURED JSON GENERATION
+##########################################################################################
+Input: A stainless steel insulated water bottle, 32oz, keeps drinks cold for 24 hours
+Output: {"name": "32oz Insulated Stainless Steel Water Bottle", "category": "Sports & Outdoors", "price_estimate_usd": 29.99, "tags": ["water bottle", "stainless steel", "insulated", "32oz", "cold drinks", "eco-friendly"], "target_audience": "fitness enthusiasts and outdoor adventurers"}
+Parses as valid JSON: True -- {'name': '32oz Insulated Stainless Steel Water Bottle', 'category': 'Sports & Outdoors', 'price_estimate_usd': 29.99, 'tags': ['water bottle', 'stainless steel', 'insulated', '32oz', 'cold drinks', 'eco-friendly'], 'target_audience': 'fitness enthusiasts and outdoor adventurers'}
+
+##########################################################################################
+2. UNSTRUCTURED TEXT PARSING
+##########################################################################################
+Input email: Hi, this is the third time I'm emailing about my account being charged twice for the same subscripti...
+Output: {"customer_name": "Priya Sharma", "issue_category": "billing", "urgency": "high", "summary": "Priya Sharma is urgently requesting a resolution for being charged twice for her subscription last week."}
+
+##########################################################################################
+3. CODE GENERATION
+##########################################################################################
+Task: returns the running median of a stream of numbers as each new number arrives
+Output:
+```python
+import heapq
+from typing import Generator, List, Union
+
+
+def running_median(
+    stream: List[Union[int, float]]
+) -> Generator[Union[int, float], None, None]:
+    """Calculates the running median of a stream of numbers.
+
+    Parameters:
+    - stream (List[Union[int, float]]): An iterable or list of numbers representing the stream.
+
+    Yields:
+    - Union[int, float]: The median of the numbers seen so far.
+
+    Edge Cases:
+    - If the stream is empty (contains no elements), calling `next()` on the generator
+      or iterating over it will yield nothing. If an immediate result is needed for an
+      empty stream, calling `next(gen, None)` handles this gracefully.
+
+    Complexity:
+    - Time: O(log N) per number, where N is the number of elements processed so far.
+    - Space: O(N) to store the elements in two heaps.
+    """
+    if not stream:
+        return
+
+    # max_heap stores the smaller half of the numbers (inverted to use Python's min-heap)
+    max_heap: List[Union[int, float]] = []
+    # min_heap stores the larger half of the numbers
+    min_heap: List[Union[int, float]] = []
+
+    for num in stream:
+        # Step 1: Add to heaps
+        if not max_heap or num <= -max_heap[0]:
+            heapq.heappush(max_heap, -num)
+        else:
+            heapq.heappush(min_heap, num)
+
+        # Step 2: Balance the heaps
+        # max_heap can have at most one more element than min_heap
+        if len(max_heap) > len(min_heap) + 1:
+            heapq.heappush(min_heap, -heapq.heappop(max_heap))
+        elif len(min_heap) > len(max_heap):
+            heapq.heappush(max_heap, -heapq.heappop(min_heap))
+
+        # Step 3: Compute median
+        if len(max_heap) == len(min_heap):
+            yield (-max_heap[0] + min_heap[0]) / 2.0
+        else:
+            yield float(-max_heap[0])
+```
+
+##########################################################################################
+4. DOCUMENT SUMMARIZATION
+##########################################################################################
+Document length: 485 characters
+Summary (2 sentences requested): Launched in December 2021, the James Webb Space Telescope is positioned roughly 1.5 million kilometers from Earth at the second Lagrange point. Its 6.5-meter primary mirror consists of 18 hexagonal gold-coated beryllium segments that allow it to observe in the infrared spectrum.
