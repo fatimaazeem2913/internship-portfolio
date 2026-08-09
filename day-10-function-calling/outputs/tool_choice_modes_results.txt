@@ -1,0 +1,72 @@
+==========================================================================================
+TOOL_CHOICE / TOOL_CONFIG MODES: AUTO vs ANY vs NONE
+==========================================================================================
+
+Test question (deliberately tool-use-optional): "Tell me something interesting about the number 42."
+
+------------------------------------------------------------------------------------------
+MODE: AUTO (default -- model decides for itself)
+------------------------------------------------------------------------------------------
+Model answered directly (no tool call): The number **42** is most famous for being the **"Answer to the Ultimate Question of Life, the Universe, and Everything"** in Douglas Adams' iconic science fiction series *The Hitchhiker's Guide to the Galaxy*. In the story, a supercomputer named Deep Thought spent 7.5 million years calculating this answer, though no one actually knows what the Ultimate *Question* is!
+
+Here are a few other fascinating mathematical, scientific, and cultural trivia facts about 42:
+
+* **Mathematics:** 42 is the sum of the first six positive even integers ($2 + 4 + 6 + 8 + 10 + 12 = 42$). It is also a **pronic number** (the product of two consecutive integers: $6 \times 7 = 42$) and a **Catalan number**, which appears in various counting problems in combinatorics.
+* **Physics & Nature:** 42 degrees is approximately the angle at which light is refracted by water droplets to create a **rainbow**. 
+* **Chemistry:** 42 is the atomic number of the transition metal **Molybdenum**.
+* **Astronomy:** In Messier's catalog of deep-sky objects, **M42** is the famous **Orion Nebula**, one of the brightest nebulae visible to the naked eye.
+* **Sports:** In professional baseball, **42 is the only number retired across Major League Baseball** in honor of **Jackie Robinson**, who broke the color barrier in the modern MLB. Every year on April 15 ("Jackie Robinson Day"), all players and coaches wear the number 42.
+* **Publishing:** The standard **Gutenberg Bible**, the first major book printed using movable metal type in the West, is often called the "42-line Bible" because most of its pages contain columns of 42 lines of text.
+
+------------------------------------------------------------------------------------------
+MODE: ANY (model is FORCED to call some tool, even if unhelpful)
+------------------------------------------------------------------------------------------
+Model was forced to call: search_database({'query': '42'})
+(Notice: this tool call may not actually be useful for this
+ question -- ANY mode forces SOME call, not necessarily a SENSIBLE one.)
+
+------------------------------------------------------------------------------------------
+MODE: NONE (tools visible but calling disabled -- must answer directly)
+------------------------------------------------------------------------------------------
+Model answered directly, as required: Aside from being famously known from Douglas Adams' *The Hitchhiker’s Guide to the Galaxy* as the "Answer to the Ultimate Question of Life, the Universe, and Everything," the number 42 has some genuinely fascinating mathematical, scientific, and cultural trivia attached to it:
+
+### 1. The Geometry of a Rainbow
+Why do we see rainbows as arcs in the sky? It’s all because of the number 42. When sunlight enters a raindrop, it is refracted (bent), reflected off the back of the drop, and refracted again as it exits. While light exits at various angles, the most intense concentration of light—the angle at which the light is brightest and creates the visible rainbow—leaves the drop at **42 degrees**. 
+
+### 2. The "33" Mystery in Mathematics
+For decades, mathematicians were stumped by a problem involving "sums of three cubes." The question was: can every integer up to 100 be written as the sum of three cubed numbers (e.g., $x^3 + y^3 + z^3 = k$)? 
+
+For a long time, the number 42 was one of the final holdouts under 100 that nobody could solve. Finally, in 2019, supercomputers using the power of the global computing grid found the solution for 42:
+* $(-80538738812075974^3) + (80435758145817515^3) + (12602123297335631^3) = 42$
+
+### 3. Light and Chemistry
+* **The Atom:** 42 is the atomic number of **molybdenum**, a transition metal essential to almost all living organisms (used by enzymes to transfer oxygen).
+* **The Speed of Light:** In physics, the dimensionless fine-structure constant (which characterizes the strength of the electromagnetic interaction) is roughly $1/137$. Curiously, physicists have occasionally engaged in playful numerology trying to link fundamental constants to 42, but the rainbow fact remains the coolest hard-science tie-in.
+
+### 4. Biology and Origami
+If you take a standard piece of paper (any rectangular paper) and try to fold it in half repeatedly, the physical limit for most paper is **7 folds**. However, if you have a massive sheet of paper—like a mile-long roll of toilet paper—and you fold it back and forth continuously, you only need **42 folds** to reach the distance from the Earth to the Moon! ($2^{42}$ thickness is about 238,000 miles).
+
+### 5. Baseball Immortality
+In Major League Baseball, the number 42 is the only number permanently retired across *every single team*. It was worn by **Jackie Robinson**, who broke the color barrier in modern baseball. Every year on April 15th ("Jackie Robinson Day"), every single player, manager, and umpire wears the number 42.
+
+==========================================================================================
+WHEN TO USE EACH MODE IN PRODUCTION
+==========================================================================================
+
+AUTO (the default): use for general-purpose assistants where you genuinely
+  don't know in advance whether a given user question will need a tool --
+  let the model decide per-request, exactly like function_calling_loop.py
+  and multi_tool_agent.py in this project.
+
+ANY: use when you KNOW the task always requires a tool call and want to
+  eliminate the "model declines" edge case entirely -- e.g. a dedicated
+  "calculate my order total" endpoint that should ALWAYS invoke your
+  pricing tools, never attempt to answer from memory. Trade-off: if the
+  question genuinely doesn't need a tool, ANY mode still forces one,
+  potentially producing an unhelpful or irrelevant call.
+
+NONE: use to temporarily disable tool use without removing the tool
+  definitions from your code -- useful for A/B testing tool-augmented vs.
+  non-tool-augmented responses, or for a "safe mode" fallback if a tool
+  backend is known to be down and you'd rather get a direct (possibly
+  less accurate) answer than a guaranteed failed tool call.

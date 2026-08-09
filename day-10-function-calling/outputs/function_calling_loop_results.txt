@@ -1,0 +1,35 @@
+==========================================================================================
+FULL FUNCTION CALLING LOOP -- 5 STAGES, ALL VISIBLE
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+QUESTION: What time is it right now in Tokyo?
+------------------------------------------------------------------------------------------
+[Model requested: get_current_time({'timezone_name': 'Asia/Tokyo'})]
+[Local execution result: {'timezone': 'Asia/Tokyo', 'datetime': '2026-08-09 17:15:52', 'day_of_week': 'Sunday'}]
+
+FINAL ANSWER: The current time in Tokyo is 5:15 PM on Sunday, August 9, 2026.
+
+------------------------------------------------------------------------------------------
+QUESTION: What's 4127 multiplied by 8912, divided by 3?
+------------------------------------------------------------------------------------------
+[Model requested: calculate({'expression': '(4127 * 8912) / 3'})]
+[Local execution result: {'result': 12259941.333333334}]
+
+FINAL ANSWER: 4,127 multiplied by 8,912, divided by 3 is **12,259,941.33** (repeating).
+
+------------------------------------------------------------------------------------------
+QUESTION: Do you have a wireless keyboard in stock, and how much is it?
+------------------------------------------------------------------------------------------
+[Model requested: search_database({'query': 'wireless keyboard'})]
+[Local execution result: {'found': True, 'product': 'wireless keyboard', 'price_usd': 79.99, 'stock': 142, 'category': 'peripherals'}]
+
+FINAL ANSWER: Yes, we do have a wireless keyboard in stock! We currently have 142 units available, and the price is $79.99.
+
+------------------------------------------------------------------------------------------
+QUESTION: Format 45000.5 as Pakistani Rupees.
+------------------------------------------------------------------------------------------
+[Model requested: format_currency({'currency_code': 'PKR', 'amount': 45000.5})]
+[Local execution result: {'formatted': 'Rs45,000', 'currency_code': 'PKR'}]
+
+FINAL ANSWER: Rs45,000

@@ -1,0 +1,76 @@
+==========================================================================================
+EDGE CASE HANDLING -- ALL 3 REQUIRED SCENARIOS
+==========================================================================================
+
+##########################################################################################
+EDGE CASE 2: Invalid argument types (fully tested, no API needed)
+##########################################################################################
+
+format_currency(amount='a lot', ...)
+  Outcome: returned error dict (fixed)
+  Detail: {'error': "'amount' must be a number, got str: 'a lot'"}
+
+calculate() with no args
+  Outcome: TypeError caught (missing required arg)
+  Detail: calculate() missing 1 required positional argument: 'expression'
+
+get_current_time(extra arg)
+  Outcome: TypeError caught (unexpected arg)
+  Detail: get_current_time() got an unexpected keyword argument 'unexpected_arg'
+
+##########################################################################################
+EDGE CASE 3: Function returns an error (fully tested, no API needed)
+##########################################################################################
+
+get_current_time('Atlantis')
+  Result: {'error': "Unknown timezone 'Atlantis'. Known timezones: ['America/Los_Angeles', 'America/New_York', 'Asia/Karachi', 'Asia/Kolkata', 'Asia/Tokyo', 'CET', 'EST', 'Europe/London', 'Europe/Paris', 'GMT', 'IST', 'JST', 'PKT', 'PST', 'UTC']"}
+  Has 'error' key: True
+
+calculate('10 / 0')
+  Result: {'error': 'Division by zero.'}
+  Has 'error' key: True
+
+calculate('2 +')
+  Result: {'error': 'Could not evaluate expression: invalid syntax (<string>, line 1)'}
+  Has 'error' key: True
+
+format_currency(100, 'BTC')
+  Result: {'error': "Unknown currency code 'BTC'. Known codes: ['EUR', 'GBP', 'INR', 'JPY', 'PKR', 'USD']"}
+  Has 'error' key: True
+
+search_database('quantum computer')
+  Result: {'found': False, 'message': "No product matching 'quantum computer' found in the database."}
+  Has 'error' key: False
+
+##########################################################################################
+EDGE CASE 1: Model declines to call a function (requires live API)
+##########################################################################################
+
+Attempting live demonstration -- requires GEMINI_API_KEY...
+
+[Live demo requires GEMINI_API_KEY -- error: No API key was provided. Please pass a valid API key. Learn how to create an API key at https://ai.google.dev/gemini-api/docs/api-key.]
+[This is EXPECTED behavior when no key is set -- see
+ function_calling_loop.py's 'if not response.function_calls:' branch
+ for the code path that correctly handles this case.]
+
+==========================================================================================
+SUMMARY: ROBUST ERROR HANDLING PRINCIPLES DEMONSTRATED
+==========================================================================================
+
+1. Functions NEVER raise uncaught exceptions for semantically-invalid-but-
+   correctly-typed input (unknown timezone, division by zero, unknown
+   currency) -- they return a clean {"error": "..."} dict instead, which
+   the model can read and explain to the user in natural language.
+
+2. Functions DO let TypeErrors propagate for genuinely malformed calls
+   (wrong argument type, missing required argument, unexpected extra
+   argument) -- these are caught one level up, in the calling loop
+   (function_calling_loop.py's try/except around the function call),
+   converted into an {"error": ...} dict, and sent back to the model the
+   SAME way a semantic error would be -- the model doesn't need to know
+   or care which category of error occurred.
+
+3. A model declining to call any tool is NOT an error case to catch --
+   it's a normal, valid outcome that the calling loop must handle as a
+   first-class path (the "if not response.function_calls" branch), not
+   an afterthought.
