@@ -1,0 +1,38 @@
+==========================================================================================
+FASTAPI APPLICATION -- FULL TEST SUITE (via FastAPI's own TestClient)
+==========================================================================================
+
+[PASS] Root health check
+  HTTP 200: {'status': 'ok', 'message': 'Chat API is running. See /docs for interactive API documentation.'}
+
+[PASS] New session chat (no session_id)
+  HTTP 200: {'session_id': '3c6475af-225d-4f0c-85a1-e777ca58916d', 'response': '[MOCK REPLY] You said: "What\'s 2+2?" -- this is a simulated response for testing.', 'message_count': 2, 'latency_ms': 50.21}
+
+[PASS] Continue existing session
+  HTTP 200: {'session_id': '3c6475af-225d-4f0c-85a1-e777ca58916d', 'response': '[MOCK REPLY] You said: "And what about 3+3?" -- this is a simulated response for testing.', 'message_count': 4, 'latency_ms': 50.19}
+
+[PASS] 400: empty/whitespace message
+  HTTP 400: {'detail': {'error': 'empty_message', 'message': 'Message cannot be blank or whitespace-only.', 'status_code': 400}}
+
+[PASS] 422: missing required field
+  HTTP 422: {'detail': [{'type': 'missing', 'loc': ['body', 'message'], 'msg': 'Field required', 'input': {'session_id': 'whatever'}}]}
+
+[PASS] 404: unknown session_id
+  HTTP 404: {'detail': {'error': 'session_not_found', 'message': "No session with ID 'this-session-does-not-exist-12345' exists. Omit session_id to start a new one.", 'status_code': 404}}
+
+[PASS] GET /api/sessions listing
+  HTTP 200: {'active_sessions': 1, 'sessions': [{'session_id': '3c6475af-225d-4f0c-85a1-e777ca58916d', 'message_count': 4, 'created_at': '2026-08-11T07:04:30.912115Z', 'last_active_at': '2026-08-11T07:04:31.015770Z'}]}
+
+[PASS] Swagger UI + OpenAPI schema available
+  HTTP 200: {'paths_documented': ['/api/chat', '/api/sessions', '/']}
+
+[PASS] Latency is genuinely measured
+  HTTP 200: {'latency_ms': 50.11}
+
+[PASS] 500: simulated LLM call failure
+  HTTP 500: {'detail': {'error': 'llm_call_failed', 'message': 'The model call failed: Simulated provider outage for testing.', 'status_code': 500}}
+
+
+==========================================================================================
+SUMMARY: 10/10 tests passed
+==========================================================================================

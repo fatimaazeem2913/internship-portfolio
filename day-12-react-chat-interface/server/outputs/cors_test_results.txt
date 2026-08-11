@@ -1,0 +1,17 @@
+==========================================================================================
+CORS VERIFICATION -- REAL HEADER INSPECTION
+==========================================================================================
+
+[PASS] Allowed origin (localhost:5173) receives CORS header
+  http://localhost:5173
+
+[PASS] Disallowed origin does NOT receive matching CORS header
+  None
+
+[PASS] Preflight OPTIONS request for POST /api/chat succeeds
+  {'status': 200, 'allow_methods': 'GET, POST'}
+
+
+==========================================================================================
+SUMMARY: 3/3 CORS tests passed
+==========================================================================================
