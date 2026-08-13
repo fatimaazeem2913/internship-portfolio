@@ -88,3 +88,93 @@ def generate_reply(history):
     if USE_MOCK_LLM:
         return _mock_generate_reply(history)
     return _real_generate_reply(history)
+
+
+# ============================================================
+# Streaming support
+# ============================================================
+# WHY A SEPARATE FUNCTION, NOT JUST A FLAG ON generate_reply():
+# streaming and non-streaming aren't just "the same call with a delay" --
+# a streaming call is a GENERATOR (yields pieces of text as they arrive
+# from the model), while generate_reply() returns one complete value.
+# Callers need genuinely different code to consume each shape (a for-loop
+# over yielded chunks vs. a single return value), so keeping them as
+# separate functions is clearer than one function secretly behaving two
+# different ways based on a flag.
+
+def _real_generate_reply_stream(history):
+    """
+    Calls Gemini's real streaming endpoint. Yields each text chunk AS IT
+    ARRIVES from the model, then yields a final ("__usage__", usage_dict)
+    tuple once the stream completes, carrying the same token-usage data
+    the non-streaming call returns -- Gemini's usage_metadata is only
+    populated on the FINAL chunk of a streamed response, not available
+    up front.
+    """
+    from google import genai
+    from google.genai import types
+
+    client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+
+    system_messages = [m for m in history if m["role"] == "system"]
+    system_instruction = system_messages[0]["content"] if system_messages else None
+
+    contents = []
+    for m in history:
+        if m["role"] == "system":
+            continue
+        role = "user" if m["role"] == "user" else "model"
+        contents.append(types.Content(role=role, parts=[types.Part.from_text(text=m["content"])]))
+
+    stream = client.models.generate_content_stream(
+        model=MODEL,
+        contents=contents,
+        config=types.GenerateContentConfig(system_instruction=system_instruction),
+    )
+
+    usage = None
+    for chunk in stream:
+        if chunk.text:
+            yield chunk.text
+        if chunk.usage_metadata:
+            usage = {
+                "prompt_tokens": chunk.usage_metadata.prompt_token_count,
+                "completion_tokens": chunk.usage_metadata.candidates_token_count,
+                "total_tokens": chunk.usage_metadata.total_token_count,
+            }
+
+    yield ("__usage__", usage or {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0})
+
+
+def _mock_generate_reply_stream(history):
+    """
+    Simulates streaming by yielding the mock reply word-by-word with a
+    small delay between each -- lets the frontend's streaming UI be
+    tested and demoed without needing a real API call.
+    """
+    last_user_message = next((m["content"] for m in reversed(history) if m["role"] == "user"), "")
+    reply = f'[MOCK STREAM] You said: "{last_user_message}" -- streaming this back one word at a time for testing.'
+    words = reply.split(" ")
+
+    for i, word in enumerate(words):
+        time.sleep(0.05)
+        yield word + (" " if i < len(words) - 1 else "")
+
+    usage = {
+        "prompt_tokens": sum(len(m["content"].split()) for m in history),
+        "completion_tokens": len(words),
+        "total_tokens": 0,
+    }
+    usage["total_tokens"] = usage["prompt_tokens"] + usage["completion_tokens"]
+    yield ("__usage__", usage)
+
+
+def generate_reply_stream(history):
+    """
+    The streaming entry point main.py's /api/chat/stream route calls.
+    Yields text chunks, then a final ("__usage__", usage_dict) tuple.
+    """
+    if USE_MOCK_LLM:
+        yield from _mock_generate_reply_stream(history)
+    else:
+        yield from _real_generate_reply_stream(history)

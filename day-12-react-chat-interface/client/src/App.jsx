@@ -19,7 +19,7 @@ import ChatMessage from "./components/ChatMessage";
 import MessageInput from "./components/MessageInput";
 import TypingIndicator from "./components/TypingIndicator";
 import ErrorBanner from "./components/ErrorBanner";
-import { sendMessage, ChatApiError } from "./api/chatApi";
+import { streamMessage, ChatApiError } from "./api/chatApi";
 
 export default function App() {
   const [messages, setMessages] = useState([]);
@@ -38,22 +38,45 @@ export default function App() {
     setError(null);
 
     const userMessage = { role: "user", content: text, timestamp: new Date().toISOString() };
-    setMessages((prev) => [...prev, userMessage]);
+
+    // The assistant's message starts EMPTY and is appended to the log
+    // immediately -- its content gets filled in incrementally as chunks
+    // arrive (below), rather than appearing all at once only after the
+    // full reply finishes generating.
+    setMessages((prev) => [...prev, userMessage, { role: "assistant", content: "", timestamp: new Date().toISOString() }]);
     setIsLoading(true);
 
+    // Tracks whether the FIRST chunk has arrived yet, purely to know when
+    // to hide the typing indicator -- once real text starts appearing in
+    // the message bubble itself, the separate "typing..." dots are
+    // redundant and should disappear.
+    let receivedFirstChunk = false;
+
+    function handleChunk(text) {
+      if (!receivedFirstChunk) {
+        receivedFirstChunk = true;
+        setIsLoading(false);
+      }
+      setMessages((prev) => {
+        const updated = [...prev];
+        const lastIndex = updated.length - 1;
+        updated[lastIndex] = { ...updated[lastIndex], content: updated[lastIndex].content + text };
+        return updated;
+      });
+    }
+
     try {
-      const data = await sendMessage(text, sessionId);
+      const data = await streamMessage(text, sessionId, handleChunk);
 
       if (!sessionId) {
         setSessionId(data.session_id);
       }
-
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: data.response, timestamp: new Date().toISOString() },
-      ]);
       setLastFailedMessage(null);
     } catch (err) {
+      // Remove the empty/partial assistant placeholder bubble on failure,
+      // rather than leaving a blank or half-written message in the log.
+      setMessages((prev) => prev.slice(0, -1));
+
       if (err instanceof ChatApiError) {
         setError({ message: err.message, status: err.status });
       } else {
@@ -95,9 +118,20 @@ export default function App() {
             </div>
           )}
 
-          {messages.map((msg, i) => (
-            <ChatMessage key={i} role={msg.role} content={msg.content} timestamp={msg.timestamp} />
-          ))}
+          {messages.map((msg, i) => {
+            // Don't render the trailing empty assistant placeholder bubble
+            // while still waiting for the first chunk -- the typing
+            // indicator below covers that "waiting" state instead, so the
+            // user doesn't see a redundant, empty message bubble AND the
+            // three dots at the same time.
+            const isEmptyPlaceholder =
+              isLoading && i === messages.length - 1 && msg.role === "assistant" && msg.content === "";
+            if (isEmptyPlaceholder) return null;
+
+            return (
+              <ChatMessage key={i} role={msg.role} content={msg.content} timestamp={msg.timestamp} />
+            );
+          })}
 
           {isLoading && <TypingIndicator />}
 

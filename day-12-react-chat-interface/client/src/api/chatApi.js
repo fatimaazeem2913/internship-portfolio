@@ -76,3 +76,100 @@ export async function sendMessage(message, sessionId) {
 
   return body;
 }
+
+/**
+ * Sends a message and STREAMS the reply, calling onChunk(text) for each
+ * piece of text as it arrives, and resolving with the final metadata
+ * ({session_id, message_count, latency_ms}) once the stream completes.
+ *
+ * HOW THIS DIFFERS FROM sendMessage() ABOVE:
+ * fetch()'s response.body is a ReadableStream -- instead of awaiting
+ * response.json() once, we read it in a loop, chunk by chunk, as bytes
+ * arrive over the network. Each chunk is decoded from bytes to text, then
+ * parsed as Server-Sent Events (blocks separated by a blank line, each
+ * with "event: <type>" and "data: <json>" lines).
+ *
+ * @param {string} message
+ * @param {string|null} sessionId
+ * @param {(text: string) => void} onChunk - called for each piece of text as it streams in
+ * @returns {Promise<{session_id: string, message_count: number, latency_ms: number}>}
+ * @throws {ChatApiError}
+ */
+export async function streamMessage(message, sessionId, onChunk) {
+  let rawResponse;
+  try {
+    rawResponse = await fetch(`${API_BASE_URL}/api/chat/stream`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session_id: sessionId, message }),
+    });
+  } catch (networkError) {
+    throw new ChatApiError(
+      "Could not reach the server. Check your connection and that the backend is running.",
+      0,
+      networkError.message
+    );
+  }
+
+  if (!rawResponse.ok) {
+    // The server can only send a normal JSON error body here if it fails
+    // BEFORE starting the stream (e.g. the 400 empty-message check) --
+    // once streaming has actually begun, errors arrive as an "event: error"
+    // SSE block instead (handled in the read loop below), since the HTTP
+    // status code was already committed to 200 the moment the stream opened.
+    let body = {};
+    try {
+      body = await rawResponse.json();
+    } catch {
+      // no JSON body available -- fall through with the generic message below
+    }
+    const detail = body?.detail || body;
+    throw new ChatApiError(
+      detail?.message || `Request failed with status ${rawResponse.status}`,
+      rawResponse.status,
+      detail
+    );
+  }
+
+  const reader = rawResponse.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let doneMetadata = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+
+    // SSE events are separated by a blank line ("\n\n") -- process every
+    // COMPLETE event currently in the buffer, and keep any trailing
+    // partial event (a chunk boundary can split an event in half) for
+    // the next read.
+    let boundary;
+    while ((boundary = buffer.indexOf("\n\n")) !== -1) {
+      const rawEvent = buffer.slice(0, boundary);
+      buffer = buffer.slice(boundary + 2);
+
+      const eventTypeMatch = rawEvent.match(/^event: (.+)$/m);
+      const dataMatch = rawEvent.match(/^data: (.+)$/m);
+      if (!eventTypeMatch || !dataMatch) continue;
+
+      const eventType = eventTypeMatch[1];
+      const data = JSON.parse(dataMatch[1]);
+
+      if (eventType === "chunk") {
+        onChunk(data.text);
+      } else if (eventType === "done") {
+        doneMetadata = data;
+      } else if (eventType === "error") {
+        throw new ChatApiError(data.message || "Streaming failed.", 500, data);
+      }
+    }
+  }
+
+  if (!doneMetadata) {
+    throw new ChatApiError("Stream ended without a completion event.", 0, null);
+  }
+  return doneMetadata;
+}

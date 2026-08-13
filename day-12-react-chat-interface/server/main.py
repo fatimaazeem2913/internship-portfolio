@@ -27,15 +27,16 @@ what sends that permission back in every response's headers.
 """
 
 import time
+import json
 from datetime import datetime, timezone
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 
 from models import ChatRequest, ChatResponse, SessionListResponse, SessionSummary, ErrorResponse
 import session_store
-from llm_client import generate_reply, MODEL
+from llm_client import generate_reply, generate_reply_stream, MODEL
 from logging_config import log_request, log_error
 
 app = FastAPI(
@@ -167,6 +168,82 @@ async def chat(request: ChatRequest):
         message_count=message_count,
         latency_ms=round(latency_ms, 2),
     )
+
+
+@app.post("/api/chat/stream")
+async def chat_stream(request: ChatRequest):
+    """
+    The streaming counterpart to POST /api/chat -- same session logic
+    (check/create session, append user message, append final reply), but
+    the model's reply is sent to the client piece-by-piece AS IT ARRIVES,
+    using Server-Sent Events (SSE), instead of waiting for the complete
+    response.
+
+    WHY THIS DOESN'T MAKE THE MODEL RESPOND FASTER (Day 8's finding,
+    revisited): the TOTAL time to generate the full reply is the same
+    either way -- streaming only changes WHEN the user starts SEEING
+    text, not how fast the underlying generation happens. The UX benefit
+    is purely about perceived responsiveness.
+
+    SSE FORMAT: each event is sent as a "event: <type>\\ndata: <json>\\n\\n"
+    block. Two event types are used here:
+      - "chunk": {"text": "..."} for each piece of text as it arrives
+      - "done": {"session_id", "message_count", "latency_ms"} sent once,
+        at the very end, after the full reply has been accumulated and
+        saved to the session history -- this is where the metadata that
+        used to come back in one single JSON response (Day 11/12) now
+        arrives, since it isn't known until generation is complete.
+    """
+    start_time = time.perf_counter()
+
+    if request.message.strip() == "":
+        raise HTTPException(status_code=400, detail={
+            "error": "empty_message",
+            "message": "Message cannot be blank or whitespace-only.",
+            "status_code": 400,
+        })
+
+    if request.session_id is None:
+        session_id = session_store.create_session()
+    elif not session_store.session_exists(request.session_id):
+        session_id = session_store.create_session(session_id=request.session_id)
+    else:
+        session_id = request.session_id
+
+    session_store.append_message(session_id, "user", request.message)
+    history = session_store.get_history(session_id)
+
+    def event_stream():
+        full_text = ""
+        usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+
+        try:
+            for piece in generate_reply_stream(history):
+                if isinstance(piece, tuple) and piece[0] == "__usage__":
+                    usage = piece[1]
+                    continue
+                full_text += piece
+                yield f"event: chunk\ndata: {json.dumps({'text': piece})}\n\n"
+        except Exception as e:
+            log_error(now_iso(), session_id, "llm_call_failed", str(e), 500)
+            yield f"event: error\ndata: {json.dumps({'message': str(e)})}\n\n"
+            return
+
+        session_store.append_message(session_id, "model", full_text)
+        latency_ms = (time.perf_counter() - start_time) * 1000
+
+        log_request(
+            timestamp=now_iso(), session_id=session_id, model=MODEL,
+            prompt_tokens=usage["prompt_tokens"], completion_tokens=usage["completion_tokens"],
+            total_tokens=usage["total_tokens"], latency_ms=latency_ms,
+        )
+
+        updated_history = session_store.get_history(session_id)
+        message_count = len([m for m in updated_history if m["role"] != "system"])
+
+        yield f"event: done\ndata: {json.dumps({'session_id': session_id, 'message_count': message_count, 'latency_ms': round(latency_ms, 2)})}\n\n"
+
+    return StreamingResponse(event_stream(), media_type="text/event-stream")
 
 
 @app.get("/api/sessions", response_model=SessionListResponse)
