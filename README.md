@@ -18,6 +18,7 @@ This repository contains all work completed during my AI/ML internship, organize
 | Day 10 | Function calling & tool use — 4 custom tools with JSON schemas, the full 5-stage function calling loop, a multi-tool agent chaining 4 calls, all 3 required edge cases verified (including a real bug found and fixed), and JSON mode vs. function calling documented | [`day-10-function-calling/`](./day-10-function-calling) |
 | Day 11 | FastAPI backend & chat state management — POST /api/chat and GET /api/sessions with Pydantic schemas, in-memory session store, all required status codes (400/404/422/500) and structured logging, verified with 10/10 real tests against the running application | [`day-11-fastapi-backend/`](./day-11-fastapi-backend) |
 | Day 12 | React chat interface — Vite + Tailwind CSS v4, distinct user/assistant message styling, submit-on-Enter input, CORS verified with real header inspection tests, graceful fetch() error handling, typing indicator, professional layout | [`day-12-react-chat-interface/`](./day-12-react-chat-interface) |
+| Day 13 | Multi-session chat, sidebar & advanced UX — sidebar with session switching, crypto.randomUUID() New Chat, AI-generated titles, copy/regenerate actions, localStorage persistence, and server-side session isolation verified via a direct 5-session adversarial test (0 cross-contamination) | [`day-13-multisession-chat/`](./day-13-multisession-chat) |
 ## The Full Arc
 
 Each day is designed to expose a specific limitation of the previous day's approach:
@@ -40,6 +41,7 @@ The full technical progression is documented in each day's `REPORT.md` and `READ
 
 - **Day 11** exposes everything built in Phase 2 so far over real HTTP — a genuine FastAPI server with server-side session management solving Day 4's "a Transformer has no memory" problem at the application layer, verified with 10/10 real tests covering every required status code and a genuinely simulated failure case.
 - **Day 12** completes the first full-stack loop of Phase 2 — a real React UI talking over real HTTP, with CORS permission genuinely verified through header inspection, to the FastAPI backend built in Day 11.
+- **Day 13** upgrades the chat app to hold multiple genuinely isolated conversations at once — verified with a direct, adversarial test sending 5 unrelated topics to 5 simultaneous sessions and confirming zero cross-contamination, plus AI-generated titles, persistent sessions across refresh, and message-level copy/regenerate actions.
 ## Author
 
 **Fatima Azeem**

@@ -1,0 +1,53 @@
+==========================================================================================
+FASTAPI APPLICATION -- FULL TEST SUITE (via FastAPI's own TestClient)
+==========================================================================================
+
+[PASS] Root health check
+  HTTP 200: {'status': 'ok', 'message': 'Chat API is running. See /docs for interactive API documentation.'}
+
+[PASS] New session chat (no session_id)
+  HTTP 200: {'session_id': 'b84c41a0-e429-4533-93aa-12f75f911a3a', 'response': '[MOCK REPLY] You said: "What\'s 2+2?" -- this is a simulated response for testing.', 'message_count': 2, 'latency_ms': 50.24}
+
+[PASS] Continue existing session
+  HTTP 200: {'session_id': 'b84c41a0-e429-4533-93aa-12f75f911a3a', 'response': '[MOCK REPLY] You said: "And what about 3+3?" -- this is a simulated response for testing.', 'message_count': 4, 'latency_ms': 50.18}
+
+[PASS] 400: empty/whitespace message
+  HTTP 400: {'detail': {'error': 'empty_message', 'message': 'Message cannot be blank or whitespace-only.', 'status_code': 400}}
+
+[PASS] 422: missing required field
+  HTTP 422: {'detail': [{'type': 'missing', 'loc': ['body', 'message'], 'msg': 'Field required', 'input': {'session_id': 'whatever'}}]}
+
+[PASS] Day 13: client-provided session_id lazily creates session
+  HTTP 200: {'session_id': '6e115c57-9a0e-42f1-9fa3-20da43ace05b', 'response': '[MOCK REPLY] You said: "First message in a brand new session" -- this is a simulated response for testing.', 'message_count': 2, 'latency_ms': 50.15}
+
+[PASS] GET /api/sessions listing
+  HTTP 200: {'active_sessions': 2, 'sessions': [{'session_id': 'b84c41a0-e429-4533-93aa-12f75f911a3a', 'message_count': 4, 'created_at': '2026-08-13T11:02:12.254552Z', 'last_active_at': '2026-08-13T11:02:12.358780Z', 'title': None}, {'session_id': '6e115c57-9a0e-42f1-9fa3-20da43ace05b', 'message_count': 2, 'created_at': '2026-08-13T11:02:12.369653Z', 'last_active_at': '2026-08-13T11:02:12.419784Z', 'title': None}]}
+
+[PASS] Swagger UI + OpenAPI schema available
+  HTTP 200: {'paths_documented': ['/api/chat', '/api/chat/stream', '/api/sessions', '/api/sessions/{session_id}/title', '/api/sessions/{session_id}/regenerate', '/']}
+
+[PASS] Latency is genuinely measured
+  HTTP 200: {'latency_ms': 50.19}
+
+[PASS] 500: simulated LLM call failure
+  HTTP 500: {'detail': {'error': 'llm_call_failed', 'message': 'The model call failed: Simulated provider outage for testing.', 'status_code': 500}}
+
+[PASS] Day 13: title generation (full flow)
+  HTTP 200: {'session_id': 'b189bd2e-4653-4c5d-a047-a1ad19344c11', 'title': "What'S The Best Way"}
+
+[PASS] Day 13: 404 on title for unknown session
+  HTTP 404: {'detail': {'error': 'session_not_found', 'message': "No session with ID 'genuinely-unknown-session-id' exists.", 'status_code': 404}}
+
+[PASS] Day 13: regenerate response
+  HTTP 200: {'session_id': '0244a897-32b8-4132-a85f-d0fdc8e35731', 'response': '[MOCK REPLY] You said: "Tell me a fact about the ocean" -- this is a simulated response for testing.', 'message_count': 2, 'latency_ms': 50.22}
+
+[PASS] Day 13: 404 on regenerate for unknown session
+  HTTP 404: {'detail': {'error': 'session_not_found', 'message': "No session with ID 'genuinely-unknown-session-id' exists.", 'status_code': 404}}
+
+[PASS] Day 13: 5 SIMULTANEOUS SESSIONS -- NO CROSS-CONTAMINATION
+  HTTP 200: {'sessions_tested': 5, 'cross_contamination_found': 0, 'sample_session_ids': ['443a7cd3...', '696e22d2...', '0be09f46...', '8f845d10...', '19b57ac2...']}
+
+
+==========================================================================================
+SUMMARY: 15/15 tests passed
+==========================================================================================
