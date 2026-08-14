@@ -173,10 +173,23 @@ export default function App() {
   }
 
   const messages = activeSession?.messages || [];
-  const lastAssistantIndex = [...messages].map((m) => m.role).lastIndexOf("assistant");
+  const visibleMessages = messages.filter((m) => m.role !== "system");
+  const lastAssistantIndex = visibleMessages.map((m) => m.role).lastIndexOf("assistant");
+
+  // The key layout decision (ChatGPT/Claude.ai-style): an empty chat --
+  // either no session selected yet, or a freshly-created session with no
+  // messages sent -- shows the input CENTERED on the page, with no
+  // scrollable message area and no bottom bar. The moment there's at
+  // least one visible message, the layout switches to the normal
+  // scrollable-history + fixed-bottom-input arrangement. This is a
+  // one-way transition per session: once a chat has messages, it never
+  // goes back to the centered empty state (switching to a genuinely
+  // different, still-empty session does show it centered again, since
+  // that's a fresh empty conversation in its own right).
+  const isEmptyChat = visibleMessages.length === 0;
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex h-screen bg-bg">
       <Sidebar
         sessions={sessions}
         activeSessionId={activeSessionId}
@@ -185,65 +198,64 @@ export default function App() {
       />
 
       <div className="flex flex-col flex-1 min-w-0">
-        <header className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white/95 backdrop-blur px-6 py-3.5">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
-              C
-            </div>
+        {!isEmptyChat && (
+          <header className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-bg/95 backdrop-blur px-6 py-4">
             <div>
-              <h1 className="text-sm font-semibold text-slate-800 truncate max-w-md">
-                {activeSession?.title || (activeSession ? "New conversation" : "Chat Assistant")}
+              <h1 className="font-display text-base text-ink truncate max-w-md">
+                {activeSession?.title || "New chat"}
               </h1>
-              <p className="text-xs text-slate-400">
-                {activeSession
-                  ? `${messages.filter((m) => m.role !== "system").length} messages`
-                  : `${sessions.length} conversation${sessions.length === 1 ? "" : "s"} saved`}
+              <p className="font-mono text-[10px] text-muted uppercase tracking-widest mt-0.5">
+                {visibleMessages.length} messages
               </p>
             </div>
-          </div>
-        </header>
+          </header>
+        )}
 
-        <main className="flex-1 overflow-y-auto px-4 py-6">
-          <div className="max-w-3xl mx-auto">
-            {!activeSession && (
-              <div className="flex flex-col items-center justify-center text-center text-slate-400 mt-20">
-                <p className="text-sm">Click "New Chat" or just start typing to begin.</p>
+        {isEmptyChat ? (
+          // ---- CENTERED EMPTY STATE: input appears in the middle ----
+          <main className="flex-1 flex flex-col items-center justify-center px-5 -mt-10">
+            <div className="w-full max-w-2xl">
+              <h2 className="font-display text-3xl text-ink text-center mb-8">
+                What can I help with?
+              </h2>
+              <MessageInput onSend={handleSend} disabled={isLoading} variant="centered" />
+              <ErrorBanner error={error} onDismiss={() => setError(null)} onRetry={null} />
+            </div>
+          </main>
+        ) : (
+          // ---- NORMAL STATE: scrollable history + fixed bottom input ----
+          <>
+            <main className="flex-1 overflow-y-auto px-5 py-8">
+              <div className="max-w-3xl mx-auto">
+                {visibleMessages.map((msg, i) => {
+                  const isEmptyPlaceholder =
+                    isLoading && i === visibleMessages.length - 1 && msg.role === "assistant" && msg.content === "";
+                  if (isEmptyPlaceholder) return null;
+
+                  return (
+                    <ChatMessage
+                      key={i}
+                      role={msg.role}
+                      content={msg.content}
+                      timestamp={msg.timestamp}
+                      isLastAssistantMessage={msg.role === "assistant" && i === lastAssistantIndex}
+                      onRegenerate={handleRegenerate}
+                      isRegenerating={isRegenerating}
+                    />
+                  );
+                })}
+
+                {isLoading && <TypingIndicator />}
+
+                <div ref={scrollAnchorRef} />
               </div>
-            )}
+            </main>
 
-            {activeSession && messages.length === 0 && !isLoading && (
-              <div className="flex flex-col items-center justify-center text-center text-slate-400 mt-20">
-                <p className="text-sm">Send a message to start this conversation.</p>
-              </div>
-            )}
+            <ErrorBanner error={error} onDismiss={() => setError(null)} onRetry={null} />
 
-            {messages.map((msg, i) => {
-              const isEmptyPlaceholder =
-                isLoading && i === messages.length - 1 && msg.role === "assistant" && msg.content === "";
-              if (isEmptyPlaceholder) return null;
-
-              return (
-                <ChatMessage
-                  key={i}
-                  role={msg.role}
-                  content={msg.content}
-                  timestamp={msg.timestamp}
-                  isLastAssistantMessage={msg.role === "assistant" && i === lastAssistantIndex}
-                  onRegenerate={handleRegenerate}
-                  isRegenerating={isRegenerating}
-                />
-              );
-            })}
-
-            {isLoading && <TypingIndicator />}
-
-            <div ref={scrollAnchorRef} />
-          </div>
-        </main>
-
-        <ErrorBanner error={error} onDismiss={() => setError(null)} onRetry={null} />
-
-        <MessageInput onSend={handleSend} disabled={isLoading || isRegenerating} />
+            <MessageInput onSend={handleSend} disabled={isLoading || isRegenerating} variant="bottom" />
+          </>
+        )}
       </div>
     </div>
   );

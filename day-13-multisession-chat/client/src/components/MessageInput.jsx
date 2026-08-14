@@ -2,26 +2,31 @@
  * MessageInput.jsx
  * --------------------
  * A textarea for composing messages, with:
- *   - Enter to send, Shift+Enter for a newline (the standard chat-app
- *     convention -- NOT the browser's native form-submit behavior,
- *     which has to be explicitly intercepted)
+ *   - Enter to send, Shift+Enter for a newline
  *   - A live character counter
  *   - A send button, disabled while a request is in flight OR the
  *     input is empty, wired to useState for the input's own value
  *
+ * VARIANT PROP (new): "bottom" (default) renders the standard fixed
+ * bottom bar with a top border and full-width background, matching every
+ * chat app's normal in-conversation input. "centered" renders JUST the
+ * input+button row with no bar chrome, since App.jsx places it inside a
+ * vertically-centered hero container for a brand-new, empty chat --
+ * the same pattern ChatGPT/Claude.ai use: the input starts centered on
+ * an empty conversation, then moves to the bottom the moment the first
+ * message is sent (App.jsx switches which variant renders based on
+ * whether the active session has any messages yet).
+ *
  * MAX_LENGTH is enforced both visually (the counter turns red/blocks
  * further typing) and would ALSO need to be validated server-side --
- * client-side limits are a UX convenience, never a security boundary,
- * exactly the "never trust client input alone" principle from Day 9's
- * JSON schema validation, applied here to a form field instead of an
- * LLM response.
+ * client-side limits are a UX convenience, never a security boundary.
  */
 
 import { useState } from "react";
 
 const MAX_LENGTH = 2000;
 
-export default function MessageInput({ onSend, disabled }) {
+export default function MessageInput({ onSend, disabled, variant = "bottom" }) {
   const [value, setValue] = useState("");
 
   const trimmedLength = value.length;
@@ -42,43 +47,52 @@ export default function MessageInput({ onSend, disabled }) {
     }
   }
 
-  return (
-    <div className="border-t border-slate-200 bg-white px-4 py-3">
-      <div className="flex items-end gap-3 max-w-3xl mx-auto">
-        <div className="flex-1 relative">
-          <textarea
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-            disabled={disabled}
-            rows={1}
-            placeholder={disabled ? "Waiting for response..." : "Type a message... (Enter to send, Shift+Enter for new line)"}
-            className={`w-full resize-none rounded-xl border px-4 py-2.5 pr-16 text-sm text-slate-800
-                        placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500
-                        disabled:bg-slate-50 disabled:cursor-not-allowed
-                        ${isOverLimit ? "border-red-400 focus:ring-red-400" : "border-slate-300"}`}
-            style={{ minHeight: "44px", maxHeight: "160px" }}
-          />
-          <span
-            className={`absolute bottom-2 right-3 text-[11px] select-none ${
-              isOverLimit ? "text-red-500 font-medium" : "text-slate-400"
-            }`}
-          >
-            {trimmedLength}/{MAX_LENGTH}
-          </span>
-        </div>
-
-        <button
-          onClick={handleSend}
-          disabled={!canSend}
-          className={`flex-shrink-0 h-11 px-5 rounded-xl text-sm font-medium transition-colors
-                      ${canSend
-                        ? "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800"
-                        : "bg-slate-200 text-slate-400 cursor-not-allowed"}`}
+  const inputRow = (
+    <div className="flex items-end gap-3 max-w-2xl w-full mx-auto">
+      <div className="flex-1 relative">
+        <textarea
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+          disabled={disabled}
+          rows={1}
+          autoFocus={variant === "centered"}
+          placeholder={disabled ? "Waiting for a reply..." : "Message... (Enter to send, Shift+Enter for new line)"}
+          className={`w-full resize-none rounded-xl border bg-white px-4 py-3 pr-16 text-[14px] font-sans text-ink
+                      placeholder:text-muted focus:outline-none focus:border-accent/70 focus:ring-2 focus:ring-accent/15
+                      disabled:opacity-50 disabled:cursor-not-allowed shadow-sm
+                      ${isOverLimit ? "border-red-400" : "border-border"}`}
+          style={{ minHeight: "50px", maxHeight: "160px" }}
+        />
+        <span
+          className={`absolute bottom-3 right-4 font-mono text-[10px] select-none ${
+            isOverLimit ? "text-red-500 font-medium" : "text-muted"
+          }`}
         >
-          Send
-        </button>
+          {trimmedLength}/{MAX_LENGTH}
+        </span>
       </div>
+
+      <button
+        onClick={handleSend}
+        disabled={!canSend}
+        className={`flex-shrink-0 h-12 px-5 rounded-xl font-sans text-sm font-medium transition-colors
+                    ${canSend
+                      ? "bg-accent text-accent-ink hover:bg-accent/90"
+                      : "bg-surface text-muted cursor-not-allowed"}`}
+      >
+        Send
+      </button>
+    </div>
+  );
+
+  if (variant === "centered") {
+    return inputRow;
+  }
+
+  return (
+    <div className="border-t border-border bg-bg px-5 py-4">
+      {inputRow}
     </div>
   );
 }

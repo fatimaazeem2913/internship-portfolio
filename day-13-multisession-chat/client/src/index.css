@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+/*
+  THEME: Light, warm-neutral palette with a deep amber/ochre accent.
+  Kept the same three-role type pairing (serif display / sans UI / mono
+  metadata) from the original design direction, just re-tuned every
+  color token for a light background instead of dark.
+*/
+
+@theme {
+  --color-bg: #fdfcfa;            /* main background */
+  --color-surface: #f5f4ef;        /* sidebar / card surface */
+  --color-surface-hover: #ece9e1;   /* hover state */
+  --color-border: #e3e0d6;           /* borders, dividers */
+  --color-ink: #221f1a;                /* primary text */
+  --color-muted: #6f6b62;                /* secondary/muted text */
+  --color-accent: #b8752a;                /* signature accent (buttons, active states) */
+  --color-accent-soft: #f2e3cd;             /* light accent tint (backgrounds) */
+  --color-accent-ink: #ffffff;                /* text ON accent-filled elements */
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
