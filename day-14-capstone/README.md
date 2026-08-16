@@ -93,7 +93,7 @@ cd client
 npm install
 npm run dev
 ```
-Then visit http://localhost:5173.
+Then visit http://localhost:5174.
 
 **Run the test suite:**
 ```bash
