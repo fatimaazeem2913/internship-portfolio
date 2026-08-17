@@ -86,7 +86,7 @@ This sets up both the backend virtualenv and frontend node_modules if missing, c
 cd server
 pip install fastapi uvicorn pydantic google-genai
 export USE_MOCK_LLM=true    # or export GEMINI_API_KEY="your-key"
-uvicorn main:app --reload --port 8000
+uvicorn main:app --reload --port 8001
 
 # Frontend (separate terminal)
 cd client
