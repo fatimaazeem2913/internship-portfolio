@@ -1,0 +1,144 @@
+{
+  "token_backend": null,
+  "embedding_backend": "sentence-transformers",
+  "documents": {
+    "employee_handbook.pdf": {
+      "fixed_size": {
+        "count": 22,
+        "avg_chars": 482,
+        "min_chars": 104,
+        "max_chars": 500,
+        "stdev_chars": 82.5
+      },
+      "token_based": {
+        "count": 15,
+        "avg_chars": 725.6,
+        "min_chars": 548,
+        "max_chars": 835,
+        "stdev_chars": 70.4
+      },
+      "recursive": {
+        "count": 24,
+        "avg_chars": 405.0,
+        "min_chars": 190,
+        "max_chars": 497,
+        "stdev_chars": 92.5
+      },
+      "semantic": {
+        "count": 13,
+        "avg_chars": 733.3,
+        "min_chars": 247,
+        "max_chars": 1590,
+        "stdev_chars": 470.7
+      },
+      "hierarchical": {
+        "count": 127,
+        "avg_chars": 204.0,
+        "min_chars": 19,
+        "max_chars": 469,
+        "stdev_chars": 150.0
+      },
+      "metadata_integrity": {
+        "total_chunks": 127,
+        "issues_found": 0,
+        "issues": [],
+        "all_have_source": true,
+        "all_have_chunk_index": true,
+        "chunks_with_page_number": 127,
+        "chunks_with_section_heading": 127
+      }
+    },
+    "product_spec.docx": {
+      "fixed_size": {
+        "count": 7,
+        "avg_chars": 467.1,
+        "min_chars": 270,
+        "max_chars": 500,
+        "stdev_chars": 80.5
+      },
+      "token_based": {
+        "count": 5,
+        "avg_chars": 684.2,
+        "min_chars": 133,
+        "max_chars": 852,
+        "stdev_chars": 277.2
+      },
+      "recursive": {
+        "count": 9,
+        "avg_chars": 328.2,
+        "min_chars": 280,
+        "max_chars": 395,
+        "stdev_chars": 37.3
+      },
+      "semantic": {
+        "count": 5,
+        "avg_chars": 591.6,
+        "min_chars": 78,
+        "max_chars": 1656,
+        "stdev_chars": 574.5
+      },
+      "hierarchical": {
+        "count": 10,
+        "avg_chars": 295.1,
+        "min_chars": 98,
+        "max_chars": 389,
+        "stdev_chars": 71.6
+      },
+      "metadata_integrity": {
+        "total_chunks": 10,
+        "issues_found": 0,
+        "issues": [],
+        "all_have_source": true,
+        "all_have_chunk_index": true,
+        "chunks_with_page_number": 0,
+        "chunks_with_section_heading": 10
+      }
+    },
+    "api_rate_limiting_policy.txt": {
+      "fixed_size": {
+        "count": 9,
+        "avg_chars": 457.9,
+        "min_chars": 121,
+        "max_chars": 500,
+        "stdev_chars": 119.1
+      },
+      "token_based": {
+        "count": 6,
+        "avg_chars": 709.5,
+        "min_chars": 202,
+        "max_chars": 850,
+        "stdev_chars": 228.0
+      },
+      "recursive": {
+        "count": 10,
+        "avg_chars": 370.3,
+        "min_chars": 211,
+        "max_chars": 475,
+        "stdev_chars": 78.8
+      },
+      "semantic": {
+        "count": 5,
+        "avg_chars": 741.4,
+        "min_chars": 232,
+        "max_chars": 2399,
+        "stdev_chars": 830.6
+      },
+      "hierarchical": {
+        "count": 11,
+        "avg_chars": 336.5,
+        "min_chars": 66,
+        "max_chars": 475,
+        "stdev_chars": 118.2
+      },
+      "metadata_integrity": {
+        "total_chunks": 11,
+        "issues_found": 0,
+        "issues": [],
+        "all_have_source": true,
+        "all_have_chunk_index": true,
+        "chunks_with_page_number": 0,
+        "chunks_with_section_heading": 11
+      }
+    }
+  }
+}
