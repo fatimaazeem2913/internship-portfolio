@@ -1,120 +1,174 @@
-# Learning Adventures — Day 14 Capstone: Week 2 Review & Full-Stack Chatbot Delivery
+# Learning Adventures — Day 14 Capstone
+
+✅ **41/41 backend tests passing** — every functional requirement verified
 
 ## Project Overview
 
-This is the Phase 2 capstone: a complete, full-stack, AI-powered educational web application for children, integrating every discipline covered across Days 8-13 — React, FastAPI, the Gemini API (substituted for OpenAI per instruction, since it offers a genuinely free tier), prompt engineering, real streaming, session management, and performance monitoring.
+A complete, full-stack, AI-powered educational web application built to
+satisfy every requirement in the Day 14 task spec: React frontend,
+FastAPI backend, real streaming responses, session management, dedicated
+per-activity system prompts, safety filtering, a 6-exchange conversation
+cap, and full request monitoring.
 
-Every claim in this project is backed by something genuinely executed: 18/18 real backend tests, a real production frontend build, and a real live-server integration test over actual HTTP with correct SSE and CORS headers.
-
----
+This is a clean rebuild, incorporating every real bug found and fixed
+during earlier iterative testing — typo tolerance, no-repeat questions,
+no-duplicate-question generation, and correct AI-then-user exchange
+pairing are all built in from the start and covered by dedicated tests,
+not discovered after the fact.
 
 ## The Three Activities
 
-- **Brain Buster** — riddles with up to 3 hints; a correct guess advances to a new riddle, an incorrect guess allows a retry on the same riddle.
-- **Quick Fire** — quick educational questions across 7 topics; both correct and incorrect answers always advance to a new question.
-- **Ask & Explore** — free-form, age-appropriate Q&A with a curiosity-encouraging tone.
-
----
+- **Brain Buster** — one riddle at a time, no repeats within a session.
+  Up to 3 hints, each a genuine live LLM call. The answer reveals after
+  the 3rd hint is exceeded or on Give Up. Correct answers get positive
+  feedback and a new riddle; incorrect answers get encouraging feedback
+  and another attempt.
+- **Quick Fire** — one question at a time across science, mathematics,
+  geography, English, animals, space, and general knowledge. No repeats.
+  Correct answers get praise and a fun fact before the next question;
+  incorrect answers reveal the correct answer, encourage, and continue.
+- **Ask & Explore** — simple, concise, age-appropriate answers to
+  whatever a child is curious about.
 
 ## Technologies Used
 
-- React 19, Vite 8, Tailwind CSS v4
+- React 18, Vite 5, Tailwind CSS 3
 - FastAPI, Server-Sent Events (real token-by-token streaming)
-- google-genai (Gemini SDK) — structured JSON generation + live streaming
+- google-genai SDK (Gemini) — see note below on provider choice
 - In-memory session management, no database
+- python-dotenv for `.env` configuration
 
----
+**LLM provider note:** this project uses Google's Gemini API rather than
+OpenAI's, continuing this internship's established substitution since
+Day 8 (OpenAI's free tier billing wall). The task's own reference links
+include Gemini's official quickstart alongside OpenAI's for this reason.
 
 ## Project Structure
 
 ```
-day-14-capstone
-|
-|-- README.md
-|-- REPORT.md
-|-- start.sh                       (one-command startup for both servers)
-|
-|-- client/
-|   |-- src/
-|   |   |-- App.jsx                  (home <-> activity screen routing)
-|   |   |-- components/
-|   |   |   |-- HomeScreen.jsx         (3 activity cards)
-|   |   |   `-- ActivityChat.jsx        (shared chat UI, all 3 activities)
-|   |   |-- api/capstoneApi.js          (SSE client)
-|   |   `-- lib/useInactivityTimer.js    (60s client-side timeout)
-|
-`-- server/
-    |-- main.py                      (FastAPI app, SSE endpoints, CORS, session sweeper)
-    |-- activity_engine.py             (the real game logic for all 3 activities)
-    |-- activities.py                    (dedicated system prompts + schemas)
-    |-- session_store.py                  (in-memory sessions, 60s expiry)
-    |-- answer_checking.py                 (fuzzy answer matching, Python-side)
-    |-- safety.py                            (dual-layer content safety)
-    |-- llm_client.py                         (Gemini structured gen + streaming)
-    |-- monitoring.py                          (structured logging with TTFT)
-    |-- models.py
-    |-- test_client.py                          (18 real tests)
-    |-- .env.example
-    |-- logs/monitoring.log                      (real logged requests)
-    `-- outputs/
+day-14-capstone/
+├── backend/
+│   ├── prompts/
+│   │   ├── common_safety.md      (shared safety rules, all activities)
+│   │   ├── brain_buster.md
+│   │   ├── quick_fire.md
+│   │   └── ask_explore.md
+│   ├── logs/
+│   │   └── monitoring.log         (created at runtime, one JSON line per LLM request)
+│   ├── main.py                    (single file, organized into 8 clear sections)
+│   ├── test_main.py               (41 real tests, one per requirement)
+│   ├── requirements.txt
+│   ├── start.sh
+│   ├── .env.example
+│   └── .gitignore
+│
+└── frontend/
+    ├── src/
+    │   ├── hooks/
+    │   │   └── useInactivityTimer.js
+    │   ├── pages/
+    │   │   ├── Home.jsx
+    │   │   └── ActivityChat.jsx
+    │   ├── App.jsx
+    │   ├── activities.js
+    │   ├── api.js                 (real SSE stream parsing)
+    │   ├── index.css
+    │   └── main.jsx
+    ├── index.html
+    ├── package.json
+    ├── vite.config.js
+    ├── tailwind.config.js
+    ├── postcss.config.js
+    └── .gitignore
 ```
-
----
 
 ## Results
 
-- **18/18 backend tests passed**, covering every functional requirement including the tricky behavioral distinction between Brain Buster (retry on wrong guess) and Quick Fire (always advances).
-- **Real production frontend build**: 177 modules, zero errors, kid-friendly bright theme verified with a real screenshot.
-- **Real live-server integration test**: an actual uvicorn process hit with real curl SSE requests, confirming correct streaming chunks, the X-Session-Id header, and correct CORS headers all working together.
-- **Real monitoring log** with every required field (timestamp, session ID, activity, prompt, token counts, TTFT, total time), verified field-by-field.
-- **A real bug found and fixed**: answer_checking.py's number-word matching (e.g. "7" vs. "seven") was initially missing — caught by a self-test, fixed, and reverified (14/14 passing after the fix).
-
----
+- **41/41 backend tests passed**, covering every functional requirement
+  in the task spec individually — session management, all 3 activities,
+  safety, the 6-exchange cap, streaming, and monitoring.
+- **Real production frontend build**: `npm run build` completes with
+  zero errors, 36 modules transformed.
+- **Full live end-to-end simulation** across all 3 activities confirmed
+  working via real HTTP requests (start → hint → correct guess for
+  Brain Buster; start → typo-tolerant guess for Quick Fire; start →
+  real question for Ask & Explore).
+- **Typo tolerance verified safe**: catches real typos (`jupiteer` →
+  `jupiter`) while explicitly tested to NOT cause false positives on
+  short, genuinely different words (`fun`/`sun`, `bat`/`cat`, etc.) —
+  an earlier looser version of this check was a real, confirmed
+  regression that's now covered by a dedicated test.
+- **No-repeat enforcement is code-level, not prompt-only**: a dedicated
+  retry mechanism (`_regenerate_until_unused`) actually checks each
+  generated answer against the session's used-answer list and retries
+  up to 3 times on collision — verified with a test that forces
+  real collisions and confirms retries actually happen.
+- **No embedded/duplicate questions**: feedback and the next
+  riddle/question are generated via a single schema-separated LLM call
+  (not two calls that could conflict), with two additional layers of
+  code-level sanitization (`strip_embedded_questions`,
+  `extract_final_question`) verified against real examples of exactly
+  how this failure mode occurred in earlier testing.
+- **Monitoring log verified**: every real LLM request writes a
+  structured JSON line with all 8 required fields (timestamp, session
+  ID, activity, user prompt, input/output/total tokens, TTFT, total
+  response time).
 
 ## How to Run
 
-**Easiest -- one command:**
+**Backend:**
 ```bash
-cd day-14-capstone
+cd backend
+chmod +x start.sh
 ./start.sh
 ```
-This sets up both the backend virtualenv and frontend node_modules if missing, copies .env.example to .env on first run (edit it with your real GEMINI_API_KEY afterward), and starts both servers.
+This creates a venv, installs dependencies, copies `.env.example` to
+`.env` on first run (mock mode by default), and starts on
+`http://localhost:8001`.
 
-**Manually:**
+**Run backend tests:**
 ```bash
-# Backend
-cd server
-pip install fastapi uvicorn pydantic google-genai
-export USE_MOCK_LLM=true    # or export GEMINI_API_KEY="your-key"
-uvicorn main:app --reload --port 8001
+cd backend
+source venv/bin/activate
+USE_MOCK_LLM=true python -m pytest test_main.py -v
+```
 
-# Frontend (separate terminal)
-cd client
+**Frontend (separate terminal):**
+```bash
+cd frontend
 npm install
 npm run dev
 ```
-Then visit http://localhost:5174.
+Then visit `http://localhost:5174`.
 
-**Run the test suite:**
-```bash
-cd server
-USE_MOCK_LLM=true python3 test_client.py
-```
-
----
+**Switch to real Gemini responses:** edit `backend/.env`, set
+`USE_MOCK_LLM=false` and add your real `GEMINI_API_KEY` (free at
+aistudio.google.com/apikey).
 
 ## Learning Outcomes
 
-This capstone synthesizes the entire internship's disciplines:
-- Structured, schema-enforced generation over trusting free-text model output for anything requiring reliability (Day 9).
-- Using the model only for what it's genuinely good at (varied, warm language) and code for what code is reliably good at (exact-match game logic) -- Day 10's core lesson, applied to a real product.
-- Defense-in-depth safety and validation at multiple independent layers (Day 9's pattern, extended here to both content safety and session expiry).
-- Real SSE streaming and CORS, verified with actual live HTTP requests rather than assumed correct (Day 12/13).
-- Full-cycle performance monitoring with genuinely measured TTFT, not estimated.
-
----
+- **A prompt instruction alone is never a reliable guarantee.** Every
+  hard requirement in this build that needed to be *certain* — the
+  right/wrong signal, no repeated questions, no embedded follow-up
+  questions — ended up needing actual code-level enforcement (a
+  deterministic prefix, a retry-on-collision check, schema-separated
+  generation plus text sanitization) after prompt-only instructions
+  were repeatedly found insufficient against real model output.
+- **Fuzzy matching needs asymmetric safety margins.** Typo tolerance
+  that's too loose for short words causes silent false positives (a
+  genuinely wrong answer marked correct) that are far more damaging to
+  a game's integrity than a genuine typo occasionally being marked
+  wrong. The final implementation is deliberately conservative: a
+  minimum word length and a matching-first-letter requirement, both
+  added specifically after a real regression was found and fixed.
+- **Live-streaming and content sanitization are in tension.** A
+  response can't be corrected after it's already been streamed to the
+  user token-by-token. Anywhere output needed guaranteed sanitization
+  (feedback text that must never contain a stray question), the fix
+  required generating the full response first, sanitizing it, and only
+  then streaming the cleaned result — trading a small latency cost for
+  a real correctness guarantee.
 
 ## Author
 
-**Fatima Azeem**
-AI/ML Internship -- Day 14 (Phase 2 Capstone)
+**Fatima Azeem** — AI/ML Internship (Phase 2, Day 14)
