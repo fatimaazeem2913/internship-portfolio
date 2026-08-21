@@ -1,89 +1,54 @@
-# Day 16: Document Ingestion & Chunking Strategies
+# Day 16: Advanced Document Ingestion & Chunking Strategies Pipeline
 
-✅ **2/2 tests passing** — 100% metadata lineage integrity verified across all 5 chunking strategies.
+Production-grade RAG ingestion, OCR processing, LLM post-processing, and multi-strategy chunking testbed.
 
-## Project Overview
+## Overview
+This repository implements a modular ingestion and chunking architecture for multi-modal, heterogeneous documents:
+- **PDF Extraction**: Native multi-page vector PDF extraction (PDFPlumber + PyPDF) with table layout parsing.
+- **OCR Extraction**: Scanned PDF & image text parsing with Tesseract/PaddleOCR support.
+- **DOCX & TXT Ingestion**: Structural heading hierarchy detection and clean text aggregation.
+- **LLM-assisted Post-Processing**: Markdown table recovery, JSON generation for lookups, and executive table summaries.
+- **5 Chunking Strategies**:
+  1. Fixed-size Character Chunking (sliding window with overlap)
+  2. Token-based Chunking (tiktoken `cl100k_base`)
+  3. Recursive Character Chunking (hierarchical delimiter splitting)
+  4. Semantic Chunking (sentence boundary & semantic shift grouping)
+  5. Hierarchical / Parent-Child Chunking (parent context indexing for child search units)
+- **Rich Metadata Attachment**: Every chunk preserves `source`, `page_number`, `chunk_index`, and `section_heading`.
 
-A complete multi-format document ingestion and chunking testbed built for enterprise-grade Retrieval-Augmented Generation (RAG). The pipeline processes heterogeneous unstructured documents (Native Vector PDFs, Scanned Image PDFs via OCR, Structured DOCX, and TXT policies), extracts multimodal diagrams, preserves mathematical formulas, and benchmarks five distinct chunking architectures without losing structural metadata lineage.
+---
 
-## Key Features & Architecture
-
-* **Heterogeneous Ingestion Engine**:
-  * **Native PDF (`SupportcoursesM-DLearning.pdf`)**: Extracted 117 pages (153,975 chars) using `pdfplumber` and `pymupdf`, capturing 52 distinct hierarchical sections.
-  * **Scanned OCR PDF (`vendor_nda_scanned.pdf`)**: 300 DPI pixmap conversion through `pytesseract` + `pymupdf`.
-  * **Structured DOCX (`product_spec.docx`)**: Parsed style hierarchy and embedded multi-column SLA tables into clean Markdown.
-  * **Policy TXT (`api_rate_limiting_policy.txt`)**: Uppercase header token tracking.
-* **Multimodal Extraction**: Extracted and cataloged 96 high-resolution diagrams, architecture topologies, and decision boundaries into `outputs/images/`.
-* **Formula & Equation Ingestion**: Preserved spatial mathematical derivations (MSE loss, Logistic probability, Bayes theorem, and Euclidean distance) directly within text chunks.
-* **5 Chunking Strategies Benchmarked**:
-  1. **Fixed-Size Chunking**: 451 chunks (500 chars / 50 overlap).
-  2. **Token-Based Chunking**: 402 chunks via `tiktoken` BPE (`cl100k_base`).
-  3. **Recursive Character (LangChain)**: 431 chunks using hierarchical delimiters (`\n\n`, `\n`, `. `).
-  4. **Semantic Chunking**: 1,046 sentence-boundary clusters.
-  5. **Hierarchical (Parent-Child)**: 1,099 small child chunks (200 chars) mapped to rich parent contexts (800 chars).
-* **100% Lineage Integrity**: Every chunk maintains strict provenance (`source`, `page_number`, `chunk_index`, and `section_heading`).
-
-## Project Structure
-
-```text
+## Directory Structure
+```
 day_16_rag_ingestion_chunking/
-├── data/                                 # Source input files (PDF, DOCX, TXT, OCR)
-│   ├── SupportcoursesM-DLearning.pdf
-│   ├── vendor_nda_scanned.pdf
-│   ├── product_spec.docx
-│   └── api_rate_limiting_policy.txt
-├── docs/                                 # Technical reports & Trade-off analyses
+├── data/                       # Source input files (PDF, DOCX, TXT, OCR)
+├── docs/                       # Technical reports & Trade-off analyses
 │   └── TRADEOFF_ANALYSIS.md
-├── outputs/                              # Exported chunk JSON files & figures
-│   ├── images/                           # 96 extracted raster diagrams
-│   ├── chunks_fixed_size.json
-│   ├── chunks_token_based.json
-│   ├── chunks_recursive_langchain.json
-│   ├── chunks_semantic.json
-│   └── chunks_hierarchical.json
-├── src/                                  # Core pipeline modules
+├── outputs/                    # Exported chunk JSON files & benchmark logs
+├── src/                        # Core pipeline modules
 │   ├── __init__.py
-│   ├── models.py                         # DocumentElement & TextChunk dataclasses
-│   ├── ingestion.py                      # Multi-format parsers & OCR
-│   ├── chunkers.py                       # 5 chunking algorithms
-│   └── llm_processor.py                  # Table & OCR correction schema
-├── tests/                                # Verification and metadata integrity tests
+│   ├── models.py               # DocumentElement and Chunk dataclasses
+│   ├── ingestion.py            # PDF, OCR, DOCX, and TXT extractors
+│   ├── chunkers.py             # 5 Chunking strategies implementations
+│   └── llm_processor.py        # Table formatting & LLM correction layer
+├── tests/                      # Verification and metadata integrity tests
 │   ├── __init__.py
 │   └── test_pipeline.py
-├── main.py                               # Master execution runner
-└── requirements.txt                      # Python dependencies
+├── main.py                     # Master execution runner
+└── requirements.txt            # Python dependencies
 ```
 
-## Results & Verification
+---
 
-* **2/2 Test Suite Passed**: `pytest tests/` confirms zero missing metadata fields across all generated output JSON files.
-* **Extraction Volume**: 162,667 characters total ingested across 4 document types.
-* **Lineage Verification**: `PASSED (100% Lineage)` across all 3,429 generated chunks.
+## Installation & Quickstart
 
-## How to Run
-
-### Setup Environment
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+# 1. Install dependencies
 pip install -r requirements.txt
-```
 
-### Run Master Pipeline
-```bash
+# 2. Run the complete pipeline
 python main.py
-```
 
-### Run Test Suite
-```bash
+# 3. Run test suite
 pytest tests/
 ```
-
-## Strategy Evaluation Verdict
-
-* **Hierarchical (Parent-Child)** proved to be the highest quality strategy for technical specifications, allowing high-precision vector matches on numerical constraints while feeding full section contexts to the generation model.
-* **Recursive Character Chunking** is the recommended runner-up for single-vector pipelines, preserving Markdown tables and multi-line equations intact.
-
-## Author
-
-Fatima Azeem — AI/ML Internship (Phase 3, Day 16)
