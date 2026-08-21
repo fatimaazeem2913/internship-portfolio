@@ -52,6 +52,8 @@ day_16_rag_ingestion_chunking/
 │   └── test_pipeline.py
 ├── main.py                               # Master execution runner
 └── requirements.txt                      # Python dependencies
+```
+
 ## Results & Verification
 
 * **2/2 Test Suite Passed**: `pytest tests/` confirms zero missing metadata fields across all generated output JSON files.
@@ -65,15 +67,18 @@ day_16_rag_ingestion_chunking/
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
 
-### Run Full Ingestion & Chunking Pipeline
+### Run Master Pipeline
 ```bash
 python main.py
+```
 
 ### Run Test Suite
 ```bash
 pytest tests/
 ```
+
 ## Strategy Evaluation Verdict
 
 * **Hierarchical (Parent-Child)** proved to be the highest quality strategy for technical specifications, allowing high-precision vector matches on numerical constraints while feeding full section contexts to the generation model.
