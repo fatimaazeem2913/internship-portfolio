@@ -52,3 +52,33 @@ day_16_rag_ingestion_chunking/
 │   └── test_pipeline.py
 ├── main.py                               # Master execution runner
 └── requirements.txt                      # Python dependencies
+## Results & Verification
+
+* **2/2 Test Suite Passed**: `pytest tests/` confirms zero missing metadata fields across all generated output JSON files.
+* **Extraction Volume**: 162,667 characters total ingested across 4 document types.
+* **Lineage Verification**: `PASSED (100% Lineage)` across all 3,429 generated chunks.
+
+## How to Run
+
+### Setup Environment
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+### Run Full Ingestion & Chunking Pipeline
+```bash
+python main.py
+
+### Run Test Suite
+```bash
+pytest tests/
+```
+## Strategy Evaluation Verdict
+
+* **Hierarchical (Parent-Child)** proved to be the highest quality strategy for technical specifications, allowing high-precision vector matches on numerical constraints while feeding full section contexts to the generation model.
+* **Recursive Character Chunking** is the recommended runner-up for single-vector pipelines, preserving Markdown tables and multi-line equations intact.
+
+## Author
+
+Fatima Azeem — AI/ML Internship (Phase 3, Day 16)
