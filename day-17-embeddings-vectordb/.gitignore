@@ -1,8 +1,0 @@
-venv/
-__pycache__/
-*.pyc
-.pytest_cache/
-.env
-outputs/chroma_db/
-outputs/chunks_with_embeddings.json
-outputs/embeddings_matrix.npy
