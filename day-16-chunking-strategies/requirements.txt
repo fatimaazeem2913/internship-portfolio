@@ -1,0 +1,6 @@
+PyMuPDF
+pypdf
+tiktoken
+google-genai
+rich
+tabulate

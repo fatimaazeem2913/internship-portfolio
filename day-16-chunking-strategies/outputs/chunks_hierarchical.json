@@ -1,0 +1,3269 @@
+[
+  {
+    "id": "chunk_0000",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0001",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0002",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0003",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0004",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0005",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0006",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0007",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0008",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0009",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0010",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0011",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0012",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0013",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0014",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0015",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0016",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0017",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0018",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0019",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0020",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0021",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0022",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0023",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0024",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0025",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0026",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0027",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0028",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0029",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0030",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0031",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0032",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0033",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0034",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0035",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0036",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0037",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0038",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0039",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0040",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0041",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0042",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0043",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0044",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0045",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0046",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0047",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0048",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0049",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0050",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0051",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0052",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0053",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0054",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0055",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0056",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0057",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0058",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0059",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0060",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0061",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0062",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0063",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0064",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0065",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0066",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0067",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0068",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0069",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0070",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0071",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0072",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0073",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0074",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0075",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0076",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0077",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0078",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0079",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0080",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0081",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0082",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0083",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0084",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0085",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0086",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0087",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0088",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0089",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0090",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0091",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0092",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0093",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0094",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0095",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0096",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0097",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0098",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0099",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0100",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0101",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0102",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0103",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0104",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0105",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0106",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0107",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0108",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0109",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0110",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0111",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0112",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0113",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0114",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0115",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0116",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0117",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0118",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0119",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0120",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0121",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0122",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0123",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0124",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0125",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0126",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0127",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0128",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0129",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0130",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0131",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0132",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0133",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0134",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0135",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0136",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0137",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0138",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0139",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0140",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0141",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0142",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0143",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0144",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0145",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0146",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0147",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0148",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0149",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0150",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0151",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0152",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0153",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0154",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0155",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0156",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0157",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0158",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0159",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0160",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0161",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0162",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0163",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0164",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0165",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0166",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0167",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0168",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0169",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0170",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0171",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0172",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0173",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0174",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0175",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0176",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0177",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0178",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0179",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0180",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0181",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0182",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0183",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0184",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0185",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0186",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0187",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0188",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0189",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0190",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0191",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0192",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0193",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0194",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0195",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0196",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0197",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0198",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0199",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0200",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0201",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0202",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0203",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0204",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0205",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0206",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0207",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0208",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0209",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0210",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0211",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0212",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0213",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0214",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0215",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0216",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0217",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0218",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0219",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0220",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0221",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0222",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0223",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0224",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0225",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0226",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0227",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0228",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0229",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0230",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0231",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0232",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0233",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0234",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0235",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0236",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0237",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0238",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0239",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0240",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0241",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0242",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0243",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0244",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0245",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0246",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0247",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0248",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0249",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0250",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0251",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0252",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0253",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0254",
+    "text": "In parameter optimization for simple linear models, the cost function is defined as MSE = (1/N) * sum_{i=1}^N (y_i - (\\omega_1 x_i + \\omega_0))^2, par",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0255",
+    "text": "mega_1 x_i + \\omega_0))^2, parameterized by slope coefficient \\omega_1 and intercept \\omega_0.",
+    "parent_id": "parent_34_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 34,
+      "section_heading": "Parameter Optimization & Linear Cost Function",
+      "chunk_type": "child",
+      "parent_id": "parent_34_000"
+    }
+  },
+  {
+    "id": "chunk_0256",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0257",
+    "text": "Figure 4.1 depicts the biological neuron anatomy. Biological inputs are gathered by Dendrites, aggregated in the Cell nucleus (Soma), transferred alon",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0258",
+    "text": "cleus (Soma), transferred along the Axon, and mediated across synaptic junctions.",
+    "parent_id": "parent_77_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 77,
+      "section_heading": "Biological Neuron Anatomy",
+      "chunk_type": "child",
+      "parent_id": "parent_77_000"
+    }
+  },
+  {
+    "id": "chunk_0259",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0260",
+    "text": "Table 4.1 provides the structural mapping: Dendrites correspond to Inputs, Cell nucleus corresponds to Nodes/Processing units, Synapse corresponds to",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0261",
+    "text": "units, Synapse corresponds to Weights, and Axon corresponds to Outputs.",
+    "parent_id": "parent_78_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 78,
+      "section_heading": "Biological to Artificial Neuron Mapping (Table 4.1)",
+      "chunk_type": "child",
+      "parent_id": "parent_78_000"
+    }
+  },
+  {
+    "id": "chunk_0262",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0263",
+    "text": "Neural networks are trained via backpropagation to minimize objective loss landscapes through reverse-mode automatic differentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0264",
+    "text": "ferentiation.",
+    "parent_id": "parent_85_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 85,
+      "section_heading": "Backpropagation & Neural Cost Functions",
+      "chunk_type": "child",
+      "parent_id": "parent_85_000"
+    }
+  },
+  {
+    "id": "chunk_0265",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribution.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0266",
+    "text": "Figure 4.1 detailed diagram: Illustrates the feed-forward computational graph, weighted synaptic summation, activation functions, and output distribut",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0267",
+    "text": "unctions, and output distribution.",
+    "parent_id": "parent_102_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 102,
+      "section_heading": "Figure 4.1 Architecture & Workflow Details",
+      "chunk_type": "child",
+      "parent_id": "parent_102_000"
+    }
+  },
+  {
+    "id": "chunk_0268",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0269",
+    "text": "General regression loss measures squared residual distances: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2.",
+    "parent_id": "parent_105_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 105,
+      "section_heading": "Regression Loss General Formulation",
+      "chunk_type": "child",
+      "parent_id": "parent_105_000"
+    }
+  },
+  {
+    "id": "chunk_0270",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0271",
+    "text": "Machine learning is a subset of artificial intelligence where algorithms learn patterns directly from empirical data. Supervised learning models relat",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0272",
+    "text": "pervised learning models relationships between input vectors x and target continuous outcomes y or discrete class labels.",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0273",
+    "text": ".",
+    "parent_id": "parent_1_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 1,
+      "section_heading": "Introduction to Machine Learning Paradigms",
+      "chunk_type": "child",
+      "parent_id": "parent_1_000"
+    }
+  },
+  {
+    "id": "chunk_0274",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0275",
+    "text": "Figure 1.1 illustrates the end-to-end machine learning pipeline architecture. Linear regression loss trajectories and training convergence curves demo",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0276",
+    "text": "aining convergence curves demonstrate how gradient descent minimizes empirical loss across training epochs.",
+    "parent_id": "parent_4_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 4,
+      "section_heading": "System Workflow & Figure Trajectories",
+      "chunk_type": "child",
+      "parent_id": "parent_4_000"
+    }
+  },
+  {
+    "id": "chunk_0277",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": null,
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "parent"
+    }
+  },
+  {
+    "id": "chunk_0278",
+    "text": "The mathematical formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents ground truth targets, \\ha",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  },
+  {
+    "id": "chunk_0279",
+    "text": "ents ground truth targets, \\hat{y}_i represents model predictions, and n is the total observation count.",
+    "parent_id": "parent_12_000",
+    "metadata": {
+      "source": "SupportcoursesM-DLearning.pdf",
+      "page_number": 12,
+      "section_heading": "Mathematical Formulations & Regression Objectives",
+      "chunk_type": "child",
+      "parent_id": "parent_12_000"
+    }
+  }
+]
