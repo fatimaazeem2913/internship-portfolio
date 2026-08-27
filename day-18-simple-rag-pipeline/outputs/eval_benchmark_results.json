@@ -1,0 +1,68 @@
+[
+  {
+    "id": "q1_factual",
+    "type": "factual_lookup",
+    "question": "What is the mathematical loss formula for Mean Squared Error (MSE)?",
+    "answer": "Based on the provided documentation, the mathematical loss formula for Mean Squared Error (MSE) is given in two contexts:\n\n1. **General Regression Error Measure**:\n   $$\\text{MSE} = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2$$\n   *Where:*\n   * $y_i$ is the actual value,\n   * $\\hat{y}_i$ is the predicted value, and\n   * $n$ is the number of observations [Source: SupportcoursesM-DLearning.pdf, Page: 105].\n\n2. **Cost Function for Linear Regression**:\n   $$\\text{MSE} = \\frac{1}{N} \\sum_{i=1}^{N} (y_i - (\\omega_1 x_i + \\omega_0))^2$$\n   *Where:*\n   * $N$ is the total number of observations,\n   * $y_i$ is the actual value, and\n   * $(\\omega_1 x_i + \\omega_0)$ represents the predicted value using coefficients $\\omega_1$ and $\\omega_0$ [Source: SupportcoursesM-DLearning.pdf, Page: 34].",
+    "metrics": {
+      "retrieval_latency_ms": 227.74,
+      "generation_latency_ms": 6936.88,
+      "total_pipeline_latency_ms": 7164.9,
+      "chunks_retrieved": 3
+    },
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 20]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 34]"
+    ]
+  },
+  {
+    "id": "q2_inference",
+    "type": "inference_required",
+    "question": "Why would an engineer select a 384-dimension embedding model over a 1024-dimension model in an edge computing setup?",
+    "answer": "I am sorry, but the provided documentation does not contain sufficient information to answer this question.",
+    "metrics": {
+      "retrieval_latency_ms": 197.64,
+      "generation_latency_ms": 3793.44,
+      "total_pipeline_latency_ms": 3991.11,
+      "chunks_retrieved": 3
+    },
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 41]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 79]"
+    ]
+  },
+  {
+    "id": "q3_cross_doc",
+    "type": "cross_document",
+    "question": "Compare how chunking strategies from document ingestion affect vector search latency and precision in vector stores.",
+    "answer": "I am sorry, but the provided documentation does not contain sufficient information to answer this question.",
+    "metrics": {
+      "retrieval_latency_ms": 192.64,
+      "generation_latency_ms": 4108.86,
+      "total_pipeline_latency_ms": 4301.52,
+      "chunks_retrieved": 3
+    },
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 116]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 41]"
+    ]
+  },
+  {
+    "id": "q4_out_of_domain",
+    "type": "out_of_domain",
+    "question": "What is the recipe and baking temperature for traditional Neapolitan sourdough pizza?",
+    "answer": "I am sorry, but the provided documentation does not contain sufficient information to answer this question.",
+    "metrics": {
+      "retrieval_latency_ms": 184.63,
+      "generation_latency_ms": 5037.8,
+      "total_pipeline_latency_ms": 5222.45,
+      "chunks_retrieved": 3
+    },
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 22]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 117]"
+    ]
+  }
+]

@@ -1,0 +1,1 @@
+"""Test package initialization for Day 18 test suite."""

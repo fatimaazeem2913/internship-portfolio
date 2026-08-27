@@ -1,0 +1,30 @@
+[
+  {
+    "id": "q1_factual",
+    "type": "factual_lookup",
+    "question": "What is the mathematical loss formula for Mean Squared Error (MSE)?",
+    "expected_topics": ["MSE", "loss", "y_i", "hat"],
+    "notes": "Factual query with direct formula in the documents"
+  },
+  {
+    "id": "q2_inference",
+    "type": "inference_required",
+    "question": "Why would an engineer select a 384-dimension embedding model over a 1024-dimension model in an edge computing setup?",
+    "expected_topics": ["latency", "throughput", "memory", "RAM", "CPU", "dimension"],
+    "notes": "Requires synthesizing ingestion throughput and memory trade-offs"
+  },
+  {
+    "id": "q3_cross_doc",
+    "type": "cross_document",
+    "question": "Compare how chunking strategies from document ingestion affect vector search latency and precision in vector stores.",
+    "expected_topics": ["hierarchical", "chunking", "vector", "precision", "latency"],
+    "notes": "Synthesizes concepts across parsing and vector indexing"
+  },
+  {
+    "id": "q4_out_of_domain",
+    "type": "out_of_domain",
+    "question": "What is the recipe and baking temperature for traditional Neapolitan sourdough pizza?",
+    "expected_topics": ["insufficient information", "not found", "cannot answer"],
+    "notes": "Query has no ground truth in the docs; model must decline without hallucinating"
+  }
+]

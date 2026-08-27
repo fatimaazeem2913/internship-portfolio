@@ -1,0 +1,42 @@
+[
+  {
+    "id": "chunk_001",
+    "text": "Mean Squared Error (MSE) is a standard loss function in supervised regression tasks. The mathematical formula is defined as: MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2, where y_i represents the ground truth value, \\hat{y}_i represents the model prediction, and n is the total count of observations.",
+    "metadata": {
+      "source": "ml_fundamentals_guide.pdf",
+      "page_number": 12,
+      "chunk_index": 1,
+      "section_heading": "Loss Functions in Supervised Learning"
+    }
+  },
+  {
+    "id": "chunk_002",
+    "text": "Embedding model dimension scaling directly dictates compute memory footprints and vector search latency. A 384-dimension vector (e.g., all-MiniLM-L6-v2) consumes only 1.5 KB per vector and delivers high throughput (>130 chunks/s on CPU) with sub-millisecond query latency. In contrast, 1024-dimension models require over 4.1 KB per vector and exhibit higher query latency, making 384d ideal for edge computing and memory-constrained deployments.",
+    "metadata": {
+      "source": "vector_embeddings_tradeoffs.pdf",
+      "page_number": 4,
+      "chunk_index": 2,
+      "section_heading": "Vector Dimensionality Tradeoffs"
+    }
+  },
+  {
+    "id": "chunk_003",
+    "text": "Hierarchical chunking creates multi-level semantic trees: small child chunks (150-300 tokens) are indexed as dense vectors in ChromaDB or FAISS for high-precision similarity matching, while larger parent chunks preserve broader narrative context to avoid context fragmentation and prevent LLM hallucinations during generation.",
+    "metadata": {
+      "source": "document_ingestion_pipeline.pdf",
+      "page_number": 7,
+      "chunk_index": 3,
+      "section_heading": "Hierarchical Document Splitting"
+    }
+  },
+  {
+    "id": "chunk_004",
+    "text": "ChromaDB provides persistent SQLite-backed relational metadata storage coupled with HNSW vector graph segments (hnswlib). It allows filtered metadata retrieval (where={'source': 'doc.pdf'}) with a modest ~2ms query overhead, while FAISS provides in-memory bare-metal C++ vector indexing with 0.2ms sub-millisecond search latencies.",
+    "metadata": {
+      "source": "vector_embeddings_tradeoffs.pdf",
+      "page_number": 9,
+      "chunk_index": 4,
+      "section_heading": "ChromaDB vs FAISS Architecture"
+    }
+  }
+]
