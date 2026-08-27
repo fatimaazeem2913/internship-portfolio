@@ -1,48 +1,59 @@
-# Document Ingestion, Multimodal Parsing & Chunking Strategies — Day 16
+# Embedding Models & Dense Vector Retrieval Benchmark — Day 17
 
 ## Project Overview
 
-This module establishes the foundational data preparation layer for a production Retrieval-Augmented Generation (RAG) system. It processes heterogeneous enterprise document formats — plain text policies (`.txt`), word processing specifications (`.docx`), scanned legal contracts, and technical course curriculum PDFs containing dense descriptive prose, tabular benchmarks, and visual architecture diagrams — into standardized, searchable chunks while preserving complete metadata lineage and context provenance.
+This module benchmarks dense vector representation pipelines and vector
+indexing backends for technical Retrieval-Augmented Generation (RAG). It
+evaluates trade-offs across embedding dimensionalities (384-d, 768-d,
+and 1024-d) and compares vector store architectures (**ChromaDB** vs.
+**FAISS**) on ingestion throughput, retrieval precision (P@3), metadata
+filtering, and query latency across technical documents, mathematical
+formulations, and multimodal visual descriptions.
 
 ## Objectives
 
-- Ingest multi-format unstructured documents (`.txt`, `.docx`, `.pdf`, scanned PDFs) into unified data representations.
-- Implement and benchmark 5 distinct chunking strategies: Fixed-Size, Token-Based, Recursive Character, Semantic Coherence, and Hierarchical Parent-Child chunking.
-- Integrate multimodal vision models to transcribe embedded figures, neural diagrams, and loss curves into detailed, semantically searchable markdown descriptions.
-- Preserve document metadata (source filenames, page numbers, section headers, chunk IDs, and hierarchical parent-child relationships) to eliminate orphan chunks.
+- **Dimensionality benchmarking** — evaluate performance trade-offs
+  among embedding models across 384-d (`all-MiniLM-L6-v2`), 768-d
+  (`all-mpnet-base-v2`), and 1024-d (`BAAI/bge-large-en-v1.5`).
+- **Vector store comparison** — implement and compare **ChromaDB**
+  (persistent, metadata-aware) against **FAISS** (in-memory flat
+  `IndexFlatIP`).
+- **Information retrieval evaluation** — measure Precision@3 (P@3) and
+  query retrieval latency across technical curriculum queries and
+  benchmark question sets.
+- **Architecture selection** — determine the optimal model and database
+  configuration for the downstream hybrid retrieval system.
 
 ## Technologies Used
 
-- **Languages & Runtime:** Python 3.12, PyPDF2, PyMuPDF (`fitz`), `python-docx`
-- **Vision & Tokenization:** Google Gemini Flash Vision API (`gemini-2.5-flash`), `tiktoken`, `langchain-text-splitters`
-- **Data Architecture & Scaffolding:** Pydantic models, NumPy, Rich, Tabulate
+- **Embedding Models:** HuggingFace / SentenceTransformers
+  (`all-MiniLM-L6-v2`, `all-mpnet-base-v2`, `BAAI/bge-large-en-v1.5`)
+- **Vector Databases:** ChromaDB (`chromadb`), Facebook AI Similarity
+  Search (`faiss-cpu`)
+- **Core Runtime & Scaffolding:** Python 3.12, NumPy, Rich, Tabulate,
+  Pytest
 
 ## Project Structure
 
 ```text
-day-16-chunking-strategies/
+day-17-embeddings-vectordb/
 ├── data/
-│   ├── api_rate_limiting_policy.txt
-│   ├── product_spec.docx
-│   ├── SupportcoursesM-DLearning.pdf
-│   └── vendor_nda_scanned.pdf
+│   ├── benchmark_questions.json
+│   └── chunks_hierarchical.json
 ├── docs/
 │   └── TRADEOFF_ANALYSIS.md
 ├── outputs/
-│   ├── images/
-│   ├── chunks_fixed_size.json
-│   ├── chunks_hierarchical.json
-│   ├── chunks_recursive_langchain.json
-│   ├── chunks_semantic.json
-│   └── chunks_token_based.json
+│   ├── chroma_db/
+│   │   └── chroma.sqlite3
+│   ├── embeddings_matrix.npy
+│   └── benchmark_results.json
 ├── src/
 │   ├── __init__.py
-│   ├── chunkers.py
-│   ├── document_parser.py
-│   ├── ingestion.py
-│   ├── llm_processor.py
-│   └── models.py
+│   ├── benchmark.py
+│   ├── embeddings.py
+│   └── vector_stores.py
 ├── tests/
+│   └── test_vector_pipeline.py
 ├── main.py
 ├── requirements.txt
 └── README.md
@@ -50,71 +61,82 @@ day-16-chunking-strategies/
 
 ## Tasks Performed
 
-- Universal Document Ingestion: Built universal loaders in ingestion.py and document_parser.py supporting multi-format document streams (.pdf, .docx, .txt).
+- Built a standardized embedding abstraction layer (`embeddings.py`)
+  supporting normalized dense embeddings with dimension validation.
+- Implemented modular vector database managers (`vector_stores.py`):
+  - `ChromaStoreManager` — SQLite-backed persistent collection storage
+    with document, metadata, and distance querying.
+  - `FAISSStoreManager` — in-memory `IndexFlatIP` cosine inner-product
+    indexing with vector normalization.
+- Executed an automated evaluation harness (`benchmark.py`, `main.py`)
+  benchmarking 1,140 ingested passages across 20 specialized technical
+  validation queries.
+- Saved benchmark results to `outputs/benchmark_results.json` and
+  generated trade-off analysis documentation in
+  `docs/TRADEOFF_ANALYSIS.md`.
 
-- Visual Extraction & Vision Enrichment: Extracted and routed embedded images to outputs/images/, producing vision-transcribed textual markdown descriptions via llm_processor.py.
+## Empirical Benchmark Results
 
-- Modular Chunking Implementations: Implemented modular chunking algorithms in chunkers.py:
+| Model | Dimensions | Ingestion Time | Throughput | Chroma P@3 | Chroma Latency | FAISS P@3 | FAISS Latency |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| `all-MiniLM-L6-v2` | 384 | 7.73 s | 147.5 chunks/s | 98.3% | 1.42 ms | 53.0% | < 0.1 ms |
+| `all-mpnet-base-v2` | 768 | 59.23 s | 19.2 chunks/s | 98.3% | 1.54 ms | 60.0% | < 0.1 ms |
+| `BAAI/bge-large-en-v1.5` | 1024 | 189.05 s | 6.0 chunks/s | **98.3%** | 1.99 ms | 67.0% | < 0.1 ms |
 
-    1. Fixed-Size Windowing: Uniform character splitting with overlap.
+## Final Architecture Decision
 
-    2. Token-Based Splitting: BPE token-aware segmenting via tiktoken.
-
-    3. Recursive LangChain Splitting: Structural boundary preservation prioritizing double-newlines, single-newlines, and whitespace breaks.
-
-    4. Semantic Chunking: Similarity-threshold grouping based on embedding distance deltas.
-
-    5. Hierarchical Parent-Child Chunking: Granular child passages (150–300 tokens) linked to broad parent contexts (800–1200 tokens) via strict ID references.
-
-- Schema Validation: Validated chunk schemas with Pydantic (models.py) and saved serialized outputs in outputs/.
-
-## Results
-
-- Generated **280 standardized multimodal chunks** from the target
-  curriculum corpus (`SupportcoursesM-DLearning.pdf`).
-- Structured **100% of image figures** (e.g., biological neuron
-  anatomy, MSE loss landscapes, gradient convergence trajectories) into
-  fully indexed Markdown text passages with exact page-level provenance.
+- **Selected combination:** `BAAI/bge-large-en-v1.5` + ChromaDB
+- **Rationale:**
+  1. **Maximum contextual precision** — the high dimensional capacity
+     (1024-d) accurately resolves nuanced distinctions between LaTeX
+     formulas, loss formulations, and diagram structures.
+  2. **Metadata filtering** — native SQLite persistence and granular
+     metadata querying in ChromaDB allow fast filtering by document
+     source, page number, and section title without complex index
+     restructuring.
+  3. **Operational viability** — a retrieval query latency of 1.99 ms
+     easily satisfies production SLAs (<50 ms).
 
 ## Observations
 
-- Fixed-size windowing consistently splits mathematical expressions
-  across chunk boundaries, resulting in broken LaTeX strings.
-- Hierarchical parent-child chunking provides the highest semantic
-  precision by allowing fine-grained child matching while preserving
-  parent narrative context during generation.
+- Ingestion throughput scales inversely with dimensionality on CPU
+  hardware (147.5 chunks/s on 384-d vs. 6.0 chunks/s on 1024-d).
+- ChromaDB consistently outperformed raw flat FAISS on Precision@3 for
+  top-3 retrieval across structured parent-child metadata chunks.
+- Embedding normalization prior to index insertion is essential for
+  stable inner-product cosine similarity retrieval.
 
 ## Challenges Encountered
 
-- **Handling inline mathematical formulas** — splitting text mid-equation
-  rendered LaTeX blocks unparseable. Resolved by enforcing boundary
-  splits at paragraph and double-newline deltas before falling back to
-  token limits.
-- **Complex multi-column PDF formatting** — reading order distortion was
-  mitigated using PyMuPDF block extraction sorted by vertical reading
-  coordinates.
+- **Vector array shapes in FAISS** — query arrays required strict 2D
+  conversion `(1, dim)` and float32 type casting to avoid collection
+  errors during test cycles.
+- **CPU vectorization throughput** — large models (1024-d) required
+  pre-computing embeddings and persisting the resulting matrices to
+  `outputs/embeddings_matrix.npy` to optimize runtime overhead.
 
 ## How to Run
 
 ```bash
-# 1. Activate Virtual Environment
+# 1. Activate virtual environment
 source ../day-19-hybrid-search-advanced-retrieval/venv/bin/activate
 
-# 2. Run Parsing & Chunking Pipeline
+# 2. Run ingestion & benchmark pipeline
 python main.py
 
-# 3. Run Test Suite
+# 3. Run test suite
 python -m pytest tests/
 ```
 
 ## Learning Outcomes
 
-- Developed production-grade document extraction pipelines across multi-format enterprise data.
-
-- Evaluated trade-offs among 5 distinct chunking architectures for retrieval-augmented generation.
-
-- Implemented multimodal vision transcription for indexing technical diagrams and figures.
+- Evaluated speed, throughput, and accuracy trade-offs across 384-d,
+  768-d, and 1024-d embedding spaces.
+- Built production wrappers for ChromaDB and FAISS with persistence and
+  query interfaces.
+- Validated vector pipeline performance for downstream hybrid retrieval
+  integration.
 
 ## Author
 
-**Fatima Azeem** — AI/ML Internship (Phase 3, Day 16)
+**Fatima Azeem** — AI/ML Internship (Phase 3, Day 17)
