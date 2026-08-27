@@ -1,0 +1,32 @@
+[
+  {
+    "model": "all-MiniLM-L6-v2",
+    "dim": 384,
+    "embed_time_s": 7.73,
+    "throughput_chunk_s": 147.5,
+    "chroma_p3": "98.3%",
+    "chroma_lat_ms": 1.42,
+    "faiss_p3": "53.0%",
+    "faiss_lat_ms": 0.0
+  },
+  {
+    "model": "all-mpnet-base-v2",
+    "dim": 768,
+    "embed_time_s": 59.23,
+    "throughput_chunk_s": 19.2,
+    "chroma_p3": "98.3%",
+    "chroma_lat_ms": 1.54,
+    "faiss_p3": "60.0%",
+    "faiss_lat_ms": 0.0
+  },
+  {
+    "model": "BAAI/bge-large-en-v1.5",
+    "dim": 1024,
+    "embed_time_s": 189.05,
+    "throughput_chunk_s": 6.0,
+    "chroma_p3": "98.3%",
+    "chroma_lat_ms": 1.99,
+    "faiss_p3": "67.0%",
+    "faiss_lat_ms": 0.0
+  }
+]

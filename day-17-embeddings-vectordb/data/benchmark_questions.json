@@ -1,0 +1,181 @@
+[
+  {
+    "id": 1,
+    "query": "What is the formula for Mean Squared Error loss?",
+    "expected_keywords": [
+      "Mean Squared Error",
+      "MSE",
+      "sum((y_i - y_hat_i)^2)"
+    ]
+  },
+  {
+    "id": 2,
+    "query": "What are the rate limit rules and request thresholds for Tier 1 accounts?",
+    "expected_keywords": [
+      "60 requests per minute",
+      "Tier 1",
+      "HTTP 429"
+    ]
+  },
+  {
+    "id": 3,
+    "query": "What is the P99 latency SLA guarantee for inference nodes?",
+    "expected_keywords": [
+      "P99 latency",
+      "250ms",
+      "2MB"
+    ]
+  },
+  {
+    "id": 4,
+    "query": "How is Bayes theorem formulated for conditional probability?",
+    "expected_keywords": [
+      "P(A|B)",
+      "posterior probability",
+      "Bayes Theorem"
+    ]
+  },
+  {
+    "id": 5,
+    "query": "What is the token replenishment rate in the rate limiting algorithm?",
+    "expected_keywords": [
+      "token bucket",
+      "replenished at 1 token every 1000ms"
+    ]
+  },
+  {
+    "id": 6,
+    "query": "How many availability zones are required for database clustering?",
+    "expected_keywords": [
+      "3 Availability Zones",
+      "automatic failover",
+      "15 seconds"
+    ]
+  },
+  {
+    "id": 7,
+    "query": "What distance metric is used in K-Means clustering?",
+    "expected_keywords": [
+      "Euclidean metric",
+      "sqrt(sum((p_i - q_i)^2))",
+      "K-Means"
+    ]
+  },
+  {
+    "id": 8,
+    "query": "What are the exclusions to confidential information in the NDA?",
+    "expected_keywords": [
+      "publicly known",
+      "already in possession",
+      "independently developed"
+    ]
+  },
+  {
+    "id": 9,
+    "query": "How does backpropagation compute weight gradients?",
+    "expected_keywords": [
+      "chain rule",
+      "dL/dw",
+      "dL/da * da/dz * dz/dw"
+    ]
+  },
+  {
+    "id": 10,
+    "query": "What is the timeline for returning confidential materials upon termination?",
+    "expected_keywords": [
+      "14 calendar days",
+      "destroy or return",
+      "written certification"
+    ]
+  },
+  {
+    "id": 11,
+    "query": "What mathematical function calculates WCSS in partitioning?",
+    "expected_keywords": [
+      "within-cluster sum of squares",
+      "WCSS",
+      "K-Means"
+    ]
+  },
+  {
+    "id": 12,
+    "query": "What status code is returned when a client exceeds rate limit thresholds?",
+    "expected_keywords": [
+      "HTTP 429",
+      "Too Many Requests",
+      "throttled"
+    ]
+  },
+  {
+    "id": 13,
+    "query": "What is the failover trigger window when the primary database node loses heartbeat?",
+    "expected_keywords": [
+      "15 seconds",
+      "primary node heartbeat",
+      "automatic failover"
+    ]
+  },
+  {
+    "id": 14,
+    "query": "What types of items are classified as Proprietary Information in the NDA?",
+    "expected_keywords": [
+      "technical schematics",
+      "customer lists",
+      "financial forecasts"
+    ]
+  },
+  {
+    "id": 15,
+    "query": "What conditional independence assumption does Naive Bayes make?",
+    "expected_keywords": [
+      "conditional independence",
+      "feature attributes",
+      "Naive Bayes"
+    ]
+  },
+  {
+    "id": 16,
+    "query": "What supervised learning methods map input vectors to target outputs?",
+    "expected_keywords": [
+      "linear regression",
+      "logistic regression",
+      "neural networks"
+    ]
+  },
+  {
+    "id": 17,
+    "query": "What happens to requests that exceed the leaky bucket depth?",
+    "expected_keywords": [
+      "Excess requests",
+      "bucket depth are dropped",
+      "leaky token bucket"
+    ]
+  },
+  {
+    "id": 18,
+    "query": "What penalty applies when the system fails to meet P99 SLA targets?",
+    "expected_keywords": [
+      "billing credits",
+      "Failure to meet SLA",
+      "latency"
+    ]
+  },
+  {
+    "id": 19,
+    "query": "How is the gradient descent step used to minimize MSE loss?",
+    "expected_keywords": [
+      "minimizes this loss",
+      "Gradient descent",
+      "MSE"
+    ]
+  },
+  {
+    "id": 20,
+    "query": "What written proof is needed after confidential documents are destroyed?",
+    "expected_keywords": [
+      "written certification",
+      "destroy or return",
+      "termination"
+    ]
+  }
+]
