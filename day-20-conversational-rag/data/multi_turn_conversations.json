@@ -1,0 +1,144 @@
+[
+  {
+    "dialogue_id": "conv_01_neuron_anatomy",
+    "turns": [
+      {
+        "query": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "expected_focus": "Dendrites, Soma, Axon, Synapse"
+      },
+      {
+        "query": "How does the second component map to an artificial neural network?",
+        "expected_focus": "Soma maps to summation and activation node"
+      },
+      {
+        "query": "What is the function of the last one?",
+        "expected_focus": "Synapses map to connection weights"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_02_mse_loss",
+    "turns": [
+      {
+        "query": "What is the formula for Mean Squared Error (MSE)?",
+        "expected_focus": "MSE formula with target, prediction, and 1/n"
+      },
+      {
+        "query": "What do the variables in the summation represent?",
+        "expected_focus": "y_i is ground truth, y_hat is prediction"
+      },
+      {
+        "query": "Why do we square the differences?",
+        "expected_focus": "Penalize larger errors and ensure positive distance"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_03_rate_limiting",
+    "turns": [
+      {
+        "query": "What are the API rate limits defined in the policy?",
+        "expected_focus": "Requests per minute and burst limits"
+      },
+      {
+        "query": "What HTTP status code is returned if exceeded?",
+        "expected_focus": "429 Too Many Requests"
+      },
+      {
+        "query": "How can developers request a limit increase?",
+        "expected_focus": "Support portal ticket"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_04_linear_regression",
+    "turns": [
+      {
+        "query": "Explain how linear regression minimizes error during training.",
+        "expected_focus": "Gradient descent over MSE loss surface"
+      },
+      {
+        "query": "What role does the learning rate play in this process?",
+        "expected_focus": "Step size along the gradient"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_05_svm_hyperplanes",
+    "turns": [
+      {
+        "query": "What is a support vector machine?",
+        "expected_focus": "Max-margin hyperplane classifier"
+      },
+      {
+        "query": "What makes the support vectors so special?",
+        "expected_focus": "Points lying closest to the decision boundary"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_06_unsupervised_clustering",
+    "turns": [
+      {
+        "query": "What is K-means clustering?",
+        "expected_focus": "Centroid-based partitioning algorithm"
+      },
+      {
+        "query": "How is K chosen?",
+        "expected_focus": "Elbow method or Silhouette analysis"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_07_activation_functions",
+    "turns": [
+      {
+        "query": "Compare Sigmoid and ReLU activation functions.",
+        "expected_focus": "Sigmoid bounds 0-1, ReLU max(0, x)"
+      },
+      {
+        "query": "Which one suffers from vanishing gradients?",
+        "expected_focus": "Sigmoid"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_08_singular_value_decomposition",
+    "turns": [
+      {
+        "query": "What is SVD decomposition in machine learning?",
+        "expected_focus": "Matrix factorization U Sigma V^T"
+      },
+      {
+        "query": "Where is it primarily used?",
+        "expected_focus": "Dimensionality reduction, PCA"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_09_decision_trees",
+    "turns": [
+      {
+        "query": "How do decision trees split features?",
+        "expected_focus": "Gini impurity or Information Gain"
+      },
+      {
+        "query": "How can overfitting be prevented?",
+        "expected_focus": "Pruning, max depth limits"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "conv_10_unanswerable_shift",
+    "turns": [
+      {
+        "query": "What is the refund policy for hardware products?",
+        "expected_focus": "State lack of information in context"
+      },
+      {
+        "query": "Are there any exceptions mentioned?",
+        "expected_focus": "Context maintains no hardware refund policy exists"
+      }
+    ]
+  }
+]
