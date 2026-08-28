@@ -1,0 +1,233 @@
+[
+  {
+    "id": "q01_mse_formula",
+    "type": "exact_keyword",
+    "question": "What is the mathematical loss formula for Mean Squared Error MSE?",
+    "ground_truth_keywords": [
+      "MSE",
+      "sum",
+      "y_i",
+      "hat"
+    ],
+    "target_doc": "ml_fundamentals_guide.pdf"
+  },
+  {
+    "id": "q02_error_code",
+    "type": "exact_keyword",
+    "question": "How to resolve ChromaDB connection timeout error code ERR_CONN_TIMEOUT_403?",
+    "ground_truth_keywords": [
+      "ERR_CONN_TIMEOUT_403",
+      "timeout",
+      "firewall",
+      "port 8000"
+    ],
+    "target_doc": "troubleshooting_manual.pdf"
+  },
+  {
+    "id": "q03_bm25_params",
+    "type": "exact_keyword",
+    "question": "What are the default values for parameters k1 and b in the BM25Okapi scoring function?",
+    "ground_truth_keywords": [
+      "k1=1.5",
+      "b=0.75",
+      "BM25Okapi"
+    ],
+    "target_doc": "information_retrieval_handbook.pdf"
+  },
+  {
+    "id": "q04_token_limit",
+    "type": "exact_keyword",
+    "question": "What is the maximum context sequence length supported by all-MiniLM-L6-v2?",
+    "ground_truth_keywords": [
+      "256 tokens",
+      "MiniLM",
+      "sequence length"
+    ],
+    "target_doc": "vector_embeddings_tradeoffs.pdf"
+  },
+  {
+    "id": "q05_hnsw_m_param",
+    "type": "exact_keyword",
+    "question": "What is the recommended HNSW M parameter for hnswlib index construction in ChromaDB?",
+    "ground_truth_keywords": [
+      "M=16",
+      "ef_construction",
+      "hnswlib"
+    ],
+    "target_doc": "vector_embeddings_tradeoffs.pdf"
+  },
+  {
+    "id": "q06_dense_edge",
+    "type": "semantic_conceptual",
+    "question": "Why is a lower dimension vector representation advantageous for IoT and edge microcontrollers?",
+    "ground_truth_keywords": [
+      "384-dimension",
+      "memory footprint",
+      "latency",
+      "throughput",
+      "CPU"
+    ],
+    "target_doc": "vector_embeddings_tradeoffs.pdf"
+  },
+  {
+    "id": "q07_linear_regression_concept",
+    "type": "semantic_conceptual",
+    "question": "Explain how continuous variable prediction operates in supervised learning.",
+    "ground_truth_keywords": [
+      "linear regression",
+      "hypothesis",
+      "continuous",
+      "target"
+    ],
+    "target_doc": "ml_fundamentals_guide.pdf"
+  },
+  {
+    "id": "q08_lost_in_middle",
+    "type": "semantic_conceptual",
+    "question": "What phenomenon causes LLMs to ignore critical evidence positioned in central prompt regions?",
+    "ground_truth_keywords": [
+      "lost in the middle",
+      "context fragmentation",
+      "attention decay"
+    ],
+    "target_doc": "document_ingestion_pipeline.pdf"
+  },
+  {
+    "id": "q09_embedding_normalization",
+    "type": "semantic_conceptual",
+    "question": "Why is unit L2 normalization applied prior to cosine inner product computation?",
+    "ground_truth_keywords": [
+      "L2 normalize",
+      "dot product",
+      "unit vector",
+      "cosine similarity"
+    ],
+    "target_doc": "vector_embeddings_tradeoffs.pdf"
+  },
+  {
+    "id": "q10_cross_encoder_mechanics",
+    "type": "semantic_conceptual",
+    "question": "How does joint query-document cross-attention differ from bi-encoder dual embedding search?",
+    "ground_truth_keywords": [
+      "cross-encoder",
+      "cross-attention",
+      "joint token interaction",
+      "bi-encoder"
+    ],
+    "target_doc": "information_retrieval_handbook.pdf"
+  },
+  {
+    "id": "q11_hierarchical_chunking_flow",
+    "type": "cross_document",
+    "question": "Compare how hierarchical splitting strategies impact vector precision versus generator context coherence.",
+    "ground_truth_keywords": [
+      "hierarchical",
+      "parent window",
+      "child chunk",
+      "precision",
+      "hallucination"
+    ],
+    "target_doc": "document_ingestion_pipeline.pdf"
+  },
+  {
+    "id": "q12_rrf_scoring_synthesis",
+    "type": "cross_document",
+    "question": "How does Reciprocal Rank Fusion resolve the scaling differences between BM25 unbounded scores and dense cosine distances?",
+    "ground_truth_keywords": [
+      "RRF",
+      "rank-based",
+      "constant k=60",
+      "score calibration"
+    ],
+    "target_doc": "information_retrieval_handbook.pdf"
+  },
+  {
+    "id": "q13_rerank_latency_tradeoff",
+    "type": "cross_document",
+    "question": "Analyze the computational latency trade-offs between first-stage hybrid retrieval and second-stage cross-encoder re-ranking.",
+    "ground_truth_keywords": [
+      "ms-marco-MiniLM",
+      "first-stage",
+      "top-20 rerank",
+      "latency vs accuracy"
+    ],
+    "target_doc": "information_retrieval_handbook.pdf"
+  },
+  {
+    "id": "q14_vector_vs_sparse_storage",
+    "type": "cross_document",
+    "question": "How do RAM requirements compare between dense ChromaDB SQLite indices and sparse inverted indexes?",
+    "ground_truth_keywords": [
+      "inverted index",
+      "ChromaDB",
+      "RAM",
+      "disk footprint"
+    ],
+    "target_doc": "vector_embeddings_tradeoffs.pdf"
+  },
+  {
+    "id": "q15_query_rewriting_impact",
+    "type": "cross_document",
+    "question": "In what ways does query rewriting mitigate vocabulary mismatch before executing sparse BM25 lookups?",
+    "ground_truth_keywords": [
+      "query rewrite",
+      "synonym expansion",
+      "lexical gap",
+      "BM25 recall"
+    ],
+    "target_doc": "information_retrieval_handbook.pdf"
+  },
+  {
+    "id": "q16_typo_resilience",
+    "type": "robustness_typo",
+    "question": "what is slinear reggression hypotthesis formula",
+    "ground_truth_keywords": [
+      "linear regression",
+      "hypothesis",
+      "supervised"
+    ],
+    "target_doc": "ml_fundamentals_guide.pdf"
+  },
+  {
+    "id": "q17_ambiguous_acronym",
+    "type": "robustness_acronym",
+    "question": "What is CE loss formulation?",
+    "ground_truth_keywords": [
+      "cross entropy",
+      "log loss",
+      "classification"
+    ],
+    "target_doc": "ml_fundamentals_guide.pdf"
+  },
+  {
+    "id": "q18_short_keyword",
+    "type": "robustness_short",
+    "question": "hnsw ef_construction",
+    "ground_truth_keywords": [
+      "ef_construction",
+      "hnsw",
+      "graph accuracy"
+    ],
+    "target_doc": "vector_embeddings_tradeoffs.pdf"
+  },
+  {
+    "id": "q19_out_of_domain_pizza",
+    "type": "out_of_domain",
+    "question": "What is the recipe and baking temperature for traditional Neapolitan sourdough pizza?",
+    "ground_truth_keywords": [
+      "insufficient information",
+      "not found"
+    ],
+    "target_doc": "none"
+  },
+  {
+    "id": "q20_out_of_domain_astronomy",
+    "type": "out_of_domain",
+    "question": "What is the exact orbital velocity of Jupiter's moon Europa in kilometers per second?",
+    "ground_truth_keywords": [
+      "insufficient information",
+      "not found"
+    ],
+    "target_doc": "none"
+  }
+]

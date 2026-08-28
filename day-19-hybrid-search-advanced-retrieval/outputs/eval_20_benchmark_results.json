@@ -1,0 +1,299 @@
+[
+  {
+    "id": "q01_mse_formula",
+    "category": "exact_keyword",
+    "question": "What is the mathematical loss formula for Mean Squared Error MSE?",
+    "dense_latency_ms": 1635.85,
+    "bm25_latency_ms": 4.85,
+    "hybrid_latency_ms": 1567.4,
+    "rerank_latency_ms": 5204.45,
+    "rerank_answer": "The mathematical loss formula for Mean Squared Error (MSE) is MSE = (1/n) * sum_{i=1}^n (y_i - \\hat{y}_i)^2 [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 107]"
+    ]
+  },
+  {
+    "id": "q02_error_code",
+    "category": "exact_keyword",
+    "question": "How to resolve ChromaDB connection timeout error code ERR_CONN_TIMEOUT_403?",
+    "dense_latency_ms": 1488.23,
+    "bm25_latency_ms": 4.09,
+    "hybrid_latency_ms": 1564.38,
+    "rerank_latency_ms": 5256.52,
+    "rerank_answer": "Based on verified documentation: 3.2 Exception Handling... [Source: product_spec.docx, Page: 1].",
+    "citations": [
+      "[Source: product_spec.docx, Page: 1]",
+      "[Source: api_rate_limiting_policy.txt, Page: 1]"
+    ]
+  },
+  {
+    "id": "q03_bm25_params",
+    "category": "exact_keyword",
+    "question": "What are the default values for parameters k1 and b in the BM25Okapi scoring function?",
+    "dense_latency_ms": 1506.46,
+    "bm25_latency_ms": 4.41,
+    "hybrid_latency_ms": 1562.04,
+    "rerank_latency_ms": 5229.87,
+    "rerank_answer": "Based on verified documentation: 4.1. NEURAL NETWORKS 85\nfor training ANNs today is backpropagation, which efficiently updates the weights to\nminimize the error between the predicted and actual outputs.\n4. The Cost Function : The cos... [Source: SupportcoursesM-DLearning.pdf, Page: 85].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 85]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 40]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 58]"
+    ]
+  },
+  {
+    "id": "q04_token_limit",
+    "category": "exact_keyword",
+    "question": "What is the maximum context sequence length supported by all-MiniLM-L6-v2?",
+    "dense_latency_ms": 1508.86,
+    "bm25_latency_ms": 4.42,
+    "hybrid_latency_ms": 1577.67,
+    "rerank_latency_ms": 5316.81,
+    "rerank_answer": "Based on verified documentation: 6. Out of Scope for v2.3... [Source: product_spec.docx, Page: 1].",
+    "citations": [
+      "[Source: product_spec.docx, Page: 1]",
+      "[Source: api_rate_limiting_policy.txt, Page: 1]"
+    ]
+  },
+  {
+    "id": "q05_hnsw_m_param",
+    "category": "exact_keyword",
+    "question": "What is the recommended HNSW M parameter for hnswlib index construction in ChromaDB?",
+    "dense_latency_ms": 1527.72,
+    "bm25_latency_ms": 4.12,
+    "hybrid_latency_ms": 1572.47,
+    "rerank_latency_ms": 5188.99,
+    "rerank_answer": "Based on verified documentation: 76\nCHAPTER\n3.\nUNSUPERVISED\nLEARNING\nK-nearest Neighbors\n\u2014 Simpleandintuitive \u2014 Computationallyexpensiveforlargedatasets\n(KNN)\n\u2014 Effectivewithsmalldatasets \u2014 Requiresselectionofk (numberofneighbors)\n\u2014 ... [Source: SupportcoursesM-DLearning.pdf, Page: 76].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 76]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 85]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 83]"
+    ]
+  },
+  {
+    "id": "q06_dense_edge",
+    "category": "semantic_conceptual",
+    "question": "Why is a lower dimension vector representation advantageous for IoT and edge microcontrollers?",
+    "dense_latency_ms": 1509.05,
+    "bm25_latency_ms": 4.31,
+    "hybrid_latency_ms": 1597.16,
+    "rerank_latency_ms": 5187.5,
+    "rerank_answer": "Based on verified documentation: 3.7.\nSINGULAR\nVALUE\nDECOMPOSITION\n(SVD)\n75\nAlgorithm Advantages Disadvantages\nK-meansClustering\n\u2014 Simpleandeasytoimplement \u2014 Requiresspecificationofk (numberofclusters)\n\u2014 Efficientforlargedatasets \u2014 S... [Source: SupportcoursesM-DLearning.pdf, Page: 75].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 75]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 70]"
+    ]
+  },
+  {
+    "id": "q07_linear_regression_concept",
+    "category": "semantic_conceptual",
+    "question": "Explain how continuous variable prediction operates in supervised learning.",
+    "dense_latency_ms": 1490.61,
+    "bm25_latency_ms": 5.06,
+    "hybrid_latency_ms": 1634.15,
+    "rerank_latency_ms": 5198.93,
+    "rerank_answer": "Based on verified documentation: 32 CHAPTER 2. SUPERVISED LEARNING the relationship captured by the model. In agronomy, examples of regression applications include predicting crop yields based on factors like fertilizer application a... [Source: SupportcoursesM-DLearning.pdf, Page: 32].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 32]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 34]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 50]"
+    ]
+  },
+  {
+    "id": "q08_lost_in_middle",
+    "category": "semantic_conceptual",
+    "question": "What phenomenon causes LLMs to ignore critical evidence positioned in central prompt regions?",
+    "dense_latency_ms": 1503.46,
+    "bm25_latency_ms": 4.68,
+    "hybrid_latency_ms": 1565.58,
+    "rerank_latency_ms": 5444.19,
+    "rerank_answer": "Based on verified documentation: 4.1. NEURAL NETWORKS 85\nfor training ANNs today is backpropagation, which efficiently updates the weights to\nminimize the error between the predicted and actual outputs.\n4. The Cost Function : The cos... [Source: SupportcoursesM-DLearning.pdf, Page: 85].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 85]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 116]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 61]"
+    ]
+  },
+  {
+    "id": "q09_embedding_normalization",
+    "category": "semantic_conceptual",
+    "question": "Why is unit L2 normalization applied prior to cosine inner product computation?",
+    "dense_latency_ms": 1719.72,
+    "bm25_latency_ms": 3.15,
+    "hybrid_latency_ms": 1493.73,
+    "rerank_latency_ms": 5366.97,
+    "rerank_answer": "Based on verified documentation: 36 CHAPTER 2. SUPERVISED LEARNING\n2.2.3 Ridge Regression\nRidge regression, also known as Tikhonov regularization, is a linear model that includes\na regularization term to prevent overfitting. This tec... [Source: SupportcoursesM-DLearning.pdf, Page: 36].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 36]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 75]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 82]"
+    ]
+  },
+  {
+    "id": "q10_cross_encoder_mechanics",
+    "category": "semantic_conceptual",
+    "question": "How does joint query-document cross-attention differ from bi-encoder dual embedding search?",
+    "dense_latency_ms": 1528.37,
+    "bm25_latency_ms": 3.29,
+    "hybrid_latency_ms": 1579.54,
+    "rerank_latency_ms": 5416.26,
+    "rerank_answer": "Based on verified documentation: 5.2. CROSS-VALIDATION 103\nforming the training set. This results in N separate evaluations, each with a unique va-\nlidation instance. LOOCV is particularly useful in applications such as medical diagn... [Source: SupportcoursesM-DLearning.pdf, Page: 103].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 103]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 101]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 102]"
+    ]
+  },
+  {
+    "id": "q11_hierarchical_chunking_flow",
+    "category": "cross_document",
+    "question": "Compare how hierarchical splitting strategies impact vector precision versus generator context coherence.",
+    "dense_latency_ms": 1441.31,
+    "bm25_latency_ms": 2.65,
+    "hybrid_latency_ms": 1595.82,
+    "rerank_latency_ms": 5327.21,
+    "rerank_answer": "Based on verified documentation: 3.7.\nSINGULAR\nVALUE\nDECOMPOSITION\n(SVD)\n75\nAlgorithm Advantages Disadvantages\nK-meansClustering\n\u2014 Simpleandeasytoimplement \u2014 Requiresspecificationofk (numberofclusters)\n\u2014 Efficientforlargedatasets \u2014 S... [Source: SupportcoursesM-DLearning.pdf, Page: 75].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 75]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 67]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 68]"
+    ]
+  },
+  {
+    "id": "q12_rrf_scoring_synthesis",
+    "category": "cross_document",
+    "question": "How does Reciprocal Rank Fusion resolve the scaling differences between BM25 unbounded scores and dense cosine distances?",
+    "dense_latency_ms": 1443.56,
+    "bm25_latency_ms": 4.16,
+    "hybrid_latency_ms": 1653.46,
+    "rerank_latency_ms": 5295.08,
+    "rerank_answer": "Based on verified documentation: 76\nCHAPTER\n3.\nUNSUPERVISED\nLEARNING\nK-nearest Neighbors\n\u2014 Simpleandintuitive \u2014 Computationallyexpensiveforlargedatasets\n(KNN)\n\u2014 Effectivewithsmalldatasets \u2014 Requiresselectionofk (numberofneighbors)\n\u2014 ... [Source: SupportcoursesM-DLearning.pdf, Page: 76].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 76]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 41]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 75]"
+    ]
+  },
+  {
+    "id": "q13_rerank_latency_tradeoff",
+    "category": "cross_document",
+    "question": "Analyze the computational latency trade-offs between first-stage hybrid retrieval and second-stage cross-encoder re-ranking.",
+    "dense_latency_ms": 1450.45,
+    "bm25_latency_ms": 3.99,
+    "hybrid_latency_ms": 1560.84,
+    "rerank_latency_ms": 5292.03,
+    "rerank_answer": "Based on verified documentation: 3.7.\nSINGULAR\nVALUE\nDECOMPOSITION\n(SVD)\n75\nAlgorithm Advantages Disadvantages\nK-meansClustering\n\u2014 Simpleandeasytoimplement \u2014 Requiresspecificationofk (numberofclusters)\n\u2014 Efficientforlargedatasets \u2014 S... [Source: SupportcoursesM-DLearning.pdf, Page: 75].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 75]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 76]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 102]"
+    ]
+  },
+  {
+    "id": "q14_vector_vs_sparse_storage",
+    "category": "cross_document",
+    "question": "How do RAM requirements compare between dense ChromaDB SQLite indices and sparse inverted indexes?",
+    "dense_latency_ms": 1531.74,
+    "bm25_latency_ms": 4.69,
+    "hybrid_latency_ms": 1596.53,
+    "rerank_latency_ms": 5369.99,
+    "rerank_answer": "Based on verified documentation: 3.7.\nSINGULAR\nVALUE\nDECOMPOSITION\n(SVD)\n75\nAlgorithm Advantages Disadvantages\nK-meansClustering\n\u2014 Simpleandeasytoimplement \u2014 Requiresspecificationofk (numberofclusters)\n\u2014 Efficientforlargedatasets \u2014 S... [Source: SupportcoursesM-DLearning.pdf, Page: 75].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 75]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 76]",
+      "[Source: product_spec.docx, Page: 1]"
+    ]
+  },
+  {
+    "id": "q15_query_rewriting_impact",
+    "category": "cross_document",
+    "question": "In what ways does query rewriting mitigate vocabulary mismatch before executing sparse BM25 lookups?",
+    "dense_latency_ms": 1548.96,
+    "bm25_latency_ms": 4.29,
+    "hybrid_latency_ms": 1602.94,
+    "rerank_latency_ms": 5247.66,
+    "rerank_answer": "Based on verified documentation: 76\nCHAPTER\n3.\nUNSUPERVISED\nLEARNING\nK-nearest Neighbors\n\u2014 Simpleandintuitive \u2014 Computationallyexpensiveforlargedatasets\n(KNN)\n\u2014 Effectivewithsmalldatasets \u2014 Requiresselectionofk (numberofneighbors)\n\u2014 ... [Source: SupportcoursesM-DLearning.pdf, Page: 76].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 76]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 41]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 116]"
+    ]
+  },
+  {
+    "id": "q16_typo_resilience",
+    "category": "robustness_typo",
+    "question": "what is slinear reggression hypotthesis formula",
+    "dense_latency_ms": 1517.29,
+    "bm25_latency_ms": 3.62,
+    "hybrid_latency_ms": 1579.46,
+    "rerank_latency_ms": 4173.5,
+    "rerank_answer": "Based on verified documentation: 2.2. REGRESSION ALGORITHMS 33\n\u2014 Linear Regression\n\u2014 Logistic Regression\n\u2014 Polynomial Regression\n\u2014 Ridge Regression\n\u2014 Lasso Regression\n\u2014 Neural Networks\n2.2.1 Linear Regression\nLinear regression is a s... [Source: SupportcoursesM-DLearning.pdf, Page: 33].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 33]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 34]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 39]"
+    ]
+  },
+  {
+    "id": "q17_ambiguous_acronym",
+    "category": "robustness_acronym",
+    "question": "What is CE loss formulation?",
+    "dense_latency_ms": 1467.53,
+    "bm25_latency_ms": 3.46,
+    "hybrid_latency_ms": 1568.64,
+    "rerank_latency_ms": 5112.14,
+    "rerank_answer": "Based on verified documentation: 4.2. DEEP LEARNING 93 Operation of CNNs The operation of a CNN involves a forward pass where an input image is passed through the network layers, undergoing convolution, activation, and pooling operat... [Source: SupportcoursesM-DLearning.pdf, Page: 93].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 93]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 85]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 39]"
+    ]
+  },
+  {
+    "id": "q18_short_keyword",
+    "category": "robustness_short",
+    "question": "hnsw ef_construction",
+    "dense_latency_ms": 1495.92,
+    "bm25_latency_ms": 4.39,
+    "hybrid_latency_ms": 1544.8,
+    "rerank_latency_ms": 5193.08,
+    "rerank_answer": "Based on verified documentation: 94 CHAPTER 4. NEURAL NETWORKS AND DEEP LEARNING\nFIGURE 4.9 \u2013 Recurrent Neural Network (RNN)\n\u2014 W is the weight matrix for the input to hidden state,\nxh\n\u2014 W is the weight matrix for the hidden state to ... [Source: SupportcoursesM-DLearning.pdf, Page: 94].",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 94]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 76]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 66]"
+    ]
+  },
+  {
+    "id": "q19_out_of_domain_pizza",
+    "category": "out_of_domain",
+    "question": "What is the recipe and baking temperature for traditional Neapolitan sourdough pizza?",
+    "dense_latency_ms": 1509.65,
+    "bm25_latency_ms": 4.06,
+    "hybrid_latency_ms": 1585.49,
+    "rerank_latency_ms": 5218.81,
+    "rerank_answer": "I am sorry, but the provided documentation does not contain sufficient information to answer this question.",
+    "citations": [
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 23]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 22]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 19]"
+    ]
+  },
+  {
+    "id": "q20_out_of_domain_astronomy",
+    "category": "out_of_domain",
+    "question": "What is the exact orbital velocity of Jupiter's moon Europa in kilometers per second?",
+    "dense_latency_ms": 1511.38,
+    "bm25_latency_ms": 4.33,
+    "hybrid_latency_ms": 2149.98,
+    "rerank_latency_ms": 4774.01,
+    "rerank_answer": "I am sorry, but the provided documentation does not contain sufficient information to answer this question.",
+    "citations": [
+      "[Source: product_spec.docx, Page: 1]",
+      "[Source: SupportcoursesM-DLearning.pdf, Page: 68]",
+      "[Source: api_rate_limiting_policy.txt, Page: 1]"
+    ]
+  }
+]
