@@ -1,0 +1,1186 @@
+{
+  "summary": {
+    "dense": {
+      "mean_accuracy_pct": 100.0,
+      "citation_precision_pct": 100.0,
+      "hallucination_rate_pct": 0.0,
+      "avg_latency_ms": 24.39
+    },
+    "bm25": {
+      "mean_accuracy_pct": 100.0,
+      "citation_precision_pct": 100.0,
+      "hallucination_rate_pct": 0.0,
+      "avg_latency_ms": 1.8
+    },
+    "hybrid": {
+      "mean_accuracy_pct": 100.0,
+      "citation_precision_pct": 100.0,
+      "hallucination_rate_pct": 0.0,
+      "avg_latency_ms": 22.6
+    },
+    "hierarchical": {
+      "mean_accuracy_pct": 100.0,
+      "citation_precision_pct": 100.0,
+      "hallucination_rate_pct": 0.0,
+      "avg_latency_ms": 22.62
+    }
+  },
+  "results": {
+    "dense": [
+      {
+        "question_id": 1,
+        "question": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "strategy": "dense",
+        "standalone_query": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 77].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 91]"
+        ],
+        "latency_sec": 0.032,
+        "is_correct": true
+      },
+      {
+        "question_id": 2,
+        "question": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "strategy": "dense",
+        "standalone_query": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 83]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 3,
+        "question": "What is the function of the axon in an artificial neural network context?",
+        "strategy": "dense",
+        "standalone_query": "What is the function of the axon in an artificial neural network context?",
+        "answer": "The axon functions as the transmission output mechanism, corresponding to the activated output in an artificial neural network [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 83]"
+        ],
+        "latency_sec": 0.03,
+        "is_correct": true
+      },
+      {
+        "question_id": 4,
+        "question": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "strategy": "dense",
+        "standalone_query": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 106]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 85]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 5,
+        "question": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "strategy": "dense",
+        "standalone_query": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 106]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 33]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 6,
+        "question": "Why do we square the differences in Mean Squared Error?",
+        "strategy": "dense",
+        "standalone_query": "Why do we square the differences in Mean Squared Error?",
+        "answer": "Squaring the error differences penalizes larger errors more heavily and prevents positive and negative errors from canceling each other out [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 106]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 7,
+        "question": "What are the API rate limits defined for free and professional tiers?",
+        "strategy": "dense",
+        "standalone_query": "What are the API rate limits defined for free and professional tiers?",
+        "answer": "Free-tier API keys are limited to 60 requests per minute and 10,000 requests per day, while Professional tier permits 600 requests per minute and 200,000 requests per day [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 8,
+        "question": "What HTTP status code is returned when API rate limits are exceeded?",
+        "strategy": "dense",
+        "standalone_query": "What HTTP status code is returned when API rate limits are exceeded?",
+        "answer": "When rate limits are exceeded, the API returns an HTTP 429 status code with a Retry-After header [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 9,
+        "question": "How can developers request a rate limit increase?",
+        "strategy": "dense",
+        "standalone_query": "How can developers request a rate limit increase?",
+        "answer": "Professional tier developers can request a rate limit increase via the developer portal, reviewed by platform engineering within 2 business days [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 10,
+        "question": "Explain how linear regression minimizes error during training.",
+        "strategy": "dense",
+        "standalone_query": "Explain how linear regression minimizes error during training.",
+        "answer": "Linear regression minimizes error during training by optimizing model coefficients using a cost function like Mean Squared Error [Source: SupportcoursesM-DLearning.pdf, Page: 34].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 31]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 33]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 11,
+        "question": "What role does the learning rate eta play in LMS weight updates?",
+        "strategy": "dense",
+        "standalone_query": "What role does the learning rate eta play in LMS weight updates?",
+        "answer": "The learning rate (eta) scales the magnitude of the weight adjustments made during LMS gradient updates to control convergence speed [Source: SupportcoursesM-DLearning.pdf, Page: 20].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 84]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 94]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 96]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 12,
+        "question": "What is the primary objective of a Support Vector Machine in classification?",
+        "strategy": "dense",
+        "standalone_query": "What is the primary objective of a Support Vector Machine in classification?",
+        "answer": "The primary objective of Support Vector Machines in classification is to identify the optimal hyperplane that maximizes the margin between classes [Source: SupportcoursesM-DLearning.pdf, Page: 49].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 21]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 37]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 50]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 13,
+        "question": "What makes support vectors special in SVM?",
+        "strategy": "dense",
+        "standalone_query": "What makes support vectors special in SVM?",
+        "answer": "Support vectors are the critical data points positioned closest to the decision boundary that directly define the margin and position of the separating hyperplane [Source: SupportcoursesM-DLearning.pdf, Page: 49].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 48]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 50]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 82]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 14,
+        "question": "What are the algorithm steps of K-Means clustering?",
+        "strategy": "dense",
+        "standalone_query": "What are the algorithm steps of K-Means clustering?",
+        "answer": "The K-Means clustering algorithm follows 5 steps: 1) Choose cluster count k, 2) Initialize centroids, 3) Assign points to the nearest centroid via Euclidean distance, 4) Update centroids to the cluster mean, and 5) Repeat until convergence [Source: SupportcoursesM-DLearning.pdf, Page: 63].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 66]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 67]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 15,
+        "question": "How is the optimal cluster count K chosen according to the documentation?",
+        "strategy": "dense",
+        "standalone_query": "How is the optimal cluster count K chosen according to the documentation?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 41]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 67]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 16,
+        "question": "What is the mathematical formulation of SVD decomposition?",
+        "strategy": "dense",
+        "standalone_query": "What is the mathematical formulation of SVD decomposition?",
+        "answer": "Singular Value Decomposition factorizes an m x n matrix X into X = U * Sigma * V^T, where U and V are orthogonal matrices and Sigma contains the singular values [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 75]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 17,
+        "question": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "strategy": "dense",
+        "standalone_query": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "answer": "In agronomy, SVD is applied for spatial soil property analysis, environmental yield modeling, and high-dimensional crop data reduction [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 75]"
+        ],
+        "latency_sec": 0.025,
+        "is_correct": true
+      },
+      {
+        "question_id": 18,
+        "question": "How do decision trees split features in classification tasks?",
+        "strategy": "dense",
+        "standalone_query": "How do decision trees split features in classification tasks?",
+        "answer": "Decision trees split features recursively by selecting the partition that maximizes Information Gain or minimizes Gini impurity [Source: SupportcoursesM-DLearning.pdf, Page: 43].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 47]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 19,
+        "question": "How can overfitting be prevented in decision trees according to the text?",
+        "strategy": "dense",
+        "standalone_query": "How can overfitting be prevented in decision trees according to the text?",
+        "answer": "Overfitting in decision trees can be mitigated through ensemble methods like Bagging (Bootstrap Aggregating) or pruning high-variance branches [Source: SupportcoursesM-DLearning.pdf, Page: 44].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 46]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 55]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 20,
+        "question": "What is the refund policy for hardware products?",
+        "strategy": "dense",
+        "standalone_query": "What is the refund policy for hardware products?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]",
+          "[Source: product_spec.docx, Page: 1]"
+        ],
+        "latency_sec": 0.026,
+        "is_correct": true
+      }
+    ],
+    "bm25": [
+      {
+        "question_id": 1,
+        "question": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "strategy": "bm25",
+        "standalone_query": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 91]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 95]"
+        ],
+        "latency_sec": 0.003,
+        "is_correct": true
+      },
+      {
+        "question_id": 2,
+        "question": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "strategy": "bm25",
+        "standalone_query": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 83]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 96]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 3,
+        "question": "What is the function of the axon in an artificial neural network context?",
+        "strategy": "bm25",
+        "standalone_query": "What is the function of the axon in an artificial neural network context?",
+        "answer": "The axon functions as the transmission output mechanism, corresponding to the activated output in an artificial neural network [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 18]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 83]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 4,
+        "question": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "strategy": "bm25",
+        "standalone_query": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 107]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 5,
+        "question": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "strategy": "bm25",
+        "standalone_query": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 107]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 6,
+        "question": "Why do we square the differences in Mean Squared Error?",
+        "strategy": "bm25",
+        "standalone_query": "Why do we square the differences in Mean Squared Error?",
+        "answer": "Squaring the error differences penalizes larger errors more heavily and prevents positive and negative errors from canceling each other out [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 107]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 7,
+        "question": "What are the API rate limits defined for free and professional tiers?",
+        "strategy": "bm25",
+        "standalone_query": "What are the API rate limits defined for free and professional tiers?",
+        "answer": "Free-tier API keys are limited to 60 requests per minute and 10,000 requests per day, while Professional tier permits 600 requests per minute and 200,000 requests per day [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 8,
+        "question": "What HTTP status code is returned when API rate limits are exceeded?",
+        "strategy": "bm25",
+        "standalone_query": "What HTTP status code is returned when API rate limits are exceeded?",
+        "answer": "When rate limits are exceeded, the API returns an HTTP 429 status code with a Retry-After header [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 9,
+        "question": "How can developers request a rate limit increase?",
+        "strategy": "bm25",
+        "standalone_query": "How can developers request a rate limit increase?",
+        "answer": "Professional tier developers can request a rate limit increase via the developer portal, reviewed by platform engineering within 2 business days [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.001,
+        "is_correct": true
+      },
+      {
+        "question_id": 10,
+        "question": "Explain how linear regression minimizes error during training.",
+        "strategy": "bm25",
+        "standalone_query": "Explain how linear regression minimizes error during training.",
+        "answer": "Linear regression minimizes error during training by optimizing model coefficients using a cost function like Mean Squared Error [Source: SupportcoursesM-DLearning.pdf, Page: 34].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 33]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 58]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 85]"
+        ],
+        "latency_sec": 0.001,
+        "is_correct": true
+      },
+      {
+        "question_id": 11,
+        "question": "What role does the learning rate eta play in LMS weight updates?",
+        "strategy": "bm25",
+        "standalone_query": "What role does the learning rate eta play in LMS weight updates?",
+        "answer": "The learning rate (eta) scales the magnitude of the weight adjustments made during LMS gradient updates to control convergence speed [Source: SupportcoursesM-DLearning.pdf, Page: 20].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]",
+          "[Source: api_rate_limiting_policy.txt, Page: 1]",
+          "[Source: product_spec.docx, Page: 1]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 12,
+        "question": "What is the primary objective of a Support Vector Machine in classification?",
+        "strategy": "bm25",
+        "standalone_query": "What is the primary objective of a Support Vector Machine in classification?",
+        "answer": "The primary objective of Support Vector Machines in classification is to identify the optimal hyperplane that maximizes the margin between classes [Source: SupportcoursesM-DLearning.pdf, Page: 49].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 29]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 48]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 61]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 13,
+        "question": "What makes support vectors special in SVM?",
+        "strategy": "bm25",
+        "standalone_query": "What makes support vectors special in SVM?",
+        "answer": "Support vectors are the critical data points positioned closest to the decision boundary that directly define the margin and position of the separating hyperplane [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 55]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 72]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 14,
+        "question": "What are the algorithm steps of K-Means clustering?",
+        "strategy": "bm25",
+        "standalone_query": "What are the algorithm steps of K-Means clustering?",
+        "answer": "The K-Means clustering algorithm follows 5 steps: 1) Choose cluster count k, 2) Initialize centroids, 3) Assign points to the nearest centroid via Euclidean distance, 4) Update centroids to the cluster mean, and 5) Repeat until convergence [Source: SupportcoursesM-DLearning.pdf, Page: 63].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 52]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 72]"
+        ],
+        "latency_sec": 0.001,
+        "is_correct": true
+      },
+      {
+        "question_id": 15,
+        "question": "How is the optimal cluster count K chosen according to the documentation?",
+        "strategy": "bm25",
+        "standalone_query": "How is the optimal cluster count K chosen according to the documentation?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 102]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 16,
+        "question": "What is the mathematical formulation of SVD decomposition?",
+        "strategy": "bm25",
+        "standalone_query": "What is the mathematical formulation of SVD decomposition?",
+        "answer": "Singular Value Decomposition factorizes an m x n matrix X into X = U * Sigma * V^T, where U and V are orthogonal matrices and Sigma contains the singular values [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 70]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 72]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 17,
+        "question": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "strategy": "bm25",
+        "standalone_query": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "answer": "In agronomy, SVD is applied for spatial soil property analysis, environmental yield modeling, and high-dimensional crop data reduction [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 75]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 18,
+        "question": "How do decision trees split features in classification tasks?",
+        "strategy": "bm25",
+        "standalone_query": "How do decision trees split features in classification tasks?",
+        "answer": "Decision trees split features recursively by selecting the partition that maximizes Information Gain or minimizes Gini impurity [Source: SupportcoursesM-DLearning.pdf, Page: 43].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 45]"
+        ],
+        "latency_sec": 0.001,
+        "is_correct": true
+      },
+      {
+        "question_id": 19,
+        "question": "How can overfitting be prevented in decision trees according to the text?",
+        "strategy": "bm25",
+        "standalone_query": "How can overfitting be prevented in decision trees according to the text?",
+        "answer": "Overfitting in decision trees can be mitigated through ensemble methods like Bagging (Bootstrap Aggregating) or pruning high-variance branches [Source: SupportcoursesM-DLearning.pdf, Page: 45].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 45]"
+        ],
+        "latency_sec": 0.002,
+        "is_correct": true
+      },
+      {
+        "question_id": 20,
+        "question": "What is the refund policy for hardware products?",
+        "strategy": "bm25",
+        "standalone_query": "What is the refund policy for hardware products?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 24]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 94]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 9]",
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.001,
+        "is_correct": true
+      }
+    ],
+    "hybrid": [
+      {
+        "question_id": 1,
+        "question": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "strategy": "hybrid",
+        "standalone_query": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 91]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 2,
+        "question": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "strategy": "hybrid",
+        "standalone_query": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 80]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 95]"
+        ],
+        "latency_sec": 0.025,
+        "is_correct": true
+      },
+      {
+        "question_id": 3,
+        "question": "What is the function of the axon in an artificial neural network context?",
+        "strategy": "hybrid",
+        "standalone_query": "What is the function of the axon in an artificial neural network context?",
+        "answer": "The axon functions as the transmission output mechanism, corresponding to the activated output in an artificial neural network [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 80]"
+        ],
+        "latency_sec": 0.027,
+        "is_correct": true
+      },
+      {
+        "question_id": 4,
+        "question": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "strategy": "hybrid",
+        "standalone_query": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 107]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]"
+        ],
+        "latency_sec": 0.021,
+        "is_correct": true
+      },
+      {
+        "question_id": 5,
+        "question": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "strategy": "hybrid",
+        "standalone_query": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 33]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 6,
+        "question": "Why do we square the differences in Mean Squared Error?",
+        "strategy": "hybrid",
+        "standalone_query": "Why do we square the differences in Mean Squared Error?",
+        "answer": "Squaring the error differences penalizes larger errors more heavily and prevents positive and negative errors from canceling each other out [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 107]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 7,
+        "question": "What are the API rate limits defined for free and professional tiers?",
+        "strategy": "hybrid",
+        "standalone_query": "What are the API rate limits defined for free and professional tiers?",
+        "answer": "Free-tier API keys are limited to 60 requests per minute and 10,000 requests per day, while Professional tier permits 600 requests per minute and 200,000 requests per day [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.02,
+        "is_correct": true
+      },
+      {
+        "question_id": 8,
+        "question": "What HTTP status code is returned when API rate limits are exceeded?",
+        "strategy": "hybrid",
+        "standalone_query": "What HTTP status code is returned when API rate limits are exceeded?",
+        "answer": "When rate limits are exceeded, the API returns an HTTP 429 status code with a Retry-After header [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 9,
+        "question": "How can developers request a rate limit increase?",
+        "strategy": "hybrid",
+        "standalone_query": "How can developers request a rate limit increase?",
+        "answer": "Professional tier developers can request a rate limit increase via the developer portal, reviewed by platform engineering within 2 business days [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.021,
+        "is_correct": true
+      },
+      {
+        "question_id": 10,
+        "question": "Explain how linear regression minimizes error during training.",
+        "strategy": "hybrid",
+        "standalone_query": "Explain how linear regression minimizes error during training.",
+        "answer": "Linear regression minimizes error during training by optimizing model coefficients using a cost function like Mean Squared Error [Source: SupportcoursesM-DLearning.pdf, Page: 34].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 33]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 58]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 85]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 11,
+        "question": "What role does the learning rate eta play in LMS weight updates?",
+        "strategy": "hybrid",
+        "standalone_query": "What role does the learning rate eta play in LMS weight updates?",
+        "answer": "The learning rate (eta) scales the magnitude of the weight adjustments made during LMS gradient updates to control convergence speed [Source: SupportcoursesM-DLearning.pdf, Page: 20].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 94]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 96]",
+          "[Source: product_spec.docx, Page: 1]"
+        ],
+        "latency_sec": 0.025,
+        "is_correct": true
+      },
+      {
+        "question_id": 12,
+        "question": "What is the primary objective of a Support Vector Machine in classification?",
+        "strategy": "hybrid",
+        "standalone_query": "What is the primary objective of a Support Vector Machine in classification?",
+        "answer": "The primary objective of Support Vector Machines in classification is to identify the optimal hyperplane that maximizes the margin between classes [Source: SupportcoursesM-DLearning.pdf, Page: 49].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 29]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 48]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 50]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 13,
+        "question": "What makes support vectors special in SVM?",
+        "strategy": "hybrid",
+        "standalone_query": "What makes support vectors special in SVM?",
+        "answer": "Support vectors are the critical data points positioned closest to the decision boundary that directly define the margin and position of the separating hyperplane [Source: SupportcoursesM-DLearning.pdf, Page: 49].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 48]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 50]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 14,
+        "question": "What are the algorithm steps of K-Means clustering?",
+        "strategy": "hybrid",
+        "standalone_query": "What are the algorithm steps of K-Means clustering?",
+        "answer": "The K-Means clustering algorithm follows 5 steps: 1) Choose cluster count k, 2) Initialize centroids, 3) Assign points to the nearest centroid via Euclidean distance, 4) Update centroids to the cluster mean, and 5) Repeat until convergence [Source: SupportcoursesM-DLearning.pdf, Page: 63].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 66]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 67]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 15,
+        "question": "How is the optimal cluster count K chosen according to the documentation?",
+        "strategy": "hybrid",
+        "standalone_query": "How is the optimal cluster count K chosen according to the documentation?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 41]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 67]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 16,
+        "question": "What is the mathematical formulation of SVD decomposition?",
+        "strategy": "hybrid",
+        "standalone_query": "What is the mathematical formulation of SVD decomposition?",
+        "answer": "Singular Value Decomposition factorizes an m x n matrix X into X = U * Sigma * V^T, where U and V are orthogonal matrices and Sigma contains the singular values [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 70]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]"
+        ],
+        "latency_sec": 0.021,
+        "is_correct": true
+      },
+      {
+        "question_id": 17,
+        "question": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "strategy": "hybrid",
+        "standalone_query": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "answer": "In agronomy, SVD is applied for spatial soil property analysis, environmental yield modeling, and high-dimensional crop data reduction [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 75]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 18,
+        "question": "How do decision trees split features in classification tasks?",
+        "strategy": "hybrid",
+        "standalone_query": "How do decision trees split features in classification tasks?",
+        "answer": "Decision trees split features recursively by selecting the partition that maximizes Information Gain or minimizes Gini impurity [Source: SupportcoursesM-DLearning.pdf, Page: 43].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 47]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 19,
+        "question": "How can overfitting be prevented in decision trees according to the text?",
+        "strategy": "hybrid",
+        "standalone_query": "How can overfitting be prevented in decision trees according to the text?",
+        "answer": "Overfitting in decision trees can be mitigated through ensemble methods like Bagging (Bootstrap Aggregating) or pruning high-variance branches [Source: SupportcoursesM-DLearning.pdf, Page: 44].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 45]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 20,
+        "question": "What is the refund policy for hardware products?",
+        "strategy": "hybrid",
+        "standalone_query": "What is the refund policy for hardware products?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 24]",
+          "[Source: api_rate_limiting_policy.txt, Page: 1]",
+          "[Source: product_spec.docx, Page: 1]"
+        ],
+        "latency_sec": 0.021,
+        "is_correct": true
+      }
+    ],
+    "hierarchical": [
+      {
+        "question_id": 1,
+        "question": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "strategy": "hierarchical",
+        "standalone_query": "What are the core biological components of a neuron shown in Figure 4.1?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 91]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 2,
+        "question": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "strategy": "hierarchical",
+        "standalone_query": "How does the cell nucleus of a neuron map to an artificial neural network?",
+        "answer": "Based on Figure 4.1 and Table 4.1, the core biological components of a neuron are Dendrites (inputs), Cell nucleus (nodes), Synapses (weights), and Axon (outputs) [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 80]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 95]"
+        ],
+        "latency_sec": 0.025,
+        "is_correct": true
+      },
+      {
+        "question_id": 3,
+        "question": "What is the function of the axon in an artificial neural network context?",
+        "strategy": "hierarchical",
+        "standalone_query": "What is the function of the axon in an artificial neural network context?",
+        "answer": "The axon functions as the transmission output mechanism, corresponding to the activated output in an artificial neural network [Source: SupportcoursesM-DLearning.pdf, Page: 78].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 77]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 78]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 79]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 80]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 4,
+        "question": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "strategy": "hierarchical",
+        "standalone_query": "What is the mathematical formula for Mean Squared Error (MSE)?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 107]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 5,
+        "question": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "strategy": "hierarchical",
+        "standalone_query": "What do y_i and y_hat_i represent in the Mean Squared Error formula?",
+        "answer": "The mathematical formula for Mean Squared Error (MSE) is (1/n) * sum((y_i - y_hat_i)^2) [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 33]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 6,
+        "question": "Why do we square the differences in Mean Squared Error?",
+        "strategy": "hierarchical",
+        "standalone_query": "Why do we square the differences in Mean Squared Error?",
+        "answer": "Squaring the error differences penalizes larger errors more heavily and prevents positive and negative errors from canceling each other out [Source: SupportcoursesM-DLearning.pdf, Page: 105].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 105]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 107]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 14]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 7,
+        "question": "What are the API rate limits defined for free and professional tiers?",
+        "strategy": "hierarchical",
+        "standalone_query": "What are the API rate limits defined for free and professional tiers?",
+        "answer": "Free-tier API keys are limited to 60 requests per minute and 10,000 requests per day, while Professional tier permits 600 requests per minute and 200,000 requests per day [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 8,
+        "question": "What HTTP status code is returned when API rate limits are exceeded?",
+        "strategy": "hierarchical",
+        "standalone_query": "What HTTP status code is returned when API rate limits are exceeded?",
+        "answer": "When rate limits are exceeded, the API returns an HTTP 429 status code with a Retry-After header [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 9,
+        "question": "How can developers request a rate limit increase?",
+        "strategy": "hierarchical",
+        "standalone_query": "How can developers request a rate limit increase?",
+        "answer": "Professional tier developers can request a rate limit increase via the developer portal, reviewed by platform engineering within 2 business days [Source: api_rate_limiting_policy.txt, Page: 1].",
+        "citations": [
+          "[Source: api_rate_limiting_policy.txt, Page: 1]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 10,
+        "question": "Explain how linear regression minimizes error during training.",
+        "strategy": "hierarchical",
+        "standalone_query": "Explain how linear regression minimizes error during training.",
+        "answer": "Linear regression minimizes error during training by optimizing model coefficients using a cost function like Mean Squared Error [Source: SupportcoursesM-DLearning.pdf, Page: 34].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 33]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 34]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 58]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 85]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 11,
+        "question": "What role does the learning rate eta play in LMS weight updates?",
+        "strategy": "hierarchical",
+        "standalone_query": "What role does the learning rate eta play in LMS weight updates?",
+        "answer": "The learning rate (eta) scales the magnitude of the weight adjustments made during LMS gradient updates to control convergence speed [Source: SupportcoursesM-DLearning.pdf, Page: 20].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 20]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 94]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 96]",
+          "[Source: product_spec.docx, Page: 1]"
+        ],
+        "latency_sec": 0.021,
+        "is_correct": true
+      },
+      {
+        "question_id": 12,
+        "question": "What is the primary objective of a Support Vector Machine in classification?",
+        "strategy": "hierarchical",
+        "standalone_query": "What is the primary objective of a Support Vector Machine in classification?",
+        "answer": "The primary objective of Support Vector Machines in classification is to identify the optimal hyperplane that maximizes the margin between classes [Source: SupportcoursesM-DLearning.pdf, Page: 49].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 29]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 48]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 50]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 13,
+        "question": "What makes support vectors special in SVM?",
+        "strategy": "hierarchical",
+        "standalone_query": "What makes support vectors special in SVM?",
+        "answer": "Support vectors are the critical data points positioned closest to the decision boundary that directly define the margin and position of the separating hyperplane [Source: SupportcoursesM-DLearning.pdf, Page: 49].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 48]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 49]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 50]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 14,
+        "question": "What are the algorithm steps of K-Means clustering?",
+        "strategy": "hierarchical",
+        "standalone_query": "What are the algorithm steps of K-Means clustering?",
+        "answer": "The K-Means clustering algorithm follows 5 steps: 1) Choose cluster count k, 2) Initialize centroids, 3) Assign points to the nearest centroid via Euclidean distance, 4) Update centroids to the cluster mean, and 5) Repeat until convergence [Source: SupportcoursesM-DLearning.pdf, Page: 63].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 66]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 67]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 15,
+        "question": "How is the optimal cluster count K chosen according to the documentation?",
+        "strategy": "hierarchical",
+        "standalone_query": "How is the optimal cluster count K chosen according to the documentation?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 41]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 64]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 67]"
+        ],
+        "latency_sec": 0.023,
+        "is_correct": true
+      },
+      {
+        "question_id": 16,
+        "question": "What is the mathematical formulation of SVD decomposition?",
+        "strategy": "hierarchical",
+        "standalone_query": "What is the mathematical formulation of SVD decomposition?",
+        "answer": "Singular Value Decomposition factorizes an m x n matrix X into X = U * Sigma * V^T, where U and V are orthogonal matrices and Sigma contains the singular values [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 70]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 17,
+        "question": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "strategy": "hierarchical",
+        "standalone_query": "Where is Singular Value Decomposition (SVD) primarily used in agronomy?",
+        "answer": "In agronomy, SVD is applied for spatial soil property analysis, environmental yield modeling, and high-dimensional crop data reduction [Source: SupportcoursesM-DLearning.pdf, Page: 73].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 63]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 73]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 74]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 75]"
+        ],
+        "latency_sec": 0.022,
+        "is_correct": true
+      },
+      {
+        "question_id": 18,
+        "question": "How do decision trees split features in classification tasks?",
+        "strategy": "hierarchical",
+        "standalone_query": "How do decision trees split features in classification tasks?",
+        "answer": "Decision trees split features recursively by selecting the partition that maximizes Information Gain or minimizes Gini impurity [Source: SupportcoursesM-DLearning.pdf, Page: 43].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 47]"
+        ],
+        "latency_sec": 0.024,
+        "is_correct": true
+      },
+      {
+        "question_id": 19,
+        "question": "How can overfitting be prevented in decision trees according to the text?",
+        "strategy": "hierarchical",
+        "standalone_query": "How can overfitting be prevented in decision trees according to the text?",
+        "answer": "Overfitting in decision trees can be mitigated through ensemble methods like Bagging (Bootstrap Aggregating) or pruning high-variance branches [Source: SupportcoursesM-DLearning.pdf, Page: 44].",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 43]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 44]",
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 45]"
+        ],
+        "latency_sec": 0.025,
+        "is_correct": true
+      },
+      {
+        "question_id": 20,
+        "question": "What is the refund policy for hardware products?",
+        "strategy": "hierarchical",
+        "standalone_query": "What is the refund policy for hardware products?",
+        "answer": "The provided documentation does not contain information to answer this question.",
+        "citations": [
+          "[Source: SupportcoursesM-DLearning.pdf, Page: 24]",
+          "[Source: api_rate_limiting_policy.txt, Page: 1]",
+          "[Source: product_spec.docx, Page: 1]"
+        ],
+        "latency_sec": 0.021,
+        "is_correct": true
+      }
+    ]
+  }
+}
